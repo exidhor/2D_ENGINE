@@ -1,6 +1,6 @@
-#include "Engines/GraphicEngine/GraphicEngine.hpp"
+#include "Engines/GraphicEngine/Engine.hpp"
 
-fme::GraphicEngine::GraphicEngine()
+GraphicMonsters::Engine::Engine()
 {
 	m_tileSetManager = NULL;
 	m_textureCharactertisticsManager = NULL;
@@ -11,7 +11,7 @@ fme::GraphicEngine::GraphicEngine()
 	m_windowIsOpen = false;
 }
 
-fme::GraphicEngine::~GraphicEngine()
+GraphicMonsters::Engine::~Engine()
 {
 	if (m_tileSetDisplayer != NULL)
 	{
@@ -41,27 +41,27 @@ fme::GraphicEngine::~GraphicEngine()
 
 // ----------- initialization ------------------------------------------------------
 
-void fme::GraphicEngine::init()
+void GraphicMonsters::Engine::init()
 {
-	m_tileSetManager = new fme::TileSetManager();
-	m_textureCharactertisticsManager = new fme::TextureCharacteristicsManager();
-	m_ressourceManager = new fme::RessourceManager();
-	m_tileSetDisplayer = new fme::TileSetsDisplayer();
+	m_tileSetManager = new GraphicMonsters::TileSetManager();
+	m_textureCharactertisticsManager = new GraphicMonsters::TextureCharacteristicsManager();
+	m_ressourceManager = new GraphicMonsters::RessourceManager();
+	m_tileSetDisplayer = new GraphicMonsters::TileSetsDisplayer();
 }
 
-void fme::GraphicEngine::openWindow(std::string const& title)
+void GraphicMonsters::Engine::openWindow(std::string const& title)
 {
 	m_window = new sf::RenderWindow(sf::VideoMode(1000, 600), title);
 	m_windowIsOpen = true;
 	m_window->setActive(false);
 }
 
-void fme::GraphicEngine::closeWindow()
+void GraphicMonsters::Engine::closeWindow()
 {
 	m_windowIsOpen = false;
 }
 
-void fme::GraphicEngine::setFrameRate(float framePerSecond)
+void GraphicMonsters::Engine::setFrameRate(float framePerSecond)
 {
 	m_frameTime = 1. / framePerSecond;
 	m_mergeFrameTime = m_frameTime * (0.7 / 60);
@@ -69,7 +69,7 @@ void fme::GraphicEngine::setFrameRate(float framePerSecond)
 
 // ----------------- use ----------------------------------------------------------
 
-void fme::GraphicEngine::run(int framePerSecond)
+void GraphicMonsters::Engine::run(int framePerSecond)
 {
 	setFrameRate(framePerSecond);
 
@@ -100,7 +100,7 @@ void fme::GraphicEngine::run(int framePerSecond)
 
 // --------------- creation -------------------------------------------------------
 
-void fme::GraphicEngine::addTileSet(std::string const& key, std::string const& path)
+void GraphicMonsters::Engine::addTileSet(std::string const& key, std::string const& path)
 {
 	if (!m_tileSetManager->addTileSet(key, path))
 	{
@@ -115,14 +115,14 @@ void fme::GraphicEngine::addTileSet(std::string const& key, std::string const& p
 	}
 }
 
-void fme::GraphicEngine::initTileSetLayers(std::string const& key,
+void GraphicMonsters::Engine::initTileSetLayers(std::string const& key,
 	unsigned int maxSizeArray,
 	unsigned int numberOfLayer)
 {
 	m_tileSetManager->loadTileSet(key, maxSizeArray, numberOfLayer);
 }
 
-void fme::GraphicEngine::addTileSet(std::string const& key, 
+void GraphicMonsters::Engine::addTileSet(std::string const& key, 
 	std::string const& path,
 	unsigned int maxSizeArray,
 	unsigned int numberOfLayer)
@@ -131,7 +131,7 @@ void fme::GraphicEngine::addTileSet(std::string const& key,
 	initTileSetLayers(key, maxSizeArray, numberOfLayer);
 }
 
-void fme::GraphicEngine::addTextureCharacteristics(
+void GraphicMonsters::Engine::addTextureCharacteristics(
 	std::string const& spriteKey,
 	std::string const& tileSetKey,
 	Vector2f const& tileSize,
@@ -154,7 +154,7 @@ void fme::GraphicEngine::addTextureCharacteristics(
 	}
 }
 
-void fme::GraphicEngine::addTextureCharacteristics(
+void GraphicMonsters::Engine::addTextureCharacteristics(
 	std::string const& spriteKey,
 	std::string const& tileSetKey,
 	Vector2f const& tileSize,
@@ -175,7 +175,7 @@ void fme::GraphicEngine::addTextureCharacteristics(
 	}
 }
 
-void fme::GraphicEngine::addSprite(std::string const& key,
+void GraphicMonsters::Engine::addSprite(std::string const& key,
 	unsigned int layerLevel,
 	unsigned int numberOfElements)
 {
@@ -189,7 +189,7 @@ void fme::GraphicEngine::addSprite(std::string const& key,
 	}
 }
 
-void fme::GraphicEngine::addAnimation(std::string const& key,
+void GraphicMonsters::Engine::addAnimation(std::string const& key,
 	unsigned int layerLevel,
 	unsigned int numberOfElements)
 {
@@ -203,12 +203,12 @@ void fme::GraphicEngine::addAnimation(std::string const& key,
 	}
 }
 
-fme::Sprite* fme::GraphicEngine::getFreeSprite(std::string const& key)
+GraphicMonsters::Sprite* GraphicMonsters::Engine::getFreeSprite(std::string const& key)
 {
 	return m_ressourceManager->getFreeSprite(key);
 }
 
-void fme::GraphicEngine::freeSpecificSprite(std::string const& key, unsigned int id)
+void GraphicMonsters::Engine::freeSpecificSprite(std::string const& key, unsigned int id)
 {
 	if (!m_ressourceManager->freeSpecificSprite(key, id))
 	{
@@ -220,19 +220,19 @@ void fme::GraphicEngine::freeSpecificSprite(std::string const& key, unsigned int
 
 // -------------- animation gestion during the game ---------------------------------
 
-void fme::GraphicEngine::update(double time)
+void GraphicMonsters::Engine::update(double time)
 {
 	m_tileSetManager->clearAllTileSets();
 	m_ressourceManager->updateAnimations(time);
 	m_tileSetManager->assembleContinousArrays();
 }
 
-void fme::GraphicEngine::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void GraphicMonsters::Engine::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	m_tileSetDisplayer->draw(target, states);
 }
 
 
-fme::RessourceManager * fme::GraphicEngine::getResourceManager() {
+GraphicMonsters::RessourceManager * GraphicMonsters::Engine::getResourceManager() {
 	return m_ressourceManager;
 }

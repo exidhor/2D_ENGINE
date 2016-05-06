@@ -14,7 +14,7 @@
 #include "Utilities/Vector2.hpp"
 #include "Engines/GraphicEngine/TextureVertices.hpp"
 
-namespace fme
+namespace GraphicMonsters
 {
 	class QuadVertices : public TextureVertices
 	{

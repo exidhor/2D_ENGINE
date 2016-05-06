@@ -1,26 +1,26 @@
 #include "Engines/GraphicEngine/TextureCharacteristics.hpp"
 
 //Constructor
-fme::TextureCharacteristics::TextureCharacteristics(
-		std::vector <fme::TilesCharacteristics*> targetTilesCharacteristics,
-		fme::TileSet* targetTileSet)
+GraphicMonsters::TextureCharacteristics::TextureCharacteristics(
+		std::vector <GraphicMonsters::TilesCharacteristics*> targetTilesCharacteristics,
+		GraphicMonsters::TileSet* targetTileSet)
 {
 	m_arrayOfTileCharacteristic = targetTilesCharacteristics;
 	m_tileSet = targetTileSet;
 }
 
-fme::TextureCharacteristics::TextureCharacteristics(
+GraphicMonsters::TextureCharacteristics::TextureCharacteristics(
 		TilesCharacteristics* tileCharacteristics,
 		TileSet* tileSet)
 
 	:TextureCharacteristics(
-		std::vector <fme::TilesCharacteristics*> (1, tileCharacteristics),
+		std::vector <GraphicMonsters::TilesCharacteristics*> (1, tileCharacteristics),
 													tileSet)
 {
 	// void
 }
 
-fme::TextureCharacteristics::TextureCharacteristics(
+GraphicMonsters::TextureCharacteristics::TextureCharacteristics(
 		TileSet* tileSet,
 		float width,
 		float height)
@@ -31,31 +31,31 @@ fme::TextureCharacteristics::TextureCharacteristics(
 }
 
 //Desctructor
-fme::TextureCharacteristics::~TextureCharacteristics()
+GraphicMonsters::TextureCharacteristics::~TextureCharacteristics()
 {
 	m_arrayOfTileCharacteristic.clear();
 }
 
 //Add an TilesCharacteristics at the vector
-void fme::TextureCharacteristics::addTilesCharacteristics(fme::TilesCharacteristics* newArray)
+void GraphicMonsters::TextureCharacteristics::addTilesCharacteristics(GraphicMonsters::TilesCharacteristics* newArray)
 {
 	m_arrayOfTileCharacteristic.push_back(newArray);
 }
 
 //Return the TileSet
-fme::TileSet* fme::TextureCharacteristics::getTileSet()  const
+GraphicMonsters::TileSet* GraphicMonsters::TextureCharacteristics::getTileSet()  const
 {
 	return m_tileSet;
 }
 
 //Return the TileSize of an ArrayOFTileCharacteristic
-Vector2f const& fme::TextureCharacteristics::getTileSize(
+Vector2f const& GraphicMonsters::TextureCharacteristics::getTileSize(
 	unsigned int indexTileCharac)  const
 {
 	return m_arrayOfTileCharacteristic[indexTileCharac]->getTileSize();
 }
 
-Vector2f const& fme::TextureCharacteristics::getTexturePoints(
+Vector2f const& GraphicMonsters::TextureCharacteristics::getTexturePoints(
 	unsigned int indexCulumn,
 	unsigned int indexLine)  const
 {
@@ -63,19 +63,19 @@ Vector2f const& fme::TextureCharacteristics::getTexturePoints(
 }
 
 //Return the ArraySize of an ArrayOFTileCharacteristic
-unsigned int fme::TextureCharacteristics::getLineSizeOf(
+unsigned int GraphicMonsters::TextureCharacteristics::getLineSizeOf(
 	unsigned int indexTileCharac) const
 {
 	return m_arrayOfTileCharacteristic[indexTileCharac]->getArraySize();
 }
 
-unsigned int fme::TextureCharacteristics::getCulumnSize() const
+unsigned int GraphicMonsters::TextureCharacteristics::getCulumnSize() const
 {
 	return m_arrayOfTileCharacteristic.size();
 }
 
 //Return the TimePerFrame of an ArrayOFTileCharacteristic
-double fme::TextureCharacteristics::getTimePerFrame(
+double GraphicMonsters::TextureCharacteristics::getTimePerFrame(
 	unsigned int indexTileCharac) const
 {
 	return m_arrayOfTileCharacteristic[indexTileCharac]->getTimePerFrame();

@@ -1,7 +1,10 @@
 #pragma once
 #include "Engines/PhysicEngine.hpp"
-#include "Engines/GraphicEngine.hpp"
+#include "Engines/Engine.hpp"
 
+/* 
+ * \brief	An Object of the Game (i.e. a GameObject for Unity).
+ */
 class Object
 {
 public:
@@ -10,5 +13,5 @@ public:
 
 private:
 	CollisionBox	m_collisionBox;
-	fme::Sprite		m_sprite;
+	GraphicMonsters::Sprite		m_sprite;
 };

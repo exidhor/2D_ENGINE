@@ -13,7 +13,7 @@
 #include "Engines/GraphicEngine/TextureCharacteristics.hpp"
 #include "Utilities/Vector2.hpp"
 
-namespace fme
+namespace GraphicMonsters
 {
 	class TextureCharacteristicsManager
 	{

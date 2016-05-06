@@ -14,7 +14,7 @@
 #include "Engines/GraphicEngine/Transformation.hpp"
 #include "Utilities/Timer.hpp"
 
-namespace fme
+namespace GraphicMonsters
 {
 	class TranslationTransformation : public Transformation
 	{

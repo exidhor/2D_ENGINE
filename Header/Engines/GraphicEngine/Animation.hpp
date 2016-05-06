@@ -14,7 +14,7 @@
 #include "Utilities/Timer.hpp"
 #include "Engines/GraphicEngine/Sprite.hpp"
 
-namespace fme
+namespace GraphicMonsters
 {
 	class Animation : public Sprite
 	{

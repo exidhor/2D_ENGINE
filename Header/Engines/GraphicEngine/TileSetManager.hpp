@@ -1,6 +1,6 @@
 /*!
 * \file		TileSetManager.hpp
-* \brief	store fme::TileSet in a map.
+* \brief	store GraphicMonsters::TileSet in a map.
 *			Allow to clear and assemble
 *			every TileSet in the map.
 * \author	Alemior, Exhidor
@@ -13,7 +13,7 @@
 #include <iostream>
 #include "Engines/GraphicEngine/TileSet.hpp"
 
-namespace fme
+namespace GraphicMonsters
 {
 	class TileSetManager
 	{

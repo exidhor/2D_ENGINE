@@ -17,7 +17,7 @@
 #include "Engines/GraphicEngine/TranslationTransformation.hpp"
 #include "Engines/GraphicEngine/Drawable.hpp"
 
-namespace fme
+namespace GraphicMonsters
 {
 	class Sprite : public Drawable
 	{

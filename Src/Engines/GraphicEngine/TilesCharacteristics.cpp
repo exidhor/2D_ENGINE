@@ -1,6 +1,6 @@
 #include "Engines/GraphicEngine/TilesCharacteristics.hpp"
 
-fme::TilesCharacteristics::TilesCharacteristics(
+GraphicMonsters::TilesCharacteristics::TilesCharacteristics(
 	Vector2f const& newtileSize,
 	std::vector <Vector2f> newTexturePoints,
 	double newTimePerFrame)
@@ -10,7 +10,7 @@ fme::TilesCharacteristics::TilesCharacteristics(
 	m_timePerFrame = newTimePerFrame;
 }
 
-fme::TilesCharacteristics::TilesCharacteristics(
+GraphicMonsters::TilesCharacteristics::TilesCharacteristics(
 	Vector2f const& tileSize,
 	Vector2f const& oneTexturePoint)
 	:TilesCharacteristics(tileSize, std::vector <Vector2f> (1, oneTexturePoint), 0)
@@ -18,27 +18,27 @@ fme::TilesCharacteristics::TilesCharacteristics(
 	// void
 }
 
-fme::TilesCharacteristics::~TilesCharacteristics()
+GraphicMonsters::TilesCharacteristics::~TilesCharacteristics()
 {
 	m_texturePoints.clear();
 }
 
-Vector2f const& fme::TilesCharacteristics::getTileSize()
+Vector2f const& GraphicMonsters::TilesCharacteristics::getTileSize()
 {
 	return m_tileSize;
 }
 
-Vector2f const& fme::TilesCharacteristics::getTexturePoints(unsigned int index)
+Vector2f const& GraphicMonsters::TilesCharacteristics::getTexturePoints(unsigned int index)
 {
 	return m_texturePoints[index];
 }
 
-double fme::TilesCharacteristics::getTimePerFrame()
+double GraphicMonsters::TilesCharacteristics::getTimePerFrame()
 {
 	return m_timePerFrame;
 }
 
-unsigned int fme::TilesCharacteristics::getArraySize()
+unsigned int GraphicMonsters::TilesCharacteristics::getArraySize()
 {
 	return m_texturePoints.size();
 }

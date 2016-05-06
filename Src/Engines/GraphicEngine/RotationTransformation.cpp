@@ -1,30 +1,30 @@
 #include "Engines/GraphicEngine/RotationTransformation.hpp"
 
-fme::RotationTransformation::RotationTransformation()
+GraphicMonsters::RotationTransformation::RotationTransformation()
 {
 	m_finalAngle = 0;
 	m_angleDegreeAdvancement = 0;
 	m_speedPerSecond = 0;
 }
 
-fme::RotationTransformation::~RotationTransformation()
+GraphicMonsters::RotationTransformation::~RotationTransformation()
 {
 	//void
 }
 
-void fme::RotationTransformation::initAttribute(fme::QuadVertices* m_quadVertices)
+void GraphicMonsters::RotationTransformation::initAttribute(GraphicMonsters::QuadVertices* m_quadVertices)
 {
 	Transformation::initAttribute(m_quadVertices);
 }
 
 
-void fme::RotationTransformation::initRotateByTime(float newSpeedPerSecond, double timeUntilTheEnd)
+void GraphicMonsters::RotationTransformation::initRotateByTime(float newSpeedPerSecond, double timeUntilTheEnd)
 {
 	m_finalAngle = (float)(m_speedPerSecond * timeUntilTheEnd);
 	m_speedPerSecond = newSpeedPerSecond;
 }
 
-void fme::RotationTransformation::initRotateByAngle(float newSpeedPerSecond, float newFinalAngle)
+void GraphicMonsters::RotationTransformation::initRotateByAngle(float newSpeedPerSecond, float newFinalAngle)
 {
 	if (newFinalAngle < 0)
 	{
@@ -38,7 +38,7 @@ void fme::RotationTransformation::initRotateByAngle(float newSpeedPerSecond, flo
 	m_speedPerSecond = newSpeedPerSecond;
 }
 
-bool fme::RotationTransformation::actualize(double timeSpent, Vector2f const& origin
+bool GraphicMonsters::RotationTransformation::actualize(double timeSpent, Vector2f const& origin
 	, sf::Transform & transformationPoint)
 {
 	if (m_isOn)
@@ -64,7 +64,7 @@ bool fme::RotationTransformation::actualize(double timeSpent, Vector2f const& or
 	return false;
 }
 
-bool fme::RotationTransformation::calculateEndOfRotation(float & angleRotation, bool speedUpperThanZero)
+bool GraphicMonsters::RotationTransformation::calculateEndOfRotation(float & angleRotation, bool speedUpperThanZero)
 {
 	if (m_isInfinite)
 	{

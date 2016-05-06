@@ -3,39 +3,39 @@
 /*!
 * \brief Construct a void TextureCharacteristicsManager
 */
-fme::TextureCharacteristicsManager::TextureCharacteristicsManager()
+GraphicMonsters::TextureCharacteristicsManager::TextureCharacteristicsManager()
 {
 	//none
 }
 
 // Destructor
-fme::TextureCharacteristicsManager::~TextureCharacteristicsManager()
+GraphicMonsters::TextureCharacteristicsManager::~TextureCharacteristicsManager()
 {
 	//none
 }
 
 /*!
-* \brief Construct a fme::TilesCharacteristics witch each
+* \brief Construct a GraphicMonsters::TilesCharacteristics witch each
 * \brief arguments needed
 * \brief search in the map if the key entered already exists
-* \brief if it exists, add the fme::TilesCharacteristics
-* \brief to the fme::TextureCharacteristics corresponding
-* \brief if it's not, create a fme::TextureCharacteristics
-* \brief with the key, the fme::TilesCharacteristics and
-* \brief the fme::TileSet
+* \brief if it exists, add the GraphicMonsters::TilesCharacteristics
+* \brief to the GraphicMonsters::TextureCharacteristics corresponding
+* \brief if it's not, create a GraphicMonsters::TextureCharacteristics
+* \brief with the key, the GraphicMonsters::TilesCharacteristics and
+* \brief the GraphicMonsters::TileSet
 * \param key the key to get it to the map
-* \param all the params to create a fme::TileCharacteristics
-* \param tileSetTarget the fme::TileSet associated to the 
-			fme::TextureCharacteristics
+* \param all the params to create a GraphicMonsters::TileCharacteristics
+* \param tileSetTarget the GraphicMonsters::TileSet associated to the 
+			GraphicMonsters::TextureCharacteristics
 */
-bool fme::TextureCharacteristicsManager::addTextureCharacteristics(
+bool GraphicMonsters::TextureCharacteristicsManager::addTextureCharacteristics(
 	std::string key, 
 	Vector2f const& tileSize,
 	std::vector <Vector2f> texturePoints,
 	double timePerFrame,
-	fme::TileSet* tileSetTarget)
+	GraphicMonsters::TileSet* tileSetTarget)
 {
-	fme::TilesCharacteristics* tilesCharacteritics = new fme::TilesCharacteristics(
+	GraphicMonsters::TilesCharacteristics* tilesCharacteritics = new GraphicMonsters::TilesCharacteristics(
 																		tileSize, 
 																		texturePoints,
 																		timePerFrame);
@@ -48,9 +48,9 @@ bool fme::TextureCharacteristicsManager::addTextureCharacteristics(
 	}
 	else
 	{
-		m_textureCharacteristics.insert(std::pair <std::string, fme::TextureCharacteristics*>(
+		m_textureCharacteristics.insert(std::pair <std::string, GraphicMonsters::TextureCharacteristics*>(
 			key,
-			new fme::TextureCharacteristics(
+			new GraphicMonsters::TextureCharacteristics(
 					std::vector <TilesCharacteristics*>(1, tilesCharacteritics),
 					tileSetTarget)));
 
@@ -58,11 +58,11 @@ bool fme::TextureCharacteristicsManager::addTextureCharacteristics(
 	}
 }
 
-bool fme::TextureCharacteristicsManager::addTextureCharacteristics(
+bool GraphicMonsters::TextureCharacteristicsManager::addTextureCharacteristics(
 	std::string key,
 	Vector2f const& tileSize,
 	Vector2f oneTexturePoint,
-	fme::TileSet* tileSetTarget)
+	GraphicMonsters::TileSet* tileSetTarget)
 {
 	std::vector <Vector2f> texturePoints;
 	texturePoints.push_back(oneTexturePoint);
@@ -70,7 +70,7 @@ bool fme::TextureCharacteristicsManager::addTextureCharacteristics(
 }
 
 // Getter
-fme::TextureCharacteristics* fme::TextureCharacteristicsManager::getTextureCharacteristics(std::string key)
+GraphicMonsters::TextureCharacteristics* GraphicMonsters::TextureCharacteristicsManager::getTextureCharacteristics(std::string key)
 {
 	return m_textureCharacteristics[key];
 }

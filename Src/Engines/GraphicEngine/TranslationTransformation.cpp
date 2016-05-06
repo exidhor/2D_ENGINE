@@ -1,6 +1,6 @@
 #include "Engines/GraphicEngine/TranslationTransformation.hpp"
 
-fme::TranslationTransformation::TranslationTransformation()
+GraphicMonsters::TranslationTransformation::TranslationTransformation()
 	: m_timer(0)
 {
 	m_speedAbscissa = 0;
@@ -8,12 +8,12 @@ fme::TranslationTransformation::TranslationTransformation()
 	m_isDeterminedByTime = false;
 }
 
-void fme::TranslationTransformation::initAttribute(fme::QuadVertices* newQuadVertices)
+void GraphicMonsters::TranslationTransformation::initAttribute(GraphicMonsters::QuadVertices* newQuadVertices)
 {
 	Transformation::initAttribute(newQuadVertices);
 }
 
-void fme::TranslationTransformation::initByTargetPoint(
+void GraphicMonsters::TranslationTransformation::initByTargetPoint(
 	double timeUntilTheEnd, 
 	Vector2f const& origin,
 	Vector2f const& newTargetPoint)
@@ -24,7 +24,7 @@ void fme::TranslationTransformation::initByTargetPoint(
 	m_speedOrdinate = (m_targetPoint.y - origin.y) / (float)timeUntilTheEnd;
 }
 
-void fme::TranslationTransformation::initBySpeed(
+void GraphicMonsters::TranslationTransformation::initBySpeed(
 	double timeSpent, 
 	Vector2f const& speedPerSecond)
 {
@@ -34,7 +34,7 @@ void fme::TranslationTransformation::initBySpeed(
 	m_timer.setStartTime(timeSpent);
 }
 
-bool fme::TranslationTransformation::actualize(
+bool GraphicMonsters::TranslationTransformation::actualize(
 	double timeSpent, 
 	Vector2f & origin,
 	sf::Transform & transformation)

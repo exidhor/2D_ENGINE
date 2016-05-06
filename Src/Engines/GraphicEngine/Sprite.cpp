@@ -1,6 +1,6 @@
 #include "Engines/GraphicEngine/Sprite.hpp"
 
-fme::Sprite::Sprite(TextureCharacteristics* textureCharacteristics,
+GraphicMonsters::Sprite::Sprite(TextureCharacteristics* textureCharacteristics,
 					unsigned int layerLevel)
 {
 	// initialization of the Drawable part
@@ -19,20 +19,20 @@ fme::Sprite::Sprite(TextureCharacteristics* textureCharacteristics,
 
 }
 
-fme::Sprite::Sprite(fme::Sprite const& sprite)
+GraphicMonsters::Sprite::Sprite(GraphicMonsters::Sprite const& sprite)
 	: Drawable(sprite)
 {
 	m_textureCharacteristics = sprite.m_textureCharacteristics;
 }
 
-fme::Sprite::~Sprite()
+GraphicMonsters::Sprite::~Sprite()
 {
 	// void
 }
 
 // -------------- animations ---------------------------------
 
-bool fme::Sprite::actualize(double timeSpent)
+bool GraphicMonsters::Sprite::actualize(double timeSpent)
 {
 	/*
 	sf::Transform transform2;
@@ -59,32 +59,32 @@ bool fme::Sprite::actualize(double timeSpent)
 
 // -------------- transformation  ----------------------------
 
-void fme::Sprite::setRotationByTime(float speedPerSecond, double timeUntilTheEnd)
+void GraphicMonsters::Sprite::setRotationByTime(float speedPerSecond, double timeUntilTheEnd)
 {
 	m_rotationManager.initRotateByTime(speedPerSecond, timeUntilTheEnd);
 }
 
-void fme::Sprite::setRotationByAngle(float speedPerSecond, float newFinalAngle)
+void GraphicMonsters::Sprite::setRotationByAngle(float speedPerSecond, float newFinalAngle)
 {
 	m_rotationManager.initRotateByAngle(speedPerSecond, newFinalAngle);
 }
 
-void fme::Sprite::setInfiniteRotation(bool state)
+void GraphicMonsters::Sprite::setInfiniteRotation(bool state)
 {
 	m_rotationManager.setIsInfinite(state);
 }
 
-void fme::Sprite::startRotation()
+void GraphicMonsters::Sprite::startRotation()
 {
 	m_rotationManager.start();
 }
 
-void fme::Sprite::stopRotation()
+void GraphicMonsters::Sprite::stopRotation()
 {
 	m_rotationManager.stop();
 }
 
-void fme::Sprite::setTranslationByTargetPoint(
+void GraphicMonsters::Sprite::setTranslationByTargetPoint(
 	double timeUntilTheEnd,
 	float abscissa, 
 	float ordinate)
@@ -101,7 +101,7 @@ void fme::Sprite::setTranslationByTargetPoint(
 	//	);
 }
 
-void fme::Sprite::setTranslationBySpeed(
+void GraphicMonsters::Sprite::setTranslationBySpeed(
 	double timeUntilTheEnd, 
 	unsigned int pixelPerSecondInAbsciss,
 	unsigned int pixelPerSecondInOrdinate)
@@ -112,12 +112,12 @@ void fme::Sprite::setTranslationBySpeed(
 		);
 }
 
-void fme::Sprite::startTranslation()
+void GraphicMonsters::Sprite::startTranslation()
 {
 	m_translationManager.start();
 }
 
-void fme::Sprite::stopTranslation()
+void GraphicMonsters::Sprite::stopTranslation()
 {
 	m_translationManager.stop();
 }
@@ -129,7 +129,7 @@ void fme::Sprite::stopTranslation()
 * \brief give the type of the current object
 * \return false because it's not an Animation
 */
-bool fme::Sprite::isAnimation()
+bool GraphicMonsters::Sprite::isAnimation()
 {
 	return false;
 }
@@ -138,7 +138,7 @@ bool fme::Sprite::isAnimation()
 * \brief give the type of the current object
 * \return true because it's a Sprite
 */
-bool fme::Sprite::isSprite()
+bool GraphicMonsters::Sprite::isSprite()
 {
 	return true;
 }
@@ -147,18 +147,18 @@ bool fme::Sprite::isSprite()
 * \brief give the type of the current object
 * \return false because it's not a Shape
 */
-bool fme::Sprite::isShape()
+bool GraphicMonsters::Sprite::isShape()
 {
 	return false;
 }
 
 // void method to use animation with polymorphism
 
-void fme::Sprite::goToLine(unsigned int indexLine) {}
-bool fme::Sprite::goToTheNextLine() { return false; }
-void fme::Sprite::setRepeated(bool state) {}
-void fme::Sprite::setContinueSequence(bool state) {}
-void fme::Sprite::start() {}
-void fme::Sprite::stop() {}
-void fme::Sprite::restart() {}
-void fme::Sprite::softRestart() {}
+void GraphicMonsters::Sprite::goToLine(unsigned int indexLine) {}
+bool GraphicMonsters::Sprite::goToTheNextLine() { return false; }
+void GraphicMonsters::Sprite::setRepeated(bool state) {}
+void GraphicMonsters::Sprite::setContinueSequence(bool state) {}
+void GraphicMonsters::Sprite::start() {}
+void GraphicMonsters::Sprite::stop() {}
+void GraphicMonsters::Sprite::restart() {}
+void GraphicMonsters::Sprite::softRestart() {}

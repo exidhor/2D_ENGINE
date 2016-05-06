@@ -1,6 +1,9 @@
 #pragma once
 #include "Engines/PhysicEngine/Geometry.hpp"
 
+/*
+* \brief	TODO
+*/
 class CollisionBox
 {
 public:

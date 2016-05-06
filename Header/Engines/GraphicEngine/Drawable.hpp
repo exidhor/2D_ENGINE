@@ -16,7 +16,7 @@
 #include "Engines/GraphicEngine/QuadVertices.hpp"
 #include "Engines/GraphicEngine/EmptyBoxVertices.hpp"
 
-namespace fme
+namespace GraphicMonsters
 {
 	class Drawable
 	{

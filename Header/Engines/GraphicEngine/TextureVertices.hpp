@@ -13,7 +13,7 @@
 #include "Engines/GraphicEngine/TileSet.hpp"
 #include "Utilities/Vector2.hpp"
 
-namespace fme
+namespace GraphicMonsters
 {
 	class TextureVertices
 	{

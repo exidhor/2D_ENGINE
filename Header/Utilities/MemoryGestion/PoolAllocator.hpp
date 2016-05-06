@@ -4,6 +4,9 @@
 
 //#define Test PoolAllocator<long>
 
+/*
+* \brief	TODO
+*/
 template <class T>
 class PoolAllocator
 {

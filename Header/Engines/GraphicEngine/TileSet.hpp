@@ -22,7 +22,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-namespace fme
+namespace GraphicMonsters
 {
 	class TileSet : public sf::Drawable
 	{

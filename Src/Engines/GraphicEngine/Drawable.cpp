@@ -5,7 +5,7 @@
 *           NULL value. It needs to be init
 *			before use it.
 */
-fme::Drawable::Drawable()
+GraphicMonsters::Drawable::Drawable()
 {
 	m_vertices = NULL;
 	m_tileSet = NULL;
@@ -21,9 +21,9 @@ fme::Drawable::Drawable()
 * \param	drawableObject : the model for
 *			the copy.
 */
-fme::Drawable::Drawable(Drawable const& drawableObject)
+GraphicMonsters::Drawable::Drawable(Drawable const& drawableObject)
 {
-	// construct the good fme::TextureVertices
+	// construct the good GraphicMonsters::TextureVertices
 	if (drawableObject.m_vertices->isEmptyBoxVertices())
 	{
 		m_vertices = new EmptyBoxVertices(*drawableObject.m_vertices);
@@ -49,7 +49,7 @@ fme::Drawable::Drawable(Drawable const& drawableObject)
 /*!
 * \brief	Destruct the vertices array.
 */
-fme::Drawable::~Drawable()
+GraphicMonsters::Drawable::~Drawable()
 {
 	delete m_vertices;
 }
@@ -59,7 +59,7 @@ fme::Drawable::~Drawable()
 *			Keep a reference.
 *			tileSet : reference to the TileSet.
 */
-void fme::Drawable::initTileSet(TileSet* tileSet)
+void GraphicMonsters::Drawable::initTileSet(TileSet* tileSet)
 {
 	m_tileSet = tileSet;
 }
@@ -69,7 +69,7 @@ void fme::Drawable::initTileSet(TileSet* tileSet)
 *           Keep a reference.
 * \param	vertices : reference to the vertices array.
 */
-void fme::Drawable::initVertices(TextureVertices* vertices)
+void GraphicMonsters::Drawable::initVertices(TextureVertices* vertices)
 {
 	m_vertices = vertices;
 }
@@ -79,7 +79,7 @@ void fme::Drawable::initVertices(TextureVertices* vertices)
 * \param	abscissa : the abscissa origin.
 * \param	ordinate : the ordinate origin.
 */
-void fme::Drawable::initOriginCenteredRelative(int abscissa, int ordinate)
+void GraphicMonsters::Drawable::initOriginCenteredRelative(int abscissa, int ordinate)
 {
 	m_originCenteredRelative.x = abscissa;
 	m_originCenteredRelative.y = ordinate;
@@ -87,10 +87,10 @@ void fme::Drawable::initOriginCenteredRelative(int abscissa, int ordinate)
 
 
 /*!
-* \brief	Add all vertices to the linked fme::TileSet
+* \brief	Add all vertices to the linked GraphicMonsters::TileSet
 *           if the object is not hidden.
 */
-void fme::Drawable::addToTileSet()
+void GraphicMonsters::Drawable::addToTileSet()
 {
 	if (!m_isHidden)
 	{
@@ -102,7 +102,7 @@ void fme::Drawable::addToTileSet()
 * \return	The position of the left top
 *			point of the globalBounds.
 */
-Vector2f fme::Drawable::getPosition()
+Vector2f GraphicMonsters::Drawable::getPosition()
 {
 	return m_vertices->getPosition();
 }
@@ -110,7 +110,7 @@ Vector2f fme::Drawable::getPosition()
 /*!
 * \return	The size of the globalBounds.
 */
-Vector2f fme::Drawable::getGlobalSize()
+Vector2f GraphicMonsters::Drawable::getGlobalSize()
 {
 	return Vector2f(m_vertices->getGlobalBounds().width,
 					m_vertices->getGlobalBounds().height);
@@ -122,7 +122,7 @@ Vector2f fme::Drawable::getGlobalSize()
 *			Update the origin centered.
 * \param	position : the new position
 */
-void fme::Drawable::setPosition(Vector2f const position)
+void GraphicMonsters::Drawable::setPosition(Vector2f const position)
 {
 	// TODO : a deplacer dans le PhysicEngine et enlever
 	// la translation
@@ -151,7 +151,7 @@ void fme::Drawable::setPosition(Vector2f const position)
 * \param	abscissa : the new abscissa
 * \param	ordinate : the new ordinate
 */
-void fme::Drawable::setPosition(float abscissa, float ordinate)
+void GraphicMonsters::Drawable::setPosition(float abscissa, float ordinate)
 {
 	setPosition(Vector2f(abscissa, ordinate));
 }
@@ -163,7 +163,7 @@ void fme::Drawable::setPosition(float abscissa, float ordinate)
 * \param	coordTexture : the coord of the
 *			left top point of the globalBounds sprite.
 */
-void fme::Drawable::setTexture(Vector2f const& newCoordTexture)
+void GraphicMonsters::Drawable::setTexture(Vector2f const& newCoordTexture)
 {
 	m_vertices->setTexture(newCoordTexture);
 }
@@ -172,7 +172,7 @@ void fme::Drawable::setTexture(Vector2f const& newCoordTexture)
 * \brief	Set the color of the object.
 * \param	color : the of the object.
 */
-void fme::Drawable::setColor(sf::Color const& color)
+void GraphicMonsters::Drawable::setColor(sf::Color const& color)
 {
 	m_vertices->setColor(color);
 }
@@ -185,7 +185,7 @@ void fme::Drawable::setColor(sf::Color const& color)
 * \param	offsetY	: the y composant of the 
 *			movement vector.
 */
-void fme::Drawable::move(float offsetX, float offsetY)
+void GraphicMonsters::Drawable::move(float offsetX, float offsetY)
 {
 	Vector2f offset(
 		offsetX,
@@ -206,7 +206,7 @@ void fme::Drawable::move(float offsetX, float offsetY)
 * \param	layelLevel : the level of the
 *			layer of display.
 */
-void fme::Drawable::setLayerLevel(unsigned int layerLevel)
+void GraphicMonsters::Drawable::setLayerLevel(unsigned int layerLevel)
 {
 	m_layerLevelOfDisplay = layerLevel;
 }
@@ -218,7 +218,7 @@ void fme::Drawable::setLayerLevel(unsigned int layerLevel)
 *			The object is not add
 *			to the TileSet anymore.
 */
-void fme::Drawable::hide()
+void GraphicMonsters::Drawable::hide()
 {
 	m_isHidden = true;
 }
@@ -228,7 +228,7 @@ void fme::Drawable::hide()
 *			The object can now be add
 *			to the TileSet.
 */
-void fme::Drawable::show()
+void GraphicMonsters::Drawable::show()
 {
 	m_isHidden = false;
 }

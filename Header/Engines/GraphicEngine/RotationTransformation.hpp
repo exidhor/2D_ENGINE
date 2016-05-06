@@ -15,7 +15,7 @@
 #include <SFML/System/Time.hpp>
 #include "Engines/GraphicEngine/Transformation.hpp"
 
-namespace fme
+namespace GraphicMonsters
 {
 	class RotationTransformation : public Transformation
 	{

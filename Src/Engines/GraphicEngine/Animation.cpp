@@ -9,10 +9,10 @@
 * \param	layerLevel : the place order during
 *			the draw.
 */
-fme::Animation::Animation(fme::TextureCharacteristics* newTextureCharacteristics,
+GraphicMonsters::Animation::Animation(GraphicMonsters::TextureCharacteristics* newTextureCharacteristics,
 							unsigned int newLayerLevel)
 
-: fme::Sprite(newTextureCharacteristics, newLayerLevel),
+: GraphicMonsters::Sprite(newTextureCharacteristics, newLayerLevel),
 
 	m_timer(newTextureCharacteristics->getTimePerFrame(0))
 {
@@ -27,12 +27,12 @@ fme::Animation::Animation(fme::TextureCharacteristics* newTextureCharacteristics
 }
 
 /*!
-* \brief	Copy an fme::Animation from an 
-*			another fme::Animation.
+* \brief	Copy an GraphicMonsters::Animation from an 
+*			another GraphicMonsters::Animation.
 * \param	animation the animation model.
 */
-fme::Animation::Animation(Animation const& animation)
-	: fme::Sprite(animation),
+GraphicMonsters::Animation::Animation(Animation const& animation)
+	: GraphicMonsters::Sprite(animation),
 	m_timer(animation.m_timer.getStartTime())
 {
 	m_textureCharacteristics = animation.m_textureCharacteristics;
@@ -47,7 +47,7 @@ fme::Animation::Animation(Animation const& animation)
 /*!
 * \brief	Void destructor. 
 */
-fme::Animation::~Animation()
+GraphicMonsters::Animation::~Animation()
 {
 	//animations.clear();
 }
@@ -62,9 +62,9 @@ fme::Animation::~Animation()
 * \param	timeSpend time of the current turn loop.
 * \return	true if the animation is finished.
 */
-bool fme::Animation::actualize(double timeSpent)
+bool GraphicMonsters::Animation::actualize(double timeSpent)
 {
-	fme::Sprite::actualize(timeSpent);
+	GraphicMonsters::Sprite::actualize(timeSpent);
 
 	if (m_isOn)
 	{
@@ -108,7 +108,7 @@ bool fme::Animation::actualize(double timeSpent)
 * \brief	Change the current animation array,
 * \param	indexLine the index of the line target,
 */
-void fme::Animation::goToLine(unsigned int indexLine)
+void GraphicMonsters::Animation::goToLine(unsigned int indexLine)
 {
 	m_indexLine = indexLine;
 	restart();
@@ -122,7 +122,7 @@ void fme::Animation::goToLine(unsigned int indexLine)
 * \return	true if it returns to the first
 *			line.
 */
-bool fme::Animation::goToTheNextLine()
+bool GraphicMonsters::Animation::goToTheNextLine()
 {
 	m_indexLine++;
 	if (m_indexLine >= m_textureCharacteristics->getCulumnSize())
@@ -137,7 +137,7 @@ bool fme::Animation::goToTheNextLine()
 * \brief	Update texture then add 
 *			the 4 vertices to the TileSet.
 */
-void fme::Animation::addToTileSet()
+void GraphicMonsters::Animation::addToTileSet()
 {
 	applyTextureOnVertices();
 	Drawable::addToTileSet();
@@ -147,7 +147,7 @@ void fme::Animation::addToTileSet()
 * \brief	Incremented the index of animations.
 * \return	true if the animation line is finished.
 */
-bool fme::Animation::increaseAnimationIndex()
+bool GraphicMonsters::Animation::increaseAnimationIndex()
 {
 	m_indexCulumn++;
 	if (m_indexCulumn >= m_textureCharacteristics->getLineSizeOf(m_indexLine))
@@ -160,7 +160,7 @@ bool fme::Animation::increaseAnimationIndex()
 /*!
 * \brief	Set texture on the vertices.
 */
-void fme::Animation::applyTextureOnVertices()
+void GraphicMonsters::Animation::applyTextureOnVertices()
 {
 	setTexture(m_textureCharacteristics->getTexturePoints(m_indexCulumn, m_indexLine));
 }
@@ -171,7 +171,7 @@ void fme::Animation::applyTextureOnVertices()
 * \brief	Set the statement of m_repeated.
 * \param	state : if it's repeated.
 */
-void fme::Animation::setRepeated(bool state)
+void GraphicMonsters::Animation::setRepeated(bool state)
 {
 	m_repeated = state;
 }
@@ -182,7 +182,7 @@ void fme::Animation::setRepeated(bool state)
 * \param	state : if it's a sequence 
 *			of animation lines.
 */
-void fme::Animation::setContinueSequence(bool state)
+void GraphicMonsters::Animation::setContinueSequence(bool state)
 {
 	m_continueSequence = state;
 }
@@ -192,7 +192,7 @@ void fme::Animation::setContinueSequence(bool state)
 /*!
 * \brief	Start the animation.
 */
-void fme::Animation::start()
+void GraphicMonsters::Animation::start()
 {
 	m_isOn = true;
 }
@@ -200,7 +200,7 @@ void fme::Animation::start()
 /*!
 * \brief	Stop the animation.
 */
-void fme::Animation::stop()
+void GraphicMonsters::Animation::stop()
 {
 	m_isOn = false;
 }
@@ -209,7 +209,7 @@ void fme::Animation::stop()
 * \brief	Set the animation index to 0.
 *			Restart the timer of the animation.
 */
-void fme::Animation::restart()
+void GraphicMonsters::Animation::restart()
 {
 	m_indexCulumn = 0;
 	m_timer.restart();
@@ -219,7 +219,7 @@ void fme::Animation::restart()
 * \brief	Set the animation index to 0.
 *			It doesn't restart the timer of the animation.
 */
-void fme::Animation::softRestart()
+void GraphicMonsters::Animation::softRestart()
 {
 	m_indexCulumn = 0;
 	m_timer.softRestart();
@@ -231,7 +231,7 @@ void fme::Animation::softRestart()
 * \brief	Give the type of the current object.
 * \return	true because it's an Animation.
 */
-bool fme::Animation::isAnimation()
+bool GraphicMonsters::Animation::isAnimation()
 {
 	return true;
 }
@@ -240,7 +240,7 @@ bool fme::Animation::isAnimation()
 * \brief	Give the type of the current object.
 * \return	false because it's not a Sprite.
 */
-bool fme::Animation::isSprite()
+bool GraphicMonsters::Animation::isSprite()
 {
 	return false;
 }

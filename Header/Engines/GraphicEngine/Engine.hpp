@@ -1,7 +1,7 @@
 /*!
-* \file		GraphicEngine.hpp
+* \file		Engine.hpp
 * \brief	The BIG controller of the
-*			graphic part of the programm
+*			graphic part of the program
 *			it provides all methods to
 *			create, drop and update shapes,
 *			sprites and animations
@@ -21,14 +21,14 @@
 #include "Engines/GraphicEngine/RessourceManager.hpp"
 #include "Utilities/Vector2.hpp"
 
-namespace fme
+namespace GraphicMonsters
 {
-	class GraphicEngine : public sf::Drawable
+	class Engine : public sf::Drawable
 	{
 	public:
 		// initialization
-		GraphicEngine();
-		~GraphicEngine();
+		Engine();
+		~Engine();
 
 		void init();
 

@@ -1,5 +1,8 @@
 #pragma once
 
+/*
+ * \brief	TODO
+*/
 class Point
 {
 public :

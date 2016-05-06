@@ -2,6 +2,9 @@
 #include "Engines/PhysicEngine/Geometry/Point.hpp"
 #include "Engines/PhysicEngine/Geometry/Size.hpp"
 
+/*
+* \brief	TODO
+*/
 class Rectangle
 {
 public:

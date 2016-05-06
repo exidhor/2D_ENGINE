@@ -4,6 +4,10 @@
 #include "Engines/GraphicEngine.hpp"
 #include "Engines/PhysicEngine.hpp"
 
+/*
+ * \brief	The Core of the engine. It manage the graphic
+ *			engine, the physic engine and a bit of IA.
+ */
 class GameEngine
 {
 public :
@@ -15,7 +19,7 @@ public :
 	void startGraphicEngine(float framePerSecond);
 
 private :
-	fme::GraphicEngine	m_graphicEngine;
+	GraphicMonsters::Engine	m_graphicEngine;
 	PhysicEngine		m_physicEngine;
 
 	std::thread*		m_threadGraphic;

@@ -5,6 +5,9 @@
 #include <queue>
 #include <string>
 
+/*
+* \brief	TODO
+*/
 template < typename T >
 class AssociativeArray
 {

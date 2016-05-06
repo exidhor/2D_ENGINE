@@ -17,7 +17,7 @@
 #include "Engines/GraphicEngine/TextureCharacteristics.hpp"
 #include "Engines/GraphicEngine/Ressource.hpp"
 
-namespace fme
+namespace GraphicMonsters
 {
 	class RessourceManager
 	{

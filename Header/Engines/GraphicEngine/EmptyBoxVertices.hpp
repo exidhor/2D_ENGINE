@@ -1,7 +1,7 @@
 /*!
 * \file		EmptyBoxVertices.hpp
 * \brief	A rectangle represented only
-*			by lines for its edges
+*			by lines for its edges.
 * \author	Exhidor
 * \version	0.1
 * \date		2016-03-02
@@ -14,7 +14,7 @@
 #include "Utilities/Vector2.hpp"
 #include "Engines/GraphicEngine/TextureVertices.hpp"
 
-namespace fme
+namespace GraphicMonsters
 {
 	class EmptyBoxVertices : public TextureVertices
 	{

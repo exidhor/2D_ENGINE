@@ -11,7 +11,7 @@
 #pragma once
 #include "Engines/GraphicEngine/Sprite.hpp"
 
-namespace fme
+namespace GraphicMonsters
 {
 	class Ressource
 	{

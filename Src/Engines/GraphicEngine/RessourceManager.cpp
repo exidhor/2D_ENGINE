@@ -1,16 +1,16 @@
 #include "Engines/GraphicEngine/RessourceManager.hpp"
 
-fme::RessourceManager::RessourceManager()
+GraphicMonsters::RessourceManager::RessourceManager()
 {
 	// void 
 }
 
-fme::RessourceManager::~RessourceManager()
+GraphicMonsters::RessourceManager::~RessourceManager()
 {
 	// TO DO
 }
 
-bool fme::RessourceManager::createKey(std::string const& key)
+bool GraphicMonsters::RessourceManager::createKey(std::string const& key)
 {
 	// check if the key exists
 	m_ressourceArrayIndex = getIterator(key);
@@ -19,13 +19,13 @@ bool fme::RessourceManager::createKey(std::string const& key)
 	}
 
 	// create a new array from the new key
-	m_ressources.emplace(key, std::vector <fme::Ressource>());
+	m_ressources.emplace(key, std::vector <GraphicMonsters::Ressource>());
 	return false;
 }
 
-bool fme::RessourceManager::createSprite(
+bool GraphicMonsters::RessourceManager::createSprite(
 	std::string const& key,
-	fme::TextureCharacteristics* animationCharacteristic,
+	GraphicMonsters::TextureCharacteristics* animationCharacteristic,
 	unsigned int layerLevel,
 	unsigned int numberOfElements)
 {
@@ -39,15 +39,15 @@ bool fme::RessourceManager::createSprite(
 	for (unsigned int i = 0; i < numberOfElements; i++)
 	{
 		m_ressourceArrayIndex->second.push_back(
-			fme::Ressource(new fme::Sprite(animationCharacteristic, layerLevel))
+			GraphicMonsters::Ressource(new GraphicMonsters::Sprite(animationCharacteristic, layerLevel))
 			);
 	}
 	return true;
 }
 
-bool fme::RessourceManager::createAnimation(
+bool GraphicMonsters::RessourceManager::createAnimation(
 	std::string const& key,
-	fme::TextureCharacteristics* animationCharacteristic,
+	GraphicMonsters::TextureCharacteristics* animationCharacteristic,
 	unsigned int layerLevel,
 	unsigned int numberOfElements)
 {
@@ -61,14 +61,14 @@ bool fme::RessourceManager::createAnimation(
 	for (unsigned int i = 0; i < numberOfElements; i++)
 	{
 		m_ressources[key].push_back(
-			fme::Ressource(new fme::Animation(animationCharacteristic, layerLevel))
+			GraphicMonsters::Ressource(new GraphicMonsters::Animation(animationCharacteristic, layerLevel))
 			);
 	}
 
 	return true;
 }
 
-fme::Sprite* fme::RessourceManager::getFreeSprite(std::string const& key)
+GraphicMonsters::Sprite* GraphicMonsters::RessourceManager::getFreeSprite(std::string const& key)
 {
 	// check if the key exists
 	m_ressourceArrayIndex = getIterator(key);
@@ -96,22 +96,22 @@ fme::Sprite* fme::RessourceManager::getFreeSprite(std::string const& key)
 		return NULL;
 	}
 
-	fme::Sprite* newSprite = NULL;
+	GraphicMonsters::Sprite* newSprite = NULL;
 
-	// check if we need construct a fme::Sprite or an fme::Animation
+	// check if we need construct a GraphicMonsters::Sprite or an GraphicMonsters::Animation
 	if (m_ressourceArrayIndex->second[0].sprite->isSprite())
 	{
-		// create a copy fme::Sprite from the first element
-		newSprite = new fme::Sprite(*m_ressourceArrayIndex->second[0].sprite);
+		// create a copy GraphicMonsters::Sprite from the first element
+		newSprite = new GraphicMonsters::Sprite(*m_ressourceArrayIndex->second[0].sprite);
 	}
 	else
 	{
-		// create an fme::Animation by casting the first element in fme::Animation
-		newSprite = new fme::Animation(*(fme::Animation*)m_ressourceArrayIndex->second[0].sprite);
+		// create an GraphicMonsters::Animation by casting the first element in GraphicMonsters::Animation
+		newSprite = new GraphicMonsters::Animation(*(GraphicMonsters::Animation*)m_ressourceArrayIndex->second[0].sprite);
 	}
 
 	// add the new objet to the map
-	m_ressources[key].push_back(fme::Ressource(newSprite));
+	m_ressources[key].push_back(GraphicMonsters::Ressource(newSprite));
 
 	// set the variable isUsed to show that this object is busy
 	m_ressourceArrayIndex->second[m_ressourceArrayIndex->second.size()-1].isUsed = true;
@@ -120,7 +120,7 @@ fme::Sprite* fme::RessourceManager::getFreeSprite(std::string const& key)
 	return newSprite;
 }
 
-fme::Sprite* fme::RessourceManager::getSpecificSprite(std::string const& key, unsigned int id)
+GraphicMonsters::Sprite* GraphicMonsters::RessourceManager::getSpecificSprite(std::string const& key, unsigned int id)
 {
 	// check if the key exists
 	m_ressourceArrayIndex = getIterator(key);
@@ -139,7 +139,7 @@ fme::Sprite* fme::RessourceManager::getSpecificSprite(std::string const& key, un
 }
 
 
-bool fme::RessourceManager::freeSpecificSprite(std::string const& key, unsigned int id)
+bool GraphicMonsters::RessourceManager::freeSpecificSprite(std::string const& key, unsigned int id)
 {
 	m_ressourceArrayIndex = getIterator(key);
 	if (m_ressourceArrayIndex != m_ressources.end()) {
@@ -152,9 +152,9 @@ bool fme::RessourceManager::freeSpecificSprite(std::string const& key, unsigned 
 	return false;
 }
 
-void fme::RessourceManager::updateAnimations(double time)
+void GraphicMonsters::RessourceManager::updateAnimations(double time)
 {
-	for (std::map<std::string, std::vector<fme::Ressource>>::iterator animation = m_ressources.begin();
+	for (std::map<std::string, std::vector<GraphicMonsters::Ressource>>::iterator animation = m_ressources.begin();
 		animation != m_ressources.end(); ++animation)
 	{
 		for (unsigned int i = 0; i < animation->second.size(); i++)
@@ -168,7 +168,7 @@ void fme::RessourceManager::updateAnimations(double time)
 	}
 }
 
-std::map <std::string, std::vector <fme::Ressource> >::iterator fme::RessourceManager::getIterator(
+std::map <std::string, std::vector <GraphicMonsters::Ressource> >::iterator GraphicMonsters::RessourceManager::getIterator(
 	std::string const& key)
 {
 	return m_ressources.find(key);

@@ -2,7 +2,9 @@
 #include <iostream>
 #include <stdlib.h>
 
-// stack
+/*
+* \brief	TODO
+*/
 class StaticMemoryAllocator
 {
 public :

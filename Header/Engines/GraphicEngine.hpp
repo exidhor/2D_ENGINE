@@ -3,7 +3,7 @@
 #include "Engines/GraphicEngine/Animation.hpp"
 #include "Engines/GraphicEngine/TextureCharacteristics.hpp"
 #include "Engines/GraphicEngine/TextureCharacteristicsManager.hpp"
-#include "Engines/GraphicEngine/GraphicEngine.hpp"
+#include "Engines/GraphicEngine/Engine.hpp"
 #include "Engines/GraphicEngine/RessourceManager.hpp"
 #include "Engines/GraphicEngine/QuadVertices.hpp"
 #include "Engines/GraphicEngine/RotationTransformation.hpp"

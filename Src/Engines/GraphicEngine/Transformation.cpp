@@ -1,33 +1,33 @@
 #include "Engines/GraphicEngine/Transformation.hpp"
 
-fme::Transformation::Transformation()
+GraphicMonsters::Transformation::Transformation()
 {
 	m_quadVertices = NULL;
 	m_isInfinite = false;
 	m_isOn = false;
 }
 
-fme::Transformation::~Transformation()
+GraphicMonsters::Transformation::~Transformation()
 {
 	//void
 }
 
-void fme::Transformation::initAttribute(fme::QuadVertices* newQuadVertices)
+void GraphicMonsters::Transformation::initAttribute(GraphicMonsters::QuadVertices* newQuadVertices)
 {
 	m_quadVertices = newQuadVertices;
 }
 
-void fme::Transformation::start()
+void GraphicMonsters::Transformation::start()
 {
 	m_isOn = true;
 }
 
-void fme::Transformation::stop()
+void GraphicMonsters::Transformation::stop()
 {
 	m_isOn = false;
 }
 
-void fme::Transformation::setIsInfinite(bool state)
+void GraphicMonsters::Transformation::setIsInfinite(bool state)
 {
 	m_isInfinite = state;
 }

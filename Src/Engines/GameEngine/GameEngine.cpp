@@ -54,7 +54,7 @@ bool GameEngine::construct() // tmp for test
 	m_graphicEngine.addAnimation(nomCleAnimation, 0, 1);
 
 	// lancement de l'animation en mode infini
-	std::vector <fme::Sprite*> animations;
+	std::vector <GraphicMonsters::Sprite*> animations;
 	for (unsigned int i = 0; i < numberOfElements; i++)
 	{
 		animations.push_back(m_graphicEngine.getFreeSprite(nomCleAnimation));
@@ -68,7 +68,7 @@ bool GameEngine::construct() // tmp for test
 
 void GameEngine::startGraphicEngine(float framePerSecond)
 {
-	m_graphicEngine.openWindow("test Graphic Engine");
-	m_threadGraphic = new std::thread(&fme::GraphicEngine::run, std::ref(m_graphicEngine), framePerSecond);
+	m_graphicEngine.openWindow("test GraphicMonsters Engine");
+	m_threadGraphic = new std::thread(&GraphicMonsters::Engine::run, std::ref(m_graphicEngine), framePerSecond);
 	m_threadGraphic->detach();
 }

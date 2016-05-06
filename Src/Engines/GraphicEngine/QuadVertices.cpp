@@ -5,7 +5,7 @@
 * \brief set sf::Vertex to the 4 m_vertices of the rectangle
 * \param a texture bounds
 */
-fme::QuadVertices::QuadVertices(sf::FloatRect const& textureBounds)
+GraphicMonsters::QuadVertices::QuadVertices(sf::FloatRect const& textureBounds)
 	: TextureVertices(4)
 {
 	// left top
@@ -35,7 +35,7 @@ fme::QuadVertices::QuadVertices(sf::FloatRect const& textureBounds)
 	computeGlobalBounds();
 }
 
-fme::QuadVertices::QuadVertices(TextureVertices const& textureVertices)
+GraphicMonsters::QuadVertices::QuadVertices(TextureVertices const& textureVertices)
 	: TextureVertices(textureVertices)
 {
 	for (unsigned int i = 0; i < 4; i++)
@@ -45,11 +45,11 @@ fme::QuadVertices::QuadVertices(TextureVertices const& textureVertices)
 }
 
 /*!
-* \brief Construct 4 m_vertices from a fme::quadVertices
+* \brief Construct 4 m_vertices from a GraphicMonsters::quadVertices
 * \brief copy each sf::Vertex
 * \param quadVertices model for the copy
 */
-fme::QuadVertices::QuadVertices(fme::QuadVertices const& quadVertices)	
+GraphicMonsters::QuadVertices::QuadVertices(GraphicMonsters::QuadVertices const& quadVertices)	
 	: TextureVertices(quadVertices)
 {
 	m_vertices[0].position.x = quadVertices.m_vertices[0].position.x;
@@ -77,7 +77,7 @@ fme::QuadVertices::QuadVertices(fme::QuadVertices const& quadVertices)
 /*!
 * \brief Destruct the object
 */
-fme::QuadVertices::~QuadVertices()
+GraphicMonsters::QuadVertices::~QuadVertices()
 {
 	delete[] m_vertices;
 }
@@ -89,7 +89,7 @@ fme::QuadVertices::~QuadVertices()
 *			calculate from the top-left vertex of texture rectangle.
 *			It needs to have the same size.
 */
-void fme::QuadVertices::setTexture(Vector2f const& newCoordTexture)
+void GraphicMonsters::QuadVertices::setTexture(Vector2f const& newCoordTexture)
 {
 	float width = m_vertices[1].texCoords.x - m_vertices[0].texCoords.x;
 	float height = m_vertices[3].texCoords.y - m_vertices[0].texCoords.y;
@@ -116,7 +116,7 @@ void fme::QuadVertices::setTexture(Vector2f const& newCoordTexture)
 * \brief calculate the global bounds (i.e. the rectangle circumscribes the  
 * \brief m_vertices transformed, parallel to the abscissa and ordinate)
 */
-void fme::QuadVertices::computeGlobalBounds()
+void GraphicMonsters::QuadVertices::computeGlobalBounds()
 {
 	float left = m_vertices[0].position.x;
 	float right = m_vertices[0].position.x;
@@ -151,17 +151,17 @@ void fme::QuadVertices::computeGlobalBounds()
 	globalBoundsIsComputed();
 }
 
-sf::Vertex* fme::QuadVertices::getVerticesArray()
+sf::Vertex* GraphicMonsters::QuadVertices::getVerticesArray()
 {
 	return m_vertices;
 }
 
-bool fme::QuadVertices::isQuadVertices()
+bool GraphicMonsters::QuadVertices::isQuadVertices()
 {
 	return true;
 }
 
-const sf::Vertex* fme::QuadVertices::getConstVerticesArray() const
+const sf::Vertex* GraphicMonsters::QuadVertices::getConstVerticesArray() const
 {
 	return m_vertices;
 }

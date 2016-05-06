@@ -13,7 +13,7 @@
 #include <vector>
 #include "Engines/GraphicEngine/TileSet.hpp"
 
-namespace fme
+namespace GraphicMonsters
 {
 	class TileSetsDisplayer : public sf::Drawable
 	{

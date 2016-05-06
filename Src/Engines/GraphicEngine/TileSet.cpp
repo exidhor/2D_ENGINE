@@ -1,6 +1,6 @@
 #include "Engines/GraphicEngine/TileSet.hpp"
 
-fme::TileSet::TileSet(sf::Texture* newTextureTile)
+GraphicMonsters::TileSet::TileSet(sf::Texture* newTextureTile)
 {
 	m_textureTile = newTextureTile;
 	m_arrayOfCurrentIndices = NULL;
@@ -12,13 +12,13 @@ fme::TileSet::TileSet(sf::Texture* newTextureTile)
 	m_isContinous = false;
 }
 
-fme::TileSet::TileSet()
+GraphicMonsters::TileSet::TileSet()
 	: TileSet(NULL)
 {
 	// void
 }
 
-fme::TileSet::~TileSet()
+GraphicMonsters::TileSet::~TileSet()
 {
 	if (m_arrayOfCurrentIndices != NULL)
 	{
@@ -28,7 +28,7 @@ fme::TileSet::~TileSet()
 	m_verticesArrayToDraw.clear();
 }
 
-void fme::TileSet::loading(unsigned int newMaxSizeVerticesArray,
+void GraphicMonsters::TileSet::loading(unsigned int newMaxSizeVerticesArray,
 							unsigned int newNumberOfLayerLevel,
 							sf::PrimitiveType primitiveType)
 {
@@ -47,7 +47,7 @@ void fme::TileSet::loading(unsigned int newMaxSizeVerticesArray,
 	m_primitiveType = primitiveType;
 }
 
-void fme::TileSet::assembleContinousArray()
+void GraphicMonsters::TileSet::assembleContinousArray()
 {
 	if (!m_isContinous)
 	{
@@ -78,7 +78,7 @@ void fme::TileSet::assembleContinousArray()
 	}
 }
 
-void fme::TileSet::addVertices(sf::Vertex* vertices, unsigned int sizeArray, unsigned int level)
+void GraphicMonsters::TileSet::addVertices(sf::Vertex* vertices, unsigned int sizeArray, unsigned int level)
 {
 	if (verifyLevel(level))
 	{
@@ -101,7 +101,7 @@ void fme::TileSet::addVertices(sf::Vertex* vertices, unsigned int sizeArray, uns
 	
 }
 
-void fme::TileSet::clearAllLayers()
+void GraphicMonsters::TileSet::clearAllLayers()
 {
 	if (m_isTemporary)
 	{
@@ -114,7 +114,7 @@ void fme::TileSet::clearAllLayers()
 	}
 }
 
-void fme::TileSet::clearLayer(unsigned int layerLevel)
+void GraphicMonsters::TileSet::clearLayer(unsigned int layerLevel)
 {
 	if (verifyLevel(layerLevel))
 	{
@@ -124,7 +124,7 @@ void fme::TileSet::clearLayer(unsigned int layerLevel)
 	}
 }
 
-void fme::TileSet::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void GraphicMonsters::TileSet::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	if (m_isContinous)
 	{
@@ -134,12 +134,12 @@ void fme::TileSet::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	}
 }
 
-void fme::TileSet::setTemporary(bool state)
+void GraphicMonsters::TileSet::setTemporary(bool state)
 {
 	m_isTemporary = state;
 }
 
-bool fme::TileSet::verifyLevel(int level)
+bool GraphicMonsters::TileSet::verifyLevel(int level)
 {
 	if (level < m_numberOfLayerLevel)
 		return true;
@@ -149,7 +149,7 @@ bool fme::TileSet::verifyLevel(int level)
 
 }
 
-bool fme::TileSet::verifyIndice(int indice)
+bool GraphicMonsters::TileSet::verifyIndice(int indice)
 {
 	if (indice < (int)m_maxSizeVerticesArray)
 		return true;

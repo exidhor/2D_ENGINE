@@ -1,12 +1,12 @@
 #include "Engines/GraphicEngine/TextureVertices.hpp"
 
-fme::TextureVertices::TextureVertices(int numberOfVertex)
+GraphicMonsters::TextureVertices::TextureVertices(int numberOfVertex)
 {
 	m_size = numberOfVertex;
 	m_globalBoundsUpToDate = false;
 }
 
-fme::TextureVertices::TextureVertices(TextureVertices const& textureVertices)
+GraphicMonsters::TextureVertices::TextureVertices(TextureVertices const& textureVertices)
 {
 	m_size = textureVertices.m_size;
 	if (textureVertices.m_globalBoundsUpToDate)
@@ -20,7 +20,7 @@ fme::TextureVertices::TextureVertices(TextureVertices const& textureVertices)
 	}
 }
 
-fme::TextureVertices::~TextureVertices()
+GraphicMonsters::TextureVertices::~TextureVertices()
 {
 	// void
 }
@@ -30,7 +30,7 @@ fme::TextureVertices::~TextureVertices()
 * \param newTargetTileSet the tileSet which will display the m_vertices
 * \param layerLevel the layer of display
 */
-void fme::TextureVertices::addVerticesToTheTileSet(TileSet* targetTileSet, 
+void GraphicMonsters::TextureVertices::addVerticesToTheTileSet(TileSet* targetTileSet, 
 													unsigned int layerLevel)
 {
 	targetTileSet->addVertices(getVerticesArray(), m_size, layerLevel);
@@ -39,7 +39,7 @@ void fme::TextureVertices::addVerticesToTheTileSet(TileSet* targetTileSet,
 /*!
 * \return the position of the left-top vertex of the global bounds
 */
-Vector2f fme::TextureVertices::getPosition()
+Vector2f GraphicMonsters::TextureVertices::getPosition()
 {
 	checkUpdateGlobalBounds();
 
@@ -49,7 +49,7 @@ Vector2f fme::TextureVertices::getPosition()
 /*!
 * \return the global bounds
 */
-sf::FloatRect const& fme::TextureVertices::getGlobalBounds()
+sf::FloatRect const& GraphicMonsters::TextureVertices::getGlobalBounds()
 {
 	checkUpdateGlobalBounds();
 
@@ -60,7 +60,7 @@ sf::FloatRect const& fme::TextureVertices::getGlobalBounds()
 * \brief set the position of the left-top vertex of the global bounds
 * \param the new position
 */
-void fme::TextureVertices::setPosition(Vector2f const& newPosition)
+void GraphicMonsters::TextureVertices::setPosition(Vector2f const& newPosition)
 {
 	sf::Vector2f offset(
 		newPosition.x - m_globalBounds.left,
@@ -72,13 +72,13 @@ void fme::TextureVertices::setPosition(Vector2f const& newPosition)
 	applyTranformation(transformation);
 }
 
-void fme::TextureVertices::setSizeGlobalBounds(float width, float height)
+void GraphicMonsters::TextureVertices::setSizeGlobalBounds(float width, float height)
 {
 	m_globalBounds.width = width;
 	m_globalBounds.height = height;
 }
 
-void fme::TextureVertices::setColor(sf::Color const& color)
+void GraphicMonsters::TextureVertices::setColor(sf::Color const& color)
 {
 	sf::Vertex* vertices = getVerticesArray();
 
@@ -94,7 +94,7 @@ void fme::TextureVertices::setColor(sf::Color const& color)
 * \param transformation the actual parameters of the final transformation
 *			where the translation will be apply
 */
-void fme::TextureVertices::translate(Vector2f const& offset, sf::Transform & transformation)
+void GraphicMonsters::TextureVertices::translate(Vector2f const& offset, sf::Transform & transformation)
 {
 	transformation.translate(offset.x, offset.y);
 }
@@ -106,7 +106,7 @@ void fme::TextureVertices::translate(Vector2f const& offset, sf::Transform & tra
 * \param transformation the actual parameters of the final transformation
 *			where the rotation will be apply
 */
-void fme::TextureVertices::rotate(float angleOfRotation, Vector2f const& origin,
+void GraphicMonsters::TextureVertices::rotate(float angleOfRotation, Vector2f const& origin,
 	sf::Transform & transformation)
 {
 	transformation.rotate(
@@ -122,7 +122,7 @@ void fme::TextureVertices::rotate(float angleOfRotation, Vector2f const& origin,
 * \param transformation all parameters for the transformation calculated
 *			before
 */
-void fme::TextureVertices::applyTranformation(sf::Transform const& transformation)
+void GraphicMonsters::TextureVertices::applyTranformation(sf::Transform const& transformation)
 {
 	sf::Vertex* vertices = getVerticesArray();
 
@@ -134,12 +134,12 @@ void fme::TextureVertices::applyTranformation(sf::Transform const& transformatio
 	m_globalBoundsUpToDate = false;
 }
 
-void fme::TextureVertices::setSizeArray(unsigned int newSize)
+void GraphicMonsters::TextureVertices::setSizeArray(unsigned int newSize)
 {
 	m_size = newSize;
 }
 
-void fme::TextureVertices::checkUpdateGlobalBounds()
+void GraphicMonsters::TextureVertices::checkUpdateGlobalBounds()
 {
 	if (!m_globalBoundsUpToDate)
 	{
@@ -147,17 +147,17 @@ void fme::TextureVertices::checkUpdateGlobalBounds()
 	}
 }
 
-void fme::TextureVertices::globalBoundsIsComputed()
+void GraphicMonsters::TextureVertices::globalBoundsIsComputed()
 {
 	m_globalBoundsUpToDate = true;
 }
 
-bool fme::TextureVertices::isQuadVertices()
+bool GraphicMonsters::TextureVertices::isQuadVertices()
 {
 	return false;
 }
 
-bool fme::TextureVertices::isEmptyBoxVertices()
+bool GraphicMonsters::TextureVertices::isEmptyBoxVertices()
 {
 	return false;
 }

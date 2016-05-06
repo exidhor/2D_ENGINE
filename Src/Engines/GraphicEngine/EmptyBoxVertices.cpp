@@ -1,6 +1,6 @@
 #include "Engines/GraphicEngine/EmptyBoxVertices.hpp"
 
-fme::EmptyBoxVertices::EmptyBoxVertices(sf::FloatRect const& boxBounds)
+GraphicMonsters::EmptyBoxVertices::EmptyBoxVertices(sf::FloatRect const& boxBounds)
 	: TextureVertices(8)
 {
 	// coord
@@ -34,7 +34,7 @@ fme::EmptyBoxVertices::EmptyBoxVertices(sf::FloatRect const& boxBounds)
 	computeGlobalBounds();
 }
 
-fme::EmptyBoxVertices::EmptyBoxVertices(TextureVertices const& textureVertices)
+GraphicMonsters::EmptyBoxVertices::EmptyBoxVertices(TextureVertices const& textureVertices)
 	: TextureVertices(textureVertices)
 {
 	for (unsigned int i = 0; i < 8; i++)
@@ -43,7 +43,7 @@ fme::EmptyBoxVertices::EmptyBoxVertices(TextureVertices const& textureVertices)
 	}
 }
 
-fme::EmptyBoxVertices::EmptyBoxVertices(EmptyBoxVertices const& emptyBoxVertices)
+GraphicMonsters::EmptyBoxVertices::EmptyBoxVertices(EmptyBoxVertices const& emptyBoxVertices)
 	: TextureVertices(emptyBoxVertices)
 {
 	for (unsigned int i = 0; i < 8; i++)
@@ -52,22 +52,22 @@ fme::EmptyBoxVertices::EmptyBoxVertices(EmptyBoxVertices const& emptyBoxVertices
 	}
 }
 
-fme::EmptyBoxVertices::~EmptyBoxVertices()
+GraphicMonsters::EmptyBoxVertices::~EmptyBoxVertices()
 {
 	delete[] m_vertices;
 }
 
-void fme::EmptyBoxVertices::setTexture(Vector2f const& newCoordTexture)
+void GraphicMonsters::EmptyBoxVertices::setTexture(Vector2f const& newCoordTexture)
 {
 	// void because useless in this case
 }
 
-sf::Vertex* fme::EmptyBoxVertices::getVerticesArray()
+sf::Vertex* GraphicMonsters::EmptyBoxVertices::getVerticesArray()
 {
 	return m_vertices;
 }
 
-void fme::EmptyBoxVertices::computeGlobalBounds()
+void GraphicMonsters::EmptyBoxVertices::computeGlobalBounds()
 {
 	float left = m_vertices[0].position.x;
 	float right = m_vertices[0].position.x;
@@ -103,12 +103,12 @@ void fme::EmptyBoxVertices::computeGlobalBounds()
 	globalBoundsIsComputed();
 }
 
-bool fme::EmptyBoxVertices::isEmptyBoxVertices()
+bool GraphicMonsters::EmptyBoxVertices::isEmptyBoxVertices()
 {
 	return true;
 }
 
-const sf::Vertex* fme::EmptyBoxVertices::getConstVerticesArray() const
+const sf::Vertex* GraphicMonsters::EmptyBoxVertices::getConstVerticesArray() const
 {
 	return m_vertices;
 }
