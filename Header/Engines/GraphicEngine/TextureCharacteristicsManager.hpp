@@ -22,13 +22,13 @@ namespace GraphicMonsters
 				Vector2f const& tileSize,
 				std::vector <Vector2f> texturePoints,
 				double timePerFrame, 
-				TileSet* tileSetTarget);
+				Tileset* tilesetTarget);
 
 		bool addTextureCharacteristics(
 				std::string key, 
 				Vector2f const& tileSize,
 				Vector2f oneTexturePoint,
-				TileSet* tileSetTarget);
+				Tileset* tilesetTarget);
 
 		TextureCharacteristics*	getTextureCharacteristics(std::string key);
 

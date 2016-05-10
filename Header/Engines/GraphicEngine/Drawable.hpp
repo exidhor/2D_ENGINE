@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Utilities/Vector2.hpp"
-#include "Engines/GraphicEngine/TileSet.hpp"
+#include "Engines/GraphicEngine/Tileset.hpp"
 #include "Engines/GraphicEngine/TextureVertices.hpp"
 #include "Engines/GraphicEngine/QuadVertices.hpp"
 #include "Engines/GraphicEngine/EmptyBoxVertices.hpp"
@@ -20,10 +20,10 @@ namespace GraphicMonsters
 		Drawable(Drawable const& drawableObject);
 		virtual ~Drawable();
 
-		void initTileSet(TileSet* tileSet);
+		void initTileset(Tileset* tileset);
 		void initVertices(TextureVertices* vertices);
 
-		virtual void addToTileSet();
+		virtual void addToTileset();
 
 		Vector2f getPosition();
 		Vector2f getGlobalSize();
@@ -44,7 +44,7 @@ namespace GraphicMonsters
 
 	private:
 		TextureVertices*	m_vertices;
-		TileSet*			m_tileSet;
+		Tileset*			m_tileset;
 		Vector2f			m_originCenteredRelative;
 		unsigned int		m_layerLevelOfDisplay;
 		bool				m_isHidden;

@@ -3,29 +3,29 @@
 //Constructor
 GraphicMonsters::TextureCharacteristics::TextureCharacteristics(
 		std::vector <GraphicMonsters::TilesCharacteristics*> targetTilesCharacteristics,
-		GraphicMonsters::TileSet* targetTileSet)
+		GraphicMonsters::Tileset* targetTileset)
 {
 	m_arrayOfTileCharacteristic = targetTilesCharacteristics;
-	m_tileSet = targetTileSet;
+	m_tileset = targetTileset;
 }
 
 GraphicMonsters::TextureCharacteristics::TextureCharacteristics(
 		TilesCharacteristics* tileCharacteristics,
-		TileSet* tileSet)
+		Tileset* tileset)
 
 	:TextureCharacteristics(
 		std::vector <GraphicMonsters::TilesCharacteristics*> (1, tileCharacteristics),
-													tileSet)
+													tileset)
 {
 	// void
 }
 
 GraphicMonsters::TextureCharacteristics::TextureCharacteristics(
-		TileSet* tileSet,
+		Tileset* tileset,
 		float width,
 		float height)
 {
-	m_tileSet = tileSet;
+	m_tileset = tileset;
 	m_arrayOfTileCharacteristic.push_back(new TilesCharacteristics(Vector2f(width, height),
 																	std::vector <Vector2f> (), 0));
 }
@@ -42,10 +42,10 @@ void GraphicMonsters::TextureCharacteristics::addTilesCharacteristics(GraphicMon
 	m_arrayOfTileCharacteristic.push_back(newArray);
 }
 
-//Return the TileSet
-GraphicMonsters::TileSet* GraphicMonsters::TextureCharacteristics::getTileSet()  const
+//Return the Tileset
+GraphicMonsters::Tileset* GraphicMonsters::TextureCharacteristics::getTileset()  const
 {
-	return m_tileSet;
+	return m_tileset;
 }
 
 //Return the TileSize of an ArrayOFTileCharacteristic

@@ -8,7 +8,7 @@
 GraphicMonsters::Drawable::Drawable()
 {
 	m_vertices = NULL;
-	m_tileSet = NULL;
+	m_tileset = NULL;
 	
 	m_layerLevelOfDisplay = 0;
 	m_isHidden = false;
@@ -38,7 +38,7 @@ GraphicMonsters::Drawable::Drawable(Drawable const& drawableObject)
 		std::cerr << "Error while trying to copy a Drawable object : vertices group unknown";
 	}
 
-	m_tileSet = drawableObject.m_tileSet;
+	m_tileset = drawableObject.m_tileset;
 	m_layerLevelOfDisplay = drawableObject.m_layerLevelOfDisplay;
 	m_originCenteredRelative = drawableObject.m_originCenteredRelative;
 
@@ -55,13 +55,13 @@ GraphicMonsters::Drawable::~Drawable()
 }
 
 /*!
-* \brief	Set the value of the tileSet.
+* \brief	Set the value of the tileset.
 *			Keep a reference.
-*			tileSet : reference to the TileSet.
+*			tileset : reference to the Tileset.
 */
-void GraphicMonsters::Drawable::initTileSet(TileSet* tileSet)
+void GraphicMonsters::Drawable::initTileset(Tileset* tileset)
 {
-	m_tileSet = tileSet;
+	m_tileset = tileset;
 }
 
 /*!
@@ -87,14 +87,14 @@ void GraphicMonsters::Drawable::initOriginCenteredRelative(int abscissa, int ord
 
 
 /*!
-* \brief	Add all vertices to the linked GraphicMonsters::TileSet
+* \brief	Add all vertices to the linked GraphicMonsters::Tileset
 *           if the object is not hidden.
 */
-void GraphicMonsters::Drawable::addToTileSet()
+void GraphicMonsters::Drawable::addToTileset()
 {
 	if (!m_isHidden)
 	{
-		m_vertices->addVerticesToTheTileSet(m_tileSet, m_layerLevelOfDisplay);
+		m_vertices->addVerticesToTheTileset(m_tileset, m_layerLevelOfDisplay);
 	}
 }
 
@@ -216,7 +216,7 @@ void GraphicMonsters::Drawable::setLayerLevel(unsigned int layerLevel)
 /*!
 * \brief	Hide the object.
 *			The object is not add
-*			to the TileSet anymore.
+*			to the Tileset anymore.
 */
 void GraphicMonsters::Drawable::hide()
 {
@@ -226,7 +226,7 @@ void GraphicMonsters::Drawable::hide()
 /*!
 * \brief	Show the object.
 *			The object can now be add
-*			to the TileSet.
+*			to the Tileset.
 */
 void GraphicMonsters::Drawable::show()
 {

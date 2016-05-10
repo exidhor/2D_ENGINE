@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Engines/GraphicEngine/TileSet.hpp"
+#include "Engines/GraphicEngine/Tileset.hpp"
 #include "Utilities/Vector2.hpp"
 #include "Engines/GraphicEngine/TextureVertices.hpp"
 

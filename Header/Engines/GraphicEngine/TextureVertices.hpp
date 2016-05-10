@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "Engines/GraphicEngine/TileSet.hpp"
+#include "Engines/GraphicEngine/Tileset.hpp"
 #include "Utilities/Vector2.hpp"
 
 namespace GraphicMonsters
@@ -17,7 +17,7 @@ namespace GraphicMonsters
 		TextureVertices(TextureVertices const& textureVertices);
 		virtual ~TextureVertices();
 
-		void			addVerticesToTheTileSet(TileSet* targetTileSet, unsigned int layerLevel);
+		void			addVerticesToTheTileset(Tileset* targetTileset, unsigned int layerLevel);
 
 		Vector2f		getPosition();
 		sf::FloatRect	const& getGlobalBounds();

@@ -3,8 +3,8 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
-#include "Engines/GraphicEngine/TileSetsDisplayer.hpp"
-#include "Engines/GraphicEngine/TileSetManager.hpp"
+#include "Engines/GraphicEngine/TilesetsDisplayer.hpp"
+#include "Engines/GraphicEngine/TilesetManager.hpp"
 #include "Engines/GraphicEngine/TextureCharacteristicsManager.hpp"
 #include "Engines/GraphicEngine/RessourceManager.hpp"
 #include "Utilities/Vector2.hpp"
@@ -34,7 +34,7 @@ namespace GraphicMonsters
 		void setFrameRate(float framePerSecond);
 
 		// creation
-		void addTileSet(
+		void addTileset(
 			std::string const& key, 
 			std::string const& path,
 			unsigned int maxSizeArray,
@@ -42,14 +42,14 @@ namespace GraphicMonsters
 
 		void addTextureCharacteristics(
 			std::string const& spriteKey,
-			std::string const& tileSetKey,
+			std::string const& tilesetKey,
 			Vector2f const& tileSize,
 			std::vector <Vector2f> texturePoints,
 			double timePerFrame);
 
 		void addTextureCharacteristics(
 			std::string const& spriteKey,
-			std::string const& tileSetKey,
+			std::string const& tilesetKey,
 			Vector2f const& tileSize,
 			Vector2f const& oneTexturePoint);
 
@@ -76,8 +76,8 @@ namespace GraphicMonsters
 		void				update(double time);
 		virtual void		draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
-		TileSetsDisplayer*	m_tileSetDisplayer;
-		TileSetManager*		m_tileSetManager;
+		TilesetsDisplayer*	m_tilesetDisplayer;
+		TilesetManager*		m_tilesetManager;
 		TextureCharacteristicsManager* m_textureCharactertisticsManager;
 		RessourceManager*	m_ressourceManager;
 		double				m_frameTime;
@@ -86,8 +86,8 @@ namespace GraphicMonsters
 		bool				m_windowIsOpen;
 
 		// deprecated methods
-		void				addTileSet(std::string const& key, std::string const& path);
-		void				initTileSetLayers(std::string const& key, unsigned int maxSizeArray,
+		void				addTileset(std::string const& key, std::string const& path);
+		void				initTilesetLayers(std::string const& key, unsigned int maxSizeArray,
 									unsigned int numberOfLayer);
 	};
 }

@@ -8,7 +8,7 @@ int main()
 
 	int numberOfElements = 1000;
 
-	graphicEngine.addTileSet("test", "Res/tileTest.png", numberOfElements, 2);
+	graphicEngine.addTileset("test", "Res/tileTest.png", numberOfElements, 2);
 
 	std::string nomCleAnimation("vieuxJaune");
 	Vector2f tailleTuile(32, 48);

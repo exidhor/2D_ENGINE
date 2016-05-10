@@ -1,25 +1,25 @@
-#include "Engines/GraphicEngine/TileSetManager.hpp"
+#include "Engines/GraphicEngine/TilesetManager.hpp"
 
 //Constructor
-GraphicMonsters::TileSetManager::TileSetManager()
+GraphicMonsters::TilesetManager::TilesetManager()
 {
 	//none
 }
 
 //Destructor
-GraphicMonsters::TileSetManager::~TileSetManager()
+GraphicMonsters::TilesetManager::~TilesetManager()
 {
-	for (std::map<std::string, GraphicMonsters::TileSet*>::iterator tileSet = m_tileSetMap.begin();
-		tileSet != m_tileSetMap.end(); ++tileSet)
+	for (std::map<std::string, GraphicMonsters::Tileset*>::iterator tileset = m_tilesetMap.begin();
+		tileset != m_tilesetMap.end(); ++tileset)
 	{
-		delete tileSet->second;
-		tileSet->second = 0;
+		delete tileset->second;
+		tileset->second = 0;
 	}
-	m_tileSetMap.clear();
+	m_tilesetMap.clear();
 }
 
-//Add a TileSet with a texture at the m_tileSetMap
-bool GraphicMonsters::TileSetManager::addTileSet(std::string const& key, std::string const& path)
+//Add a Tileset with a texture at the m_tilesetMap
+bool GraphicMonsters::TilesetManager::addTileset(std::string const& key, std::string const& path)
 {
 	//Load the texture
 	sf::Texture* tile = new sf::Texture();
@@ -27,38 +27,38 @@ bool GraphicMonsters::TileSetManager::addTileSet(std::string const& key, std::st
 		return false;
 	}
 
-	GraphicMonsters::TileSet* tileSet = new GraphicMonsters::TileSet(tile);
+	GraphicMonsters::Tileset* tileset = new GraphicMonsters::Tileset(tile);
 
-	m_tileSetMap.insert(std::pair <std::string, GraphicMonsters::TileSet *>(key, tileSet));
+	m_tilesetMap.insert(std::pair <std::string, GraphicMonsters::Tileset *>(key, tileset));
 	return true;
 }
 
-//Load the vertexArray of a TileSet
-void GraphicMonsters::TileSetManager::loadTileSet(std::string const& key, unsigned int maxSizeVertexArray, unsigned int level)
+//Load the vertexArray of a Tileset
+void GraphicMonsters::TilesetManager::loadTileset(std::string const& key, unsigned int maxSizeVertexArray, unsigned int level)
 {
-	m_tileSetMap[key]->loading(maxSizeVertexArray, level);
+	m_tilesetMap[key]->loading(maxSizeVertexArray, level);
 }
 
-//Return a TileSet
-GraphicMonsters::TileSet * GraphicMonsters::TileSetManager::getTileSet(std::string const& key)
+//Return a Tileset
+GraphicMonsters::Tileset * GraphicMonsters::TilesetManager::getTileset(std::string const& key)
 {
-	return m_tileSetMap[key];
+	return m_tilesetMap[key];
 }
 
-void GraphicMonsters::TileSetManager::assembleContinousArrays()
+void GraphicMonsters::TilesetManager::assembleContinousArrays()
 {
-	for (std::map<std::string, GraphicMonsters::TileSet*>::iterator tileSet = m_tileSetMap.begin();
-		tileSet != m_tileSetMap.end(); ++tileSet)
+	for (std::map<std::string, GraphicMonsters::Tileset*>::iterator tileset = m_tilesetMap.begin();
+		tileset != m_tilesetMap.end(); ++tileset)
 	{
-		tileSet->second->assembleContinousArray();
+		tileset->second->assembleContinousArray();
 	}
 }
 
-void GraphicMonsters::TileSetManager::clearAllTileSets()
+void GraphicMonsters::TilesetManager::clearAllTilesets()
 {
-	for (std::map<std::string, GraphicMonsters::TileSet*>::iterator tileSet = m_tileSetMap.begin();
-		tileSet != m_tileSetMap.end(); ++tileSet)
+	for (std::map<std::string, GraphicMonsters::Tileset*>::iterator tileset = m_tilesetMap.begin();
+		tileset != m_tilesetMap.end(); ++tileset)
 	{
-		tileSet->second->clearAllLayers();
+		tileset->second->clearAllLayers();
 	}
 }

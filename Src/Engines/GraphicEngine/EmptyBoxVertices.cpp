@@ -1,7 +1,7 @@
 #include "Engines/GraphicEngine/EmptyBoxVertices.hpp"
 
 /*
- * \brief TODO
+ * \brief TODO : Not safe yet, need to be verify
  */
 GraphicMonsters::EmptyBoxVertices::EmptyBoxVertices(sf::FloatRect const& boxBounds)
 	: TextureVertices(8)
@@ -37,6 +37,9 @@ GraphicMonsters::EmptyBoxVertices::EmptyBoxVertices(sf::FloatRect const& boxBoun
 	computeGlobalBounds();
 }
 
+/*
+* \brief TODO : Not safe yet, need to be verify
+*/
 GraphicMonsters::EmptyBoxVertices::EmptyBoxVertices(TextureVertices const& textureVertices)
 	: TextureVertices(textureVertices)
 {
@@ -46,6 +49,9 @@ GraphicMonsters::EmptyBoxVertices::EmptyBoxVertices(TextureVertices const& textu
 	}
 }
 
+/*
+* \brief TODO : Not safe yet, need to be verify
+*/
 GraphicMonsters::EmptyBoxVertices::EmptyBoxVertices(EmptyBoxVertices const& emptyBoxVertices)
 	: TextureVertices(emptyBoxVertices)
 {
@@ -55,11 +61,17 @@ GraphicMonsters::EmptyBoxVertices::EmptyBoxVertices(EmptyBoxVertices const& empt
 	}
 }
 
+/*
+* \brief TODO : Not safe yet, need to be verify
+*/
 GraphicMonsters::EmptyBoxVertices::~EmptyBoxVertices()
 {
 	delete[] m_vertices;
 }
 
+/*
+* \brief TODO : Not safe yet, need to be verify
+*/
 void GraphicMonsters::EmptyBoxVertices::setTexture(Vector2f const& newCoordTexture)
 {
 	// void because useless in this case
@@ -70,6 +82,9 @@ sf::Vertex* GraphicMonsters::EmptyBoxVertices::getVerticesArray()
 	return m_vertices;
 }
 
+/*
+* \brief TODO : Not safe yet, need to be verify
+*/
 void GraphicMonsters::EmptyBoxVertices::computeGlobalBounds()
 {
 	float left = m_vertices[0].position.x;
@@ -106,11 +121,17 @@ void GraphicMonsters::EmptyBoxVertices::computeGlobalBounds()
 	globalBoundsIsComputed();
 }
 
+/*
+* \brief TODO : Not safe yet, need to be verify
+*/
 bool GraphicMonsters::EmptyBoxVertices::isEmptyBoxVertices()
 {
 	return true;
 }
 
+/*
+* \brief TODO : Not safe yet, need to be verify
+*/
 const sf::Vertex* GraphicMonsters::EmptyBoxVertices::getConstVerticesArray() const
 {
 	return m_vertices;

@@ -2,24 +2,24 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
-#include "Engines/GraphicEngine/TileSet.hpp"
+#include "Engines/GraphicEngine/Tileset.hpp"
 
 namespace GraphicMonsters
 {
 	/*!
-	* \brief	It manage all TileSet to be drawn
+	* \brief	It manage all Tileset to be drawn
 	*			in the right order.
 	*/
-	class TileSetsDisplayer : public sf::Drawable
+	class TilesetsDisplayer : public sf::Drawable
 	{
 	public:
-		TileSetsDisplayer();
+		TilesetsDisplayer();
 
-		void			addTileSet(TileSet* tileSet);
+		void			addTileset(Tileset* tileset);
 
 		virtual void	draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 	private:
-		std::vector <TileSet*> m_tileSetArray;
+		std::vector <Tileset*> m_tilesetArray;
 	};
 }

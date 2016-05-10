@@ -135,12 +135,12 @@ bool GraphicMonsters::Animation::goToTheNextLine()
 
 /*!
 * \brief	Update texture then add 
-*			the 4 vertices to the TileSet.
+*			the 4 vertices to the Tileset.
 */
-void GraphicMonsters::Animation::addToTileSet()
+void GraphicMonsters::Animation::addToTileset()
 {
 	applyTextureOnVertices();
-	Drawable::addToTileSet();
+	Drawable::addToTileset();
 }
 
 /*!

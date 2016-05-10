@@ -17,15 +17,15 @@ namespace GraphicMonsters
 	*				buildArray();
 	*				draw();
 	*			It needs to be load before being used.
-	*			Do a TileSet per sf::PrimitiveType.
+	*			Do a Tileset per sf::PrimitiveType.
 	*/
-	class TileSet : public sf::Drawable
+	class Tileset : public sf::Drawable
 	{
 	public:
-		TileSet();
-		TileSet(sf::Texture* textureTile);
+		Tileset();
+		Tileset(sf::Texture* textureTile);
 
-		~TileSet();
+		~Tileset();
 
 		void			loading(
 							unsigned int maxSizeVerticesArray,

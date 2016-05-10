@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Engines/GraphicEngine/TilesCharacteristics.hpp"
-#include "Engines/GraphicEngine/TileSet.hpp"
+#include "Engines/GraphicEngine/Tileset.hpp"
 #include "Utilities/Vector2.hpp"
 
 namespace GraphicMonsters
@@ -11,16 +11,16 @@ namespace GraphicMonsters
 	* \brief	All the characteristics necessary
 	*			to build an Animation.
 	*			store an array of TilesCharacteristics
-	*			and the TileSet used
+	*			and the Tileset used
 	*/
 	class TextureCharacteristics
 	{
 	public:
-		TextureCharacteristics(TileSet* tileSet, float width, float height);
+		TextureCharacteristics(Tileset* tileset, float width, float height);
 		TextureCharacteristics(std::vector <TilesCharacteristics*> tilesCharacteristics,
-								TileSet* tileSet);
+								Tileset* tileset);
 		TextureCharacteristics(TilesCharacteristics* tileCharacteristics,
-								TileSet* tileSet);
+								Tileset* tileset);
 
 
 		~TextureCharacteristics();
@@ -28,7 +28,7 @@ namespace GraphicMonsters
 		void		addTilesCharacteristics(TilesCharacteristics* newArray);
 
 		//Getters
-		TileSet*	getTileSet() const;
+		Tileset*	getTileset() const;
 		Vector2f	const& getTileSize(unsigned int indexTileCharac)  const;
 		Vector2f	const& getTexturePoints(unsigned int indexCulumn, unsigned int indexLine)  const;
 		unsigned	int getLineSizeOf(unsigned int indexTileCharac)  const;
@@ -37,6 +37,6 @@ namespace GraphicMonsters
 
 	private:
 		std::vector <TilesCharacteristics*> m_arrayOfTileCharacteristic;
-		TileSet*							m_tileSet;
+		Tileset*							m_tileset;
 	};
 }

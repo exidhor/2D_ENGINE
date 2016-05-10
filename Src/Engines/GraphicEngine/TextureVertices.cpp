@@ -26,14 +26,14 @@ GraphicMonsters::TextureVertices::~TextureVertices()
 }
 
 /*!
-* \brief add m_vertices to the tileSet on the layel level target
-* \param newTargetTileSet the tileSet which will display the m_vertices
+* \brief add m_vertices to the tileset on the layel level target
+* \param newTargetTileSet the tileset which will display the m_vertices
 * \param layerLevel the layer of display
 */
-void GraphicMonsters::TextureVertices::addVerticesToTheTileSet(TileSet* targetTileSet, 
+void GraphicMonsters::TextureVertices::addVerticesToTheTileset(Tileset* targetTileset, 
 													unsigned int layerLevel)
 {
-	targetTileSet->addVertices(getVerticesArray(), m_size, layerLevel);
+	targetTileset->addVertices(getVerticesArray(), m_size, layerLevel);
 }
 
 /*!

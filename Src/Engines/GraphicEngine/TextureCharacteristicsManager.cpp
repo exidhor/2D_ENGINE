@@ -22,10 +22,10 @@ GraphicMonsters::TextureCharacteristicsManager::~TextureCharacteristicsManager()
 * \brief to the GraphicMonsters::TextureCharacteristics corresponding
 * \brief if it's not, create a GraphicMonsters::TextureCharacteristics
 * \brief with the key, the GraphicMonsters::TilesCharacteristics and
-* \brief the GraphicMonsters::TileSet
+* \brief the GraphicMonsters::Tileset
 * \param key the key to get it to the map
 * \param all the params to create a GraphicMonsters::TileCharacteristics
-* \param tileSetTarget the GraphicMonsters::TileSet associated to the 
+* \param tilesetTarget the GraphicMonsters::Tileset associated to the 
 			GraphicMonsters::TextureCharacteristics
 */
 bool GraphicMonsters::TextureCharacteristicsManager::addTextureCharacteristics(
@@ -33,7 +33,7 @@ bool GraphicMonsters::TextureCharacteristicsManager::addTextureCharacteristics(
 	Vector2f const& tileSize,
 	std::vector <Vector2f> texturePoints,
 	double timePerFrame,
-	GraphicMonsters::TileSet* tileSetTarget)
+	GraphicMonsters::Tileset* tilesetTarget)
 {
 	GraphicMonsters::TilesCharacteristics* tilesCharacteritics = new GraphicMonsters::TilesCharacteristics(
 																		tileSize, 
@@ -52,7 +52,7 @@ bool GraphicMonsters::TextureCharacteristicsManager::addTextureCharacteristics(
 			key,
 			new GraphicMonsters::TextureCharacteristics(
 					std::vector <TilesCharacteristics*>(1, tilesCharacteritics),
-					tileSetTarget)));
+					tilesetTarget)));
 
 		return false;
 	}
@@ -62,11 +62,11 @@ bool GraphicMonsters::TextureCharacteristicsManager::addTextureCharacteristics(
 	std::string key,
 	Vector2f const& tileSize,
 	Vector2f oneTexturePoint,
-	GraphicMonsters::TileSet* tileSetTarget)
+	GraphicMonsters::Tileset* tilesetTarget)
 {
 	std::vector <Vector2f> texturePoints;
 	texturePoints.push_back(oneTexturePoint);
-	return addTextureCharacteristics(key, tileSize, texturePoints, -1, tileSetTarget);
+	return addTextureCharacteristics(key, tileSize, texturePoints, -1, tilesetTarget);
 }
 
 // Getter

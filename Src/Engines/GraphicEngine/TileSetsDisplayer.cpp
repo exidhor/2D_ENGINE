@@ -1,19 +1,19 @@
-#include "Engines/GraphicEngine/TileSetsDisplayer.hpp"
+#include "Engines/GraphicEngine/TilesetsDisplayer.hpp"
 
-GraphicMonsters::TileSetsDisplayer::TileSetsDisplayer()
+GraphicMonsters::TilesetsDisplayer::TilesetsDisplayer()
 {
 	// void
 }
 
-void GraphicMonsters::TileSetsDisplayer::addTileSet(GraphicMonsters::TileSet* tileSet)
+void GraphicMonsters::TilesetsDisplayer::addTileset(GraphicMonsters::Tileset* tileset)
 {
-	m_tileSetArray.push_back(tileSet);
+	m_tilesetArray.push_back(tileset);
 }
 
-void GraphicMonsters::TileSetsDisplayer::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void GraphicMonsters::TilesetsDisplayer::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	for (unsigned int i = 0; i < m_tileSetArray.size(); i++)
+	for (unsigned int i = 0; i < m_tilesetArray.size(); i++)
 	{
-		m_tileSetArray[i]->draw(target, states);
+		m_tilesetArray[i]->draw(target, states);
 	}
 }

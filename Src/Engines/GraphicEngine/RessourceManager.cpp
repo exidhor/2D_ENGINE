@@ -162,7 +162,7 @@ void GraphicMonsters::RessourceManager::updateAnimations(double time)
 			if (animation->second[i].isUsed)
 			{
 				animation->second[i].sprite->actualize(time);
-				animation->second[i].sprite->addToTileSet();
+				animation->second[i].sprite->addToTileset();
 			}
 		}
 	}

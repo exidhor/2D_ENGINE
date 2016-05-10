@@ -19,7 +19,7 @@ namespace GraphicMonsters
 		Animation(Animation const& animation);
 		~Animation();
 
-		virtual void addToTileSet();
+		virtual void addToTileset();
 
 		// managing of the animation
 		virtual bool actualize(double timeSpent);

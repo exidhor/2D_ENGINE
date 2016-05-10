@@ -1,37 +1,37 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Engines/GraphicEngine/TileSet.hpp"
+#include "Engines/GraphicEngine/Tileset.hpp"
 
 namespace GraphicMonsters
 {
 	/*!
-	* \brief	store GraphicMonsters::TileSet in a map.
+	* \brief	store GraphicMonsters::Tileset in a map.
 	*			Allow to clear and assemble
-	*			every TileSet in the map.
+	*			every Tileset in the map.
 	*/
-	class TileSetManager
+	class TilesetManager
 	{
 	public:
-		TileSetManager();
-		~TileSetManager();
+		TilesetManager();
+		~TilesetManager();
 
-		bool		addTileSet(
+		bool		addTileset(
 						std::string const& key,
 						std::string const& path);
 
-		void		loadTileSet(
+		void		loadTileset(
 						std::string const& key,
 						unsigned int maxSizeVertexArray,
 						unsigned int level);
 
 		void		assembleContinousArrays();
 
-		void		clearAllTileSets();
+		void		clearAllTilesets();
 
-		TileSet*	getTileSet(std::string const& key);
+		Tileset*	getTileset(std::string const& key);
 
 	private:
-		std::map <std::string, TileSet*> m_tileSetMap;
+		std::map <std::string, Tileset*> m_tilesetMap;
 	};
 }

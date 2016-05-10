@@ -1,5 +1,8 @@
 #include "Engines/GameEngine/GameEngine.hpp"
 
+/*
+ * \brief	Allocate the gameEngine.
+*/
 GameEngine::GameEngine()
 {
 	m_threadGraphic = NULL;
@@ -13,6 +16,10 @@ GameEngine::~GameEngine()
 	}
 }
 
+/*
+* \brief	Construct the gameEngine and the
+*			graphicEngine.	
+*/
 bool GameEngine::construct() // tmp for test
 {
 	
@@ -23,8 +30,8 @@ bool GameEngine::construct() // tmp for test
 	// TODO : 
 			// temporary : to remplace by a ressource loader
 
-	// creation du TileSet et initialisation
-	m_graphicEngine.addTileSet("test", "Res/tileTest.png", numberOfElements, 1);
+	// creation du Tileset et initialisation
+	m_graphicEngine.addTileset("test", "Res/tileTest.png", numberOfElements, 1);
 
 	std::string nomCleAnimation("vieuxJaune");
 	Vector2f tailleTuile(32, 48);
@@ -67,6 +74,9 @@ bool GameEngine::construct() // tmp for test
 	return true;
 }
 
+/*
+* \brief	Start the graphic engine in a new thread.
+*/
 void GameEngine::startGraphicEngine(float framePerSecond)
 {
 	m_graphicEngine.openWindow("test GraphicMonsters Engine");

@@ -1,14 +1,15 @@
 #include "Engines/GraphicEngine/Engine.hpp"
 
 /*
- * \brief TODO
+ * \brief	Allocate the minimum structure of the Graphic Engine
+ *			and init the attributes to NULL.
  */
 GraphicMonsters::Engine::Engine()
 {
-	m_tileSetManager = NULL;
+	m_tilesetManager = NULL;
 	m_textureCharactertisticsManager = NULL;
 	m_ressourceManager = NULL;
-	m_tileSetDisplayer = NULL;
+	m_tilesetDisplayer = NULL;
 	m_window = NULL;
 	m_frameTime = 0;
 	m_mergeFrameTime = 0;
@@ -16,13 +17,13 @@ GraphicMonsters::Engine::Engine()
 }
 
 /*
-* \brief TODO
+* \brief free the used memory.
 */
 GraphicMonsters::Engine::~Engine()
 {
-	if (m_tileSetDisplayer != NULL)
+	if (m_tilesetDisplayer != NULL)
 	{
-		delete m_tileSetDisplayer;
+		delete m_tilesetDisplayer;
 	}
 
 	if (m_ressourceManager != NULL)
@@ -35,9 +36,9 @@ GraphicMonsters::Engine::~Engine()
 		delete m_textureCharactertisticsManager;
 	}
 
-	if (m_tileSetManager != NULL)
+	if (m_tilesetManager != NULL)
 	{
-		delete m_tileSetManager;
+		delete m_tilesetManager;
 	}
 
 	if (m_window != NULL)
@@ -49,28 +50,29 @@ GraphicMonsters::Engine::~Engine()
 // ----------- initialization ------------------------------------------------------
 
 /*
-* \brief TODO
+* \brief	Allocate the attributes.
 */
 void GraphicMonsters::Engine::init()
 {
-	m_tileSetManager = new GraphicMonsters::TileSetManager();
+	m_tilesetManager = new GraphicMonsters::TilesetManager();
 	m_textureCharactertisticsManager = new GraphicMonsters::TextureCharacteristicsManager();
 	m_ressourceManager = new GraphicMonsters::RessourceManager();
-	m_tileSetDisplayer = new GraphicMonsters::TileSetsDisplayer();
+	m_tilesetDisplayer = new GraphicMonsters::TilesetsDisplayer();
 }
 
 /*
-* \brief TODO
+* \brief	Create the window and show it.
+* \param	title : The title of the window.
 */
 void GraphicMonsters::Engine::openWindow(std::string const& title)
 {
 	m_window = new sf::RenderWindow(sf::VideoMode(1000, 600), title);
 	m_windowIsOpen = true;
-	m_window->setActive(false);
+	m_window->setActive(false); // we have to set active to false to be able to run this in an detached thread.
 }
 
 /*
-* \brief TODO
+* \brief	Hide the window.
 */
 void GraphicMonsters::Engine::closeWindow()
 {
@@ -78,7 +80,8 @@ void GraphicMonsters::Engine::closeWindow()
 }
 
 /*
-* \brief TODO
+* \brief	Set the maximum frameRate.
+* \param	framePeSecond : the maximum frame rate
 */
 void GraphicMonsters::Engine::setFrameRate(float framePerSecond)
 {
@@ -89,7 +92,8 @@ void GraphicMonsters::Engine::setFrameRate(float framePerSecond)
 // ----------------- use ----------------------------------------------------------
 
 /*
-* \brief TODO
+* \brief	Start the engine (it needs to be initialized before).
+*			framePerSecond : the maximum frame rate
 */
 void GraphicMonsters::Engine::run(int framePerSecond)
 {
@@ -123,11 +127,12 @@ void GraphicMonsters::Engine::run(int framePerSecond)
 // --------------- creation -------------------------------------------------------
 
 /*
-* \brief TODO
+* \brief	Create and store a tileset in the tilesetManager.
+* \param	key : the key of the new tileset 
 */
-void GraphicMonsters::Engine::addTileSet(std::string const& key, std::string const& path)
+void GraphicMonsters::Engine::addTileset(std::string const& key, std::string const& path)
 {
-	if (!m_tileSetManager->addTileSet(key, path))
+	if (!m_tilesetManager->addTileset(key, path))
 	{
 		std::cerr << "ERROR during the loading of the texture\n"
 			<< "\tkey :\t" << key
@@ -136,30 +141,30 @@ void GraphicMonsters::Engine::addTileSet(std::string const& key, std::string con
 	else
 	{
 		//m_ressourceManager->createKey(key); duplicate keys with the createkey from the addTextureCharacteristics(...) method
-		m_tileSetDisplayer->addTileSet(m_tileSetManager->getTileSet(key));
+		m_tilesetDisplayer->addTileset(m_tilesetManager->getTileset(key));
 	}
 }
 
 /*
 * \brief TODO
 */
-void GraphicMonsters::Engine::initTileSetLayers(std::string const& key,
+void GraphicMonsters::Engine::initTilesetLayers(std::string const& key,
 	unsigned int maxSizeArray,
 	unsigned int numberOfLayer)
 {
-	m_tileSetManager->loadTileSet(key, maxSizeArray, numberOfLayer);
+	m_tilesetManager->loadTileset(key, maxSizeArray, numberOfLayer);
 }
 
 /*
 * \brief TODO
 */
-void GraphicMonsters::Engine::addTileSet(std::string const& key, 
+void GraphicMonsters::Engine::addTileset(std::string const& key, 
 	std::string const& path,
 	unsigned int maxSizeArray,
 	unsigned int numberOfLayer)
 {
-	addTileSet(key, path);
-	initTileSetLayers(key, maxSizeArray, numberOfLayer);
+	addTileset(key, path);
+	initTilesetLayers(key, maxSizeArray, numberOfLayer);
 }
 
 /*
@@ -167,7 +172,7 @@ void GraphicMonsters::Engine::addTileSet(std::string const& key,
 */
 void GraphicMonsters::Engine::addTextureCharacteristics(
 	std::string const& spriteKey,
-	std::string const& tileSetKey,
+	std::string const& tilesetKey,
 	Vector2f const& tileSize,
 	std::vector <Vector2f> texturePoints,
 	double timePerFrame)
@@ -177,7 +182,7 @@ void GraphicMonsters::Engine::addTextureCharacteristics(
 												tileSize,
 												texturePoints,
 												timePerFrame,
-												m_tileSetManager->getTileSet(tileSetKey)
+												m_tilesetManager->getTileset(tilesetKey)
 												))
 	{
 		if (m_ressourceManager->createKey(spriteKey))
@@ -193,7 +198,7 @@ void GraphicMonsters::Engine::addTextureCharacteristics(
 */
 void GraphicMonsters::Engine::addTextureCharacteristics(
 	std::string const& spriteKey,
-	std::string const& tileSetKey,
+	std::string const& tilesetKey,
 	Vector2f const& tileSize,
 	Vector2f const& oneTexturePoint)
 {
@@ -201,7 +206,7 @@ void GraphicMonsters::Engine::addTextureCharacteristics(
 											spriteKey,
 											tileSize,
 											oneTexturePoint,
-											m_tileSetManager->getTileSet(tileSetKey)
+											m_tilesetManager->getTileset(tilesetKey)
 											))
 	{
 		if (m_ressourceManager->createKey(spriteKey))
@@ -274,9 +279,9 @@ void GraphicMonsters::Engine::freeSpecificSprite(std::string const& key, unsigne
 */
 void GraphicMonsters::Engine::update(double time)
 {
-	m_tileSetManager->clearAllTileSets();
+	m_tilesetManager->clearAllTilesets();
 	m_ressourceManager->updateAnimations(time);
-	m_tileSetManager->assembleContinousArrays();
+	m_tilesetManager->assembleContinousArrays();
 }
 
 /*
@@ -284,7 +289,7 @@ void GraphicMonsters::Engine::update(double time)
 */
 void GraphicMonsters::Engine::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	m_tileSetDisplayer->draw(target, states);
+	m_tilesetDisplayer->draw(target, states);
 }
 
 /*

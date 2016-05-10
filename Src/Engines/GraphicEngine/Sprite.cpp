@@ -4,7 +4,7 @@ GraphicMonsters::Sprite::Sprite(TextureCharacteristics* textureCharacteristics,
 					unsigned int layerLevel)
 {
 	// initialization of the Drawable part
-	initTileSet(textureCharacteristics->getTileSet());
+	initTileset(textureCharacteristics->getTileset());
 	setLayerLevel(layerLevel);
 	QuadVertices* quadVertices = new QuadVertices(sf::FloatRect(textureCharacteristics->getTexturePoints(0, 0).x,
 																textureCharacteristics->getTexturePoints(0, 0).y,
