@@ -28,7 +28,7 @@ GraphicMonsters::TextureCharacteristicsManager::~TextureCharacteristicsManager()
 * \param tilesetTarget the GraphicMonsters::Tileset associated to the 
 			GraphicMonsters::TextureCharacteristics
 */
-bool GraphicMonsters::TextureCharacteristicsManager::addTextureCharacteristics(
+bool GraphicMonsters::TextureCharacteristicsManager::addTileCharacteristics(
 	std::string key, 
 	Vector2f const& tileSize,
 	std::vector <Vector2f> texturePoints,
@@ -58,7 +58,7 @@ bool GraphicMonsters::TextureCharacteristicsManager::addTextureCharacteristics(
 	}
 }
 
-bool GraphicMonsters::TextureCharacteristicsManager::addTextureCharacteristics(
+bool GraphicMonsters::TextureCharacteristicsManager::addTileCharacteristics(
 	std::string key,
 	Vector2f const& tileSize,
 	Vector2f oneTexturePoint,
@@ -66,7 +66,7 @@ bool GraphicMonsters::TextureCharacteristicsManager::addTextureCharacteristics(
 {
 	std::vector <Vector2f> texturePoints;
 	texturePoints.push_back(oneTexturePoint);
-	return addTextureCharacteristics(key, tileSize, texturePoints, -1, tilesetTarget);
+	return addTileCharacteristics(key, tileSize, texturePoints, -1, tilesetTarget);
 }
 
 // Getter

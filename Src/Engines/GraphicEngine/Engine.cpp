@@ -140,50 +140,54 @@ void GraphicMonsters::Engine::addTileset(std::string const& key, std::string con
 	}
 	else
 	{
-		//m_ressourceManager->createKey(key); duplicate keys with the createkey from the addTextureCharacteristics(...) method
+		//m_ressourceManager->createKey(key); duplicate keys with the createkey from the addTileCharacteristics(...) method
 		m_tilesetDisplayer->addTileset(m_tilesetManager->getTileset(key));
 	}
 }
 
 /*
-* \brief TODO
+* \brief	Load the tileset in the tileset manager.
+* \param	key : the key of the tileset we want to load.
+* \param	maxSizeArray : the size of elements we want to allocate per layer
+* \param	numberOfLayer : the number of layer we want.
 */
 void GraphicMonsters::Engine::initTilesetLayers(std::string const& key,
-	unsigned int maxSizeArray,
-	unsigned int numberOfLayer)
+												unsigned int maxSizeArray,
+												unsigned int numberOfLayer)
 {
 	m_tilesetManager->loadTileset(key, maxSizeArray, numberOfLayer);
 }
 
 /*
-* \brief TODO
+* \brief	Add a tileset to the tileset manager and init it.
+* \param	key : the key of the tileset we want to add.
+* \param	path : the path of the texture.
+* \param	maxSizeArray : the size of elements we want to allocate per layer.
+* \param	numberOfLayer : the number of layer we want.
 */
 void GraphicMonsters::Engine::addTileset(std::string const& key, 
-	std::string const& path,
-	unsigned int maxSizeArray,
-	unsigned int numberOfLayer)
+										 std::string const& path,
+										 unsigned int maxSizeArray,
+										 unsigned int numberOfLayer)
 {
 	addTileset(key, path);
 	initTilesetLayers(key, maxSizeArray, numberOfLayer);
 }
 
 /*
-* \brief TODO
+* \brief	Add a texturechara
 */
-void GraphicMonsters::Engine::addTextureCharacteristics(
-	std::string const& spriteKey,
-	std::string const& tilesetKey,
-	Vector2f const& tileSize,
-	std::vector <Vector2f> texturePoints,
-	double timePerFrame)
+void GraphicMonsters::Engine::addTileCharacteristics(std::string const& spriteKey,
+														std::string const& tilesetKey,
+														Vector2f const& tileSize,
+														std::vector <Vector2f> texturePoints,
+														double timePerFrame)
 {
-	if (!m_textureCharactertisticsManager->addTextureCharacteristics(
-												spriteKey,
-												tileSize,
-												texturePoints,
-												timePerFrame,
-												m_tilesetManager->getTileset(tilesetKey)
-												))
+	if (!m_textureCharactertisticsManager->addTileCharacteristics(spriteKey,
+																	 tileSize,
+																	 texturePoints,
+																	 timePerFrame,
+																	 m_tilesetManager->getTileset(tilesetKey)))
 	{
 		if (m_ressourceManager->createKey(spriteKey))
 		{
@@ -196,13 +200,13 @@ void GraphicMonsters::Engine::addTextureCharacteristics(
 /*
 * \brief TODO
 */
-void GraphicMonsters::Engine::addTextureCharacteristics(
+void GraphicMonsters::Engine::addTileCharacteristics(
 	std::string const& spriteKey,
 	std::string const& tilesetKey,
 	Vector2f const& tileSize,
 	Vector2f const& oneTexturePoint)
 {
-	if (!m_textureCharactertisticsManager->addTextureCharacteristics(
+	if (!m_textureCharactertisticsManager->addTileCharacteristics(
 											spriteKey,
 											tileSize,
 											oneTexturePoint,
