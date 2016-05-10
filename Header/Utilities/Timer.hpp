@@ -1,13 +1,3 @@
-/*!
-* \file		Timer.hpp
-* \brief	Used to time time spent.
-*			It decrements and reset with the time passed
-*			during the construction.
-* \author	Exhidor
-* \version	0.1
-* \date		2016-02-01
-*/
-
 #pragma once
 #include <iostream>
 #include <SFML/System.hpp>
@@ -15,6 +5,11 @@
 #include <SFML/Window.hpp>
 #include <SFML/System/Time.hpp>
 
+/*!
+* \brief	Used to time time spent.
+*			It decrements and reset with the time passed
+*			during the construction.
+*/
 class Timer
 {
 public:

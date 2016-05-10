@@ -1,7 +1,8 @@
 #pragma once
 
 /*
-* \brief	TODO
+* \brief	TODO (i don't know which is the purpose of this, 
+			the global management ... ?)
 */
 class MemoryManagement
 {

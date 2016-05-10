@@ -5,7 +5,8 @@
 //#define Test PoolAllocator<long>
 
 /*
-* \brief	TODO
+* \brief	Allocate elements from the same Type
+			in a reserved memory emplacement.
 */
 template <class T>
 class PoolAllocator

@@ -1,16 +1,23 @@
 #include "Engines/GraphicEngine/Engine.hpp"
 
+/*
+ * \brief TODO
+ */
 GraphicMonsters::Engine::Engine()
 {
 	m_tileSetManager = NULL;
 	m_textureCharactertisticsManager = NULL;
 	m_ressourceManager = NULL;
 	m_tileSetDisplayer = NULL;
+	m_window = NULL;
 	m_frameTime = 0;
 	m_mergeFrameTime = 0;
 	m_windowIsOpen = false;
 }
 
+/*
+* \brief TODO
+*/
 GraphicMonsters::Engine::~Engine()
 {
 	if (m_tileSetDisplayer != NULL)
@@ -41,6 +48,9 @@ GraphicMonsters::Engine::~Engine()
 
 // ----------- initialization ------------------------------------------------------
 
+/*
+* \brief TODO
+*/
 void GraphicMonsters::Engine::init()
 {
 	m_tileSetManager = new GraphicMonsters::TileSetManager();
@@ -49,6 +59,9 @@ void GraphicMonsters::Engine::init()
 	m_tileSetDisplayer = new GraphicMonsters::TileSetsDisplayer();
 }
 
+/*
+* \brief TODO
+*/
 void GraphicMonsters::Engine::openWindow(std::string const& title)
 {
 	m_window = new sf::RenderWindow(sf::VideoMode(1000, 600), title);
@@ -56,11 +69,17 @@ void GraphicMonsters::Engine::openWindow(std::string const& title)
 	m_window->setActive(false);
 }
 
+/*
+* \brief TODO
+*/
 void GraphicMonsters::Engine::closeWindow()
 {
 	m_windowIsOpen = false;
 }
 
+/*
+* \brief TODO
+*/
 void GraphicMonsters::Engine::setFrameRate(float framePerSecond)
 {
 	m_frameTime = 1. / framePerSecond;
@@ -69,6 +88,9 @@ void GraphicMonsters::Engine::setFrameRate(float framePerSecond)
 
 // ----------------- use ----------------------------------------------------------
 
+/*
+* \brief TODO
+*/
 void GraphicMonsters::Engine::run(int framePerSecond)
 {
 	setFrameRate(framePerSecond);
@@ -100,6 +122,9 @@ void GraphicMonsters::Engine::run(int framePerSecond)
 
 // --------------- creation -------------------------------------------------------
 
+/*
+* \brief TODO
+*/
 void GraphicMonsters::Engine::addTileSet(std::string const& key, std::string const& path)
 {
 	if (!m_tileSetManager->addTileSet(key, path))
@@ -110,11 +135,14 @@ void GraphicMonsters::Engine::addTileSet(std::string const& key, std::string con
 	}
 	else
 	{
-		m_ressourceManager->createKey(key);
+		//m_ressourceManager->createKey(key); duplicate keys with the createkey from the addTextureCharacteristics(...) method
 		m_tileSetDisplayer->addTileSet(m_tileSetManager->getTileSet(key));
 	}
 }
 
+/*
+* \brief TODO
+*/
 void GraphicMonsters::Engine::initTileSetLayers(std::string const& key,
 	unsigned int maxSizeArray,
 	unsigned int numberOfLayer)
@@ -122,6 +150,9 @@ void GraphicMonsters::Engine::initTileSetLayers(std::string const& key,
 	m_tileSetManager->loadTileSet(key, maxSizeArray, numberOfLayer);
 }
 
+/*
+* \brief TODO
+*/
 void GraphicMonsters::Engine::addTileSet(std::string const& key, 
 	std::string const& path,
 	unsigned int maxSizeArray,
@@ -131,6 +162,9 @@ void GraphicMonsters::Engine::addTileSet(std::string const& key,
 	initTileSetLayers(key, maxSizeArray, numberOfLayer);
 }
 
+/*
+* \brief TODO
+*/
 void GraphicMonsters::Engine::addTextureCharacteristics(
 	std::string const& spriteKey,
 	std::string const& tileSetKey,
@@ -154,6 +188,9 @@ void GraphicMonsters::Engine::addTextureCharacteristics(
 	}
 }
 
+/*
+* \brief TODO
+*/
 void GraphicMonsters::Engine::addTextureCharacteristics(
 	std::string const& spriteKey,
 	std::string const& tileSetKey,
@@ -175,6 +212,9 @@ void GraphicMonsters::Engine::addTextureCharacteristics(
 	}
 }
 
+/*
+* \brief TODO
+*/
 void GraphicMonsters::Engine::addSprite(std::string const& key,
 	unsigned int layerLevel,
 	unsigned int numberOfElements)
@@ -189,6 +229,9 @@ void GraphicMonsters::Engine::addSprite(std::string const& key,
 	}
 }
 
+/*
+* \brief TODO
+*/
 void GraphicMonsters::Engine::addAnimation(std::string const& key,
 	unsigned int layerLevel,
 	unsigned int numberOfElements)
@@ -203,11 +246,17 @@ void GraphicMonsters::Engine::addAnimation(std::string const& key,
 	}
 }
 
+/*
+* \brief TODO
+*/
 GraphicMonsters::Sprite* GraphicMonsters::Engine::getFreeSprite(std::string const& key)
 {
 	return m_ressourceManager->getFreeSprite(key);
 }
 
+/*
+* \brief TODO
+*/
 void GraphicMonsters::Engine::freeSpecificSprite(std::string const& key, unsigned int id)
 {
 	if (!m_ressourceManager->freeSpecificSprite(key, id))
@@ -220,6 +269,9 @@ void GraphicMonsters::Engine::freeSpecificSprite(std::string const& key, unsigne
 
 // -------------- animation gestion during the game ---------------------------------
 
+/*
+* \brief TODO
+*/
 void GraphicMonsters::Engine::update(double time)
 {
 	m_tileSetManager->clearAllTileSets();
@@ -227,12 +279,17 @@ void GraphicMonsters::Engine::update(double time)
 	m_tileSetManager->assembleContinousArrays();
 }
 
+/*
+* \brief TODO
+*/
 void GraphicMonsters::Engine::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	m_tileSetDisplayer->draw(target, states);
 }
 
-
+/*
+* \brief TODO
+*/
 GraphicMonsters::RessourceManager * GraphicMonsters::Engine::getResourceManager() {
 	return m_ressourceManager;
 }

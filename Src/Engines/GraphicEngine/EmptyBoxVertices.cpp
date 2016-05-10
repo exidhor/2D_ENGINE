@@ -1,5 +1,8 @@
 #include "Engines/GraphicEngine/EmptyBoxVertices.hpp"
 
+/*
+ * \brief TODO
+ */
 GraphicMonsters::EmptyBoxVertices::EmptyBoxVertices(sf::FloatRect const& boxBounds)
 	: TextureVertices(8)
 {

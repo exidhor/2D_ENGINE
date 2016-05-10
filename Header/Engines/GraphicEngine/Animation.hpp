@@ -1,12 +1,3 @@
-/*!
-* \file		Animation.hpp
-* \brief	A succession of texturesPoints linked
-*			to a TileSet in a Sprite
-* \author	Exhidor
-* \version	1.5
-* \date		2016-02-01
-*/
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -16,6 +7,10 @@
 
 namespace GraphicMonsters
 {
+	/*
+	* \brief	An animation which is an succession
+	*			of images.
+	*/
 	class Animation : public Sprite
 	{
 	public:

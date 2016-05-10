@@ -1,12 +1,3 @@
-/*!
-* \file		TextureCharacteristicsManager.hpp
-* \brief	Create and add a TextureCharacteristics in a map.
-*			Allow to retreive them by its keys
-* \author	Alemior, Exhidor
-* \version	1.1
-* \date		05/02/2016
-*/
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -15,6 +6,10 @@
 
 namespace GraphicMonsters
 {
+	/*!
+	* \brief	Create and add a TextureCharacteristics in a map.
+	*			Allow to retreive them by its keys
+	*/
 	class TextureCharacteristicsManager
 	{
 	public:

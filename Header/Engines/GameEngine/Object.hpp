@@ -1,6 +1,6 @@
 #pragma once
 #include "Engines/PhysicEngine.hpp"
-#include "Engines/Engine.hpp"
+#include "Engines/GraphicEngine.hpp"
 
 /* 
  * \brief	An Object of the Game (i.e. a GameObject for Unity).

@@ -1,29 +1,24 @@
-/*!
-* \file		TileSet.hpp
-* \brief	A container which provide multiple
-*			layers of display.
-*			Store sf::Vertices in an array and display them
-*			by with this cycle :
-* 		
-*				clear();			-- optionnal
-*				addVertices(...);
-*				...
-*				addVertices(...);
-*				buildArray();
-*				draw();
-*			It needs to be load before being used.
-*			Do a TileSet per sf::PrimitiveType.
-* \author	Exhidor
-* \version	2.5
-* \date		2016-02-01
-*/
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
 namespace GraphicMonsters
 {
+	/*!
+	* \brief	A container which provide multiple
+	*			layers of display.
+	*			Store sf::Vertices in an array and display them
+	*			by with this cycle :
+	*
+	*				clear();			-- optionnal
+	*				addVertices(...);
+	*				...
+	*				addVertices(...);
+	*				buildArray();
+	*				draw();
+	*			It needs to be load before being used.
+	*			Do a TileSet per sf::PrimitiveType.
+	*/
 	class TileSet : public sf::Drawable
 	{
 	public:

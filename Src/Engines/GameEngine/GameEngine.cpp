@@ -15,8 +15,8 @@ GameEngine::~GameEngine()
 
 bool GameEngine::construct() // tmp for test
 {
-	// dynamic allocations
-	m_graphicEngine.init();
+	
+	m_graphicEngine.init(); // dynamic allocations
 
 	int numberOfElements = 1000;
 
@@ -59,6 +59,7 @@ bool GameEngine::construct() // tmp for test
 	{
 		animations.push_back(m_graphicEngine.getFreeSprite(nomCleAnimation));
 		animations[i]->setRepeated(true);
+		animations[i]->setContinueSequence(true);
 		animations[i]->setPosition((i % 100) * 3, (i / 100) * 3);
 		animations[i]->start();
 	}

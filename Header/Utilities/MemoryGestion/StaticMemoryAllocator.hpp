@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /*
-* \brief	TODO
+* \brief	The stack mecanism to allocate elements.
 */
 class StaticMemoryAllocator
 {

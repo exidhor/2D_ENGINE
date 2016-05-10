@@ -1,12 +1,3 @@
-/*!
-* \file		Transformation.hpp
-* \brief	[DEPRECATED] Abstract class to 
-*			an eventual future polymorphism
-* \author	Exhidor
-* \version	0.1
-* \date		2016-02-01
-*/
-
 #pragma once
 #include <iostream>
 #include <SFML/System.hpp>
@@ -17,6 +8,10 @@
 
 namespace GraphicMonsters
 {
+	/*!
+	* \brief	[DEPRECATED] Abstract class to
+	*			an eventual future polymorphism
+	*/
 	class Transformation
 	{
 	public:

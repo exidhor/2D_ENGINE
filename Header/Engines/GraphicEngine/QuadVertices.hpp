@@ -1,12 +1,3 @@
-/*!
-* \file		QuadVertices.hpp
-* \brief	4 vertices which describes a textured sprite
-*			this group is a rectangle
-* \author	Exhidor
-* \version	2.0
-* \date		2016-02-01
-*/
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -16,6 +7,10 @@
 
 namespace GraphicMonsters
 {
+	/*
+	* \brief	4 vertices which describes a textured sprite.
+	*			This group is a rectangle
+	*/
 	class QuadVertices : public TextureVertices
 	{
 	public:

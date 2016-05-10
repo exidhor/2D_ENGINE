@@ -6,7 +6,8 @@
 #include <string>
 
 /*
-* \brief	TODO
+* \brief	A otpimized map to be able to cycle quickly and
+			provide a key-string mecanism.
 */
 template < typename T >
 class AssociativeArray

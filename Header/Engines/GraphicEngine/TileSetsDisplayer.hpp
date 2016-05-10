@@ -1,12 +1,3 @@
-/*!
-* \file		TileSetsDisplayer.hpp
-* \brief	It manage all TileSet to be drawn
-*			in the right order.
-* \author	Exhidor
-* \version	0.1
-* \date		2016-02-01
-*/
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -15,6 +6,10 @@
 
 namespace GraphicMonsters
 {
+	/*!
+	* \brief	It manage all TileSet to be drawn
+	*			in the right order.
+	*/
 	class TileSetsDisplayer : public sf::Drawable
 	{
 	public:

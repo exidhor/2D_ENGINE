@@ -10,7 +10,7 @@
 *			the draw.
 */
 GraphicMonsters::Animation::Animation(GraphicMonsters::TextureCharacteristics* newTextureCharacteristics,
-							unsigned int newLayerLevel)
+									  unsigned int newLayerLevel)
 
 : GraphicMonsters::Sprite(newTextureCharacteristics, newLayerLevel),
 

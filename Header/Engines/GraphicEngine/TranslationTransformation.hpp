@@ -1,12 +1,3 @@
-/*!
-* \file		TranslationTransformation.hpp
-* \brief	[DEPRECATED] manage translations
-*			during time 
-* \author	Exhidor
-* \version	0.1
-* \date		2016-02-01
-*/
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -16,6 +7,10 @@
 
 namespace GraphicMonsters
 {
+	/*!
+	* \brief	[DEPRECATED] manage translations
+	*			during time
+	*/
 	class TranslationTransformation : public Transformation
 	{
 	public:

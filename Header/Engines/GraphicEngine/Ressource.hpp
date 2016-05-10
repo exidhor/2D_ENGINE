@@ -1,18 +1,12 @@
-/*!
-* \file		Ressource.hpp
-* \brief	store a sprite and a flag
-*			to know if it is being used
-* \author	Exhidor
-* \version	0.1
-* \date		2016-02-01
-*/
-
-
 #pragma once
 #include "Engines/GraphicEngine/Sprite.hpp"
 
 namespace GraphicMonsters
 {
+	/*!
+	* \brief	store a sprite and a flag
+	*			to know if it is being used
+	*/
 	class Ressource
 	{
 	public:

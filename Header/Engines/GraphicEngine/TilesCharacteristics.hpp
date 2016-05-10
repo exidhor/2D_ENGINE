@@ -1,13 +1,3 @@
-/*!
-* \file		TilesCharacteristics.hpp
-*			Configuration of an animation line or just a texture.
-*			It store texture points, tile size and
-*			time per frame.
-* \author	Exhidor
-* \version	1.0
-* \date		2016-02-01
-*/
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -15,6 +5,11 @@
 
 namespace GraphicMonsters
 {
+	/*!
+	*			Configuration of an animation line or just a texture.
+	*			It store texture points, tile size and
+	*			time per frame.
+	*/
 	class TilesCharacteristics
 	{
 	public:

@@ -1,12 +1,3 @@
-/*!
-* \file		RotationTransformation.hpp
-* \brief	[DEPRECATED] manage a rotation 
-*			with a Timer or an angle
-* \author	Exhidor
-* \version	2.0
-* \date		2016-02-01
-*/
-
 #pragma once
 #include <iostream>
 #include <SFML/System.hpp>
@@ -17,6 +8,10 @@
 
 namespace GraphicMonsters
 {
+	/*!
+	* \brief	[DEPRECATED] manage a rotation
+	*			with a Timer or an angle
+	*/
 	class RotationTransformation : public Transformation
 	{
 	public:

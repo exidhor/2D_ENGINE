@@ -3,7 +3,7 @@
 #include "Engines/PhysicEngine/Geometry/Size.hpp"
 
 /*
-* \brief	TODO
+* \brief	A Rectangle.
 */
 class Rectangle
 {

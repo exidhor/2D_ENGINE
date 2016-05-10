@@ -1,12 +1,3 @@
-/*!
-* \file		TextureVertices.hpp
-* \brief	Vertices array which represents a shape.
-*			get globalBounds and can be transformed
-* \author	Exhidor
-* \version	0.1
-* \date		02/03/2016
-*/
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <vector>
@@ -15,6 +6,10 @@
 
 namespace GraphicMonsters
 {
+	/*!
+	* \brief	Vertices array which represents a shape.
+	*			get globalBounds and can be transformed
+	*/
 	class TextureVertices
 	{
 	public :

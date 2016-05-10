@@ -1,7 +1,7 @@
 #pragma once
 
 /*
- * \brief	TODO
+ * \brief	A point.
 */
 class Point
 {

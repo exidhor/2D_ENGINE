@@ -1,14 +1,3 @@
-/*!
-* \file		TextureCharacteristics.hpp
-* \brief	All the characteristics necessary 
-*			to build an Animation.
-*			store an array of TilesCharacteristics 
-*			and the TileSet used
-* \author	Alemior / Exhidor
-* \version	1.5
-* \date		2016-02-01
-*/
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -18,6 +7,12 @@
 
 namespace GraphicMonsters
 {
+	/*!
+	* \brief	All the characteristics necessary
+	*			to build an Animation.
+	*			store an array of TilesCharacteristics
+	*			and the TileSet used
+	*/
 	class TextureCharacteristics
 	{
 	public:

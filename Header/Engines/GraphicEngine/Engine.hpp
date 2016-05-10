@@ -1,15 +1,3 @@
-/*!
-* \file		Engine.hpp
-* \brief	The BIG controller of the
-*			graphic part of the program
-*			it provides all methods to
-*			create, drop and update shapes,
-*			sprites and animations
-* \author	Exhidor
-* \version	0.3
-* \date		2016-02-01
-*/
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -23,6 +11,13 @@
 
 namespace GraphicMonsters
 {
+	/*!
+	* \brief	The BIG controller of the
+	*			graphic part of the program
+	*			it provides all methods to
+	*			create, drop and update shapes,
+	*			sprites and animations
+	*/
 	class Engine : public sf::Drawable
 	{
 	public:
@@ -33,6 +28,7 @@ namespace GraphicMonsters
 		void init();
 
 		void openWindow(std::string const& title);
+
 		void closeWindow();
 
 		void setFrameRate(float framePerSecond);

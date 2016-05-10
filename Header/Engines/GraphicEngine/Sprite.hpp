@@ -1,13 +1,3 @@
-/*!
-* \file		Sprite.hpp
-* \brief	A unique texture symbolize by a QuadVertices
-*			It provides transformation like rotation
-*			or translation
-* \author	Exhidor
-* \version	1.6
-* \date		2016-02-01
-*/
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -19,6 +9,11 @@
 
 namespace GraphicMonsters
 {
+	/*!
+	* \brief	A unique texture symbolize by a QuadVertices
+	*			It provides transformation like rotation
+	*			or translation
+	*/
 	class Sprite : public Drawable
 	{
 	public:

@@ -1,12 +1,3 @@
-/*!
-* \file		EmptyBoxVertices.hpp
-* \brief	A rectangle represented only
-*			by lines for its edges.
-* \author	Exhidor
-* \version	0.1
-* \date		2016-03-02
-*/
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -16,6 +7,10 @@
 
 namespace GraphicMonsters
 {
+	/*!
+	* \brief	A rectangle represented only
+	*			by lines for its edges.
+	*/
 	class EmptyBoxVertices : public TextureVertices
 	{
 	public:

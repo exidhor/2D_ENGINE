@@ -1,13 +1,3 @@
-/*!
-* \file		RessourceManager.hpp
-* \brief	Manage the ressources to
-*			avoid useless copy of elements
-*			and minimize memory use
-* \author	Exhidor
-* \version	0.1
-* \date		2016-02-01
-*/
-
 #pragma once
 #include <map>
 #include <vector>
@@ -19,6 +9,11 @@
 
 namespace GraphicMonsters
 {
+	/*!
+	* \brief	Manage the ressources to
+	*			avoid useless copy of elements
+	*			and minimize memory use.
+	*/
 	class RessourceManager
 	{
 	public:

@@ -2,7 +2,7 @@
 #include "Engines/PhysicEngine/Geometry.hpp"
 
 /*
-* \brief	TODO
+* \brief	TODO (manage the collision bounds of an entity)
 */
 class CollisionBox
 {

@@ -1,11 +1,3 @@
-/*!
-* \file		Vector2f.hpp
-* \brief	store 2 floats
-* \author	Exhidor
-* \version	0.1
-* \date		2016-02-10
-*/
-
 #pragma once
 
 #define Vector2f Vector2<float>
@@ -13,6 +5,10 @@
 #define Vector2u Vector2<unsigned int>
 #define Vector2d Vector2<double>
 #define Vector2l Vector2<long>
+
+/*!
+* \brief	store 2 floats
+*/
 
 template < typename T >
 class Vector2

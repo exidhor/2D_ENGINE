@@ -1,13 +1,3 @@
-/*!
-* \file		Drawable.hpp
-* \brief	An object with a shape and 
-*			a texture/color which can
-*			be drawn
-* \author	Exhidor
-* \version	0.1
-* \date		2016-03-02
-*/
-
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Utilities/Vector2.hpp"
@@ -18,6 +8,11 @@
 
 namespace GraphicMonsters
 {
+	/*
+	* \brief	An object with a shape and
+	*			a texture/color which can
+	*			be drawn
+	*/
 	class Drawable
 	{
 	public:
