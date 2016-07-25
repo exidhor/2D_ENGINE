@@ -49,3 +49,6 @@ client/bin
 *.sln
 *.psess
 *.vsp
+
+# CLION
+.idea
