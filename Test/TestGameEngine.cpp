@@ -1,6 +1,6 @@
 #include <thread>
 #include <chrono>
-#include <vld.h>
+//#include <vld.h>
 #include "Engines/GameEngine.hpp"
 
 int main()
