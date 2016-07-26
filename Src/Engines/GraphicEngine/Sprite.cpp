@@ -1,5 +1,11 @@
 #include "Engines/GraphicEngine/Sprite.hpp"
 
+
+/*
+ * \brief   Construct a Sprite.
+ * \param   textureCharacteristics : The model for the sprite construction.
+ * \param   layerLevel : the level of display.
+*/
 GraphicMonsters::Sprite::Sprite(TextureCharacteristics* textureCharacteristics,
 					unsigned int layerLevel)
 {
@@ -19,6 +25,12 @@ GraphicMonsters::Sprite::Sprite(TextureCharacteristics* textureCharacteristics,
 
 }
 
+
+
+/*
+* \brief   Copy a sprite.
+* \param   sprite : the sprite to copy.
+*/
 GraphicMonsters::Sprite::Sprite(GraphicMonsters::Sprite const& sprite)
 	: Drawable(sprite)
 {
@@ -32,7 +44,12 @@ GraphicMonsters::Sprite::~Sprite()
 
 // -------------- animations ---------------------------------
 
-bool GraphicMonsters::Sprite::actualize(double timeSpent)
+
+/*
+* \brief   Actualize the sprite.
+* \param   sprite : the sprite to copy.
+*/
+bool GraphicMonsters::Sprite::actualize(double deltaTime)
 {
 	/*
 	sf::Transform transform2;
@@ -57,6 +74,7 @@ bool GraphicMonsters::Sprite::actualize(double timeSpent)
 	return false;
 }
 
+// -----------------[DEPRECATED]------------------------------
 // -------------- transformation  ----------------------------
 
 void GraphicMonsters::Sprite::setRotationByTime(float speedPerSecond, double timeUntilTheEnd)

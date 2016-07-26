@@ -20,7 +20,7 @@ int main()
 	}
 
 	// ajout dans le moteur des caracteristiques
-	graphicEngine.addTextureCharacteristics(
+	graphicEngine.addTileCharacteristics(
 		nomCleAnimation,
 		"test",
 		tailleTuile,

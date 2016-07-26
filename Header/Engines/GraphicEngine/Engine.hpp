@@ -34,46 +34,44 @@ namespace GraphicMonsters
 		void setFrameRate(float framePerSecond);
 
 		// creation
-		void addTileset(
-			std::string const& key, 
-			std::string const& path,
-			unsigned int maxSizeArray,
-			unsigned int numberOfLayer);
+		void addTileset(std::string const& tilesetKey, 
+						std::string const& path,
+						unsigned int maxSizeArray,
+						unsigned int numberOfLayer);
 
-		void addTextureCharacteristics(
-			std::string const& spriteKey,
-			std::string const& tilesetKey,
-			Vector2f const& tileSize,
-			std::vector <Vector2f> texturePoints,
-			double timePerFrame);
+		void addTileCharacteristics(std::string const& spriteKey,
+									std::string const& tilesetKey,
+									Vector2f const& tileSize,
+									std::vector <Vector2f> texturePoints,
+									double timePerFrame);
 
-		void addTextureCharacteristics(
-			std::string const& spriteKey,
-			std::string const& tilesetKey,
-			Vector2f const& tileSize,
-			Vector2f const& oneTexturePoint);
+		void addTileCharacteristics(std::string const& spriteKey,
+									std::string const& tilesetKey,
+									Vector2f const& tileSize,
+									Vector2f const& oneTexturePoint);
 
-		void addSprite(
-			std::string const& key,
-			unsigned int layerLevel,
-			unsigned int numberOfElements = 1);
+		void addSprite(std::string const& spriteKey,
+					   unsigned int layerLevel,
+					   unsigned int numberOfElements = 1);
 
-		void addAnimation(
-			std::string const& key,
-			unsigned int layerLevel,
-			unsigned int numberOfElements = 1);
+		void addAnimation(std::string const& spriteKey,
+						  unsigned int layerLevel,
+						  unsigned int numberOfElements = 1);
 
 		// ressources gestion
-		Sprite*				getFreeSprite(std::string const& key);
-		Sprite*				getSpecificSprite(std::string const& key, unsigned int id);
-		void				freeSpecificSprite(std::string const& key, unsigned int id);
-		RessourceManager *	getResourceManager();
+		Sprite*				getFreeSprite(std::string const& spriteKey);
+
+		Sprite*				getSpecificSprite(std::string const& spriteKey, 
+											  unsigned int id);
+
+		void				releaseSpecificSprite(std::string const& spriteKey, 
+											   unsigned int id);
 
 		void				run(int framePerSecond);
 		
 
 	private:
-		void				update(double time);
+        void				update(double delaTime);
 		virtual void		draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 		TilesetsDisplayer*	m_tilesetDisplayer;

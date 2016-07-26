@@ -22,7 +22,7 @@ namespace GraphicMonsters
 		virtual void addToTileset();
 
 		// managing of the animation
-		virtual bool actualize(double timeSpent);
+		virtual bool actualize(double deltaTime);
 		virtual void goToLine(unsigned int indexLine);
 		virtual bool goToTheNextLine();
 

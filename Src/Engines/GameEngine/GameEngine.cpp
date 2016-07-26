@@ -49,7 +49,7 @@ bool GameEngine::construct() // tmp for test
 		}
 
 		// ajout dans le moteur des caracteristiques
-		m_graphicEngine.addTextureCharacteristics(
+		m_graphicEngine.addTileCharacteristics(
 			nomCleAnimation,
 			"test",
 			tailleTuile,

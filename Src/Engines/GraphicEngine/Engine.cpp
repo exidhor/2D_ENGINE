@@ -128,66 +128,74 @@ void GraphicMonsters::Engine::run(int framePerSecond)
 
 /*
 * \brief	Create and store a tileset in the tilesetManager.
-* \param	key : the key of the new tileset 
+* \param	tilesetKey : the key of the new tileset 
 */
-void GraphicMonsters::Engine::addTileset(std::string const& key, std::string const& path)
+void GraphicMonsters::Engine::addTileset(std::string const& tilesetKey, 
+										 std::string const& path)
 {
-	if (!m_tilesetManager->addTileset(key, path))
+	if (!m_tilesetManager->addTileset(tilesetKey, path))
 	{
 		std::cerr << "ERROR during the loading of the texture\n"
-			<< "\tkey :\t" << key
+			<< "\tkey :\t" << tilesetKey
 			<< "\tpath :\t" << path << std::endl;
 	}
 	else
 	{
-		//m_ressourceManager->createKey(key); duplicate keys with the createkey from the addTileCharacteristics(...) method
-		m_tilesetDisplayer->addTileset(m_tilesetManager->getTileset(key));
+		//m_ressourceManager->createKey(tilesetKey); duplicate keys with the createkey from the addTileCharacteristics(...) method
+		m_tilesetDisplayer->addTileset(m_tilesetManager->getTileset(tilesetKey));
 	}
 }
 
 /*
 * \brief	Load the tileset in the tileset manager.
-* \param	key : the key of the tileset we want to load.
+* \param	tilesetKey : the key of the tileset we want to load.
 * \param	maxSizeArray : the size of elements we want to allocate per layer
 * \param	numberOfLayer : the number of layer we want.
 */
-void GraphicMonsters::Engine::initTilesetLayers(std::string const& key,
+void GraphicMonsters::Engine::initTilesetLayers(std::string const& tilesetKey,
 												unsigned int maxSizeArray,
 												unsigned int numberOfLayer)
 {
-	m_tilesetManager->loadTileset(key, maxSizeArray, numberOfLayer);
+	m_tilesetManager->loadTileset(tilesetKey, maxSizeArray, numberOfLayer);
 }
 
 /*
 * \brief	Add a tileset to the tileset manager and init it.
-* \param	key : the key of the tileset we want to add.
+* \param	tilesetKey : the key of the tileset we want to add.
 * \param	path : the path of the texture.
 * \param	maxSizeArray : the size of elements we want to allocate per layer.
 * \param	numberOfLayer : the number of layer we want.
 */
-void GraphicMonsters::Engine::addTileset(std::string const& key, 
+void GraphicMonsters::Engine::addTileset(std::string const& tilesetKey, 
 										 std::string const& path,
 										 unsigned int maxSizeArray,
 										 unsigned int numberOfLayer)
 {
-	addTileset(key, path);
-	initTilesetLayers(key, maxSizeArray, numberOfLayer);
+	addTileset(tilesetKey, path);
+	initTilesetLayers(tilesetKey, maxSizeArray, numberOfLayer);
 }
 
 /*
-* \brief	Add a texturechara
+* \brief	Add a tileCharacteristics to a textureCharacteristics.
+*			If the spriteKey is associate with any textureCharacteristics,
+*			it creates a new one.
+* \param	spriteKey : the key of the textureCharacteristics.
+* \param	tilesetKey : the key of an existing tileset.
+* \param	tileSize : the size of the sprite.
+* \param	texturePoints : the left-top corner of the tiles.
+* \param	timePerframe : the time between each texture.
 */
 void GraphicMonsters::Engine::addTileCharacteristics(std::string const& spriteKey,
-														std::string const& tilesetKey,
-														Vector2f const& tileSize,
-														std::vector <Vector2f> texturePoints,
-														double timePerFrame)
+													 std::string const& tilesetKey,
+													 Vector2f const& tileSize,
+													 std::vector <Vector2f> texturePoints,
+													 double timePerFrame)
 {
 	if (!m_textureCharactertisticsManager->addTileCharacteristics(spriteKey,
-																	 tileSize,
-																	 texturePoints,
-																	 timePerFrame,
-																	 m_tilesetManager->getTileset(tilesetKey)))
+																 tileSize,
+																 texturePoints,
+																 timePerFrame,
+																 m_tilesetManager->getTileset(tilesetKey)))
 	{
 		if (m_ressourceManager->createKey(spriteKey))
 		{
@@ -198,20 +206,24 @@ void GraphicMonsters::Engine::addTileCharacteristics(std::string const& spriteKe
 }
 
 /*
-* \brief TODO
+* \brief	Add a tileCharacteristics with a unique tile (not animated)
+			to a textureCharacteristics.
+*			If the spriteKey is associate with any textureCharacteristics,
+*			it creates a new one.
+* \param	spriteKey : the key of the textureCharacteristics.
+* \param	tilesetKey : the key of an existing tileset.
+* \param	tileSize : the size of the sprite.
+* \param	oneTexturePoint : the left-top corner of the tile.
 */
-void GraphicMonsters::Engine::addTileCharacteristics(
-	std::string const& spriteKey,
-	std::string const& tilesetKey,
-	Vector2f const& tileSize,
-	Vector2f const& oneTexturePoint)
+void GraphicMonsters::Engine::addTileCharacteristics(std::string const& spriteKey,
+													 std::string const& tilesetKey,
+													 Vector2f const& tileSize,
+													 Vector2f const& oneTexturePoint)
 {
-	if (!m_textureCharactertisticsManager->addTileCharacteristics(
-											spriteKey,
-											tileSize,
-											oneTexturePoint,
-											m_tilesetManager->getTileset(tilesetKey)
-											))
+	if (!m_textureCharactertisticsManager->addTileCharacteristics(spriteKey,
+																  tileSize,
+																  oneTexturePoint,
+																  m_tilesetManager->getTileset(tilesetKey)))
 	{
 		if (m_ressourceManager->createKey(spriteKey))
 		{
@@ -222,56 +234,71 @@ void GraphicMonsters::Engine::addTileCharacteristics(
 }
 
 /*
-* \brief TODO
+* \brief	Add a Sprite array (i.e. not animated) to the RessourceManager.
+*			This prepare n sprites by allocate and configure them.
+* \param	spriteKey : the key of the sprite, it needs to match with an 
+*			existing TextureCharacteristics.
+* \param	layerLevel : the level of display.
+* \param	numberOfElements : the number of elements we want to prepare.
+*			(this param can be used to avoid dynamic memory allocation)
 */
-void GraphicMonsters::Engine::addSprite(std::string const& key,
-	unsigned int layerLevel,
-	unsigned int numberOfElements)
+void GraphicMonsters::Engine::addSprite(std::string const& spriteKey,
+										unsigned int layerLevel,
+										unsigned int numberOfElements)
 {
 	for (unsigned int i = 0; i < numberOfElements; i++)
 	{
-		m_ressourceManager->createSprite(
-			key,
-			m_textureCharactertisticsManager->getTextureCharacteristics(key),
-			layerLevel
-			);
+		m_ressourceManager->createSprite(spriteKey,
+                                         m_textureCharactertisticsManager->getTextureCharacteristics(spriteKey),
+										 layerLevel);
 	}
 }
 
 /*
-* \brief TODO
+* \brief	Add an Animation array to the RessourceManager.
+*			This prepare n animations by allocate and configure them.
+* \param	spriteKey : the key of the animation, it needs to match with an
+*			existing TextureCharacteristics.
+* \param	layerLevel : the level of display.
+* \param	numberOfElements : the number of elements we want to prepare.
+*			(this param can be used to avoid dynamic memory allocation)
 */
-void GraphicMonsters::Engine::addAnimation(std::string const& key,
-	unsigned int layerLevel,
-	unsigned int numberOfElements)
+void GraphicMonsters::Engine::addAnimation(std::string const& spriteKey,
+										   unsigned int layerLevel,
+										   unsigned int numberOfElements)
 {
 	for (unsigned int i = 0; i < numberOfElements; i++)
 	{
-		m_ressourceManager->createAnimation(
-			key,
-			m_textureCharactertisticsManager->getTextureCharacteristics(key),
-			layerLevel
-			);
+		m_ressourceManager->createAnimation(spriteKey,
+		                                    m_textureCharactertisticsManager->getTextureCharacteristics(spriteKey),
+			                                layerLevel);
 	}
 }
 
 /*
-* \brief TODO
+* \brief    Get an inactive instance of a Sprite/Animation. If no one
+            is free, it resize the array and creates new instances.
+* \param    spriteKey : the key of the Sprite/Animation.
 */
-GraphicMonsters::Sprite* GraphicMonsters::Engine::getFreeSprite(std::string const& key)
+GraphicMonsters::Sprite* GraphicMonsters::Engine::getFreeSprite(std::string const& spriteKey)
 {
-	return m_ressourceManager->getFreeSprite(key);
+	return m_ressourceManager->getFreeSprite(spriteKey);
 }
 
 /*
-* \brief TODO
+ * \brief   Free a specific Sprite/Animation by setting isActive to false.
+ *          (it means that the memory is not really released and the object
+ *          can be used again).
+ * \param   spriteKey : the key of the Sprite/Animation
+ * \param   id : the index of the instance which will be released in the array.
 */
-void GraphicMonsters::Engine::freeSpecificSprite(std::string const& key, unsigned int id)
+void GraphicMonsters::Engine::releaseSpecificSprite(std::string const& spriteKey, 
+                                                 unsigned int id)
 {
-	if (!m_ressourceManager->freeSpecificSprite(key, id))
+	if (!m_ressourceManager->releaseSpecificSprite(spriteKey, id))
 	{
 		std::cerr << "ERROR during the freeing of the sprite\n"
-			<< "\tkey :\t" << key
+			<< "\tkey :\t" << spriteKey
 			<< "\tid :\t" << id << std::endl;
 	}
 }
@@ -279,26 +306,23 @@ void GraphicMonsters::Engine::freeSpecificSprite(std::string const& key, unsigne
 // -------------- animation gestion during the game ---------------------------------
 
 /*
-* \brief TODO
+* \brief    Update animations and transformation with the delaTime.
+* \param    deltaTime : the time since the last update.           
 */
-void GraphicMonsters::Engine::update(double time)
+void GraphicMonsters::Engine::update(double delaTime)
 {
 	m_tilesetManager->clearAllTilesets();
-	m_ressourceManager->updateAnimations(time);
+    m_ressourceManager->updateAnimations(delaTime);
 	m_tilesetManager->assembleContinousArrays();
 }
 
 /*
-* \brief TODO
+ * \brief   [INHERITED] Display all the elements. Calls a SFML draw for each Tileset. 
+ *          I bet this is a little bit more efficient than call a traditional draw method.
+ * \param   target : the sfml parameter to draw
+ * \param   state : the sfml parameter to draw
 */
 void GraphicMonsters::Engine::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	m_tilesetDisplayer->draw(target, states);
-}
-
-/*
-* \brief TODO
-*/
-GraphicMonsters::RessourceManager * GraphicMonsters::Engine::getResourceManager() {
-	return m_ressourceManager;
 }

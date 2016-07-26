@@ -124,6 +124,9 @@ void GraphicMonsters::Tileset::clearLayer(unsigned int layerLevel)
 	}
 }
 
+/*
+ * \brief   [DEPRECATED] now use the other draw method
+*/
 void GraphicMonsters::Tileset::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	if (m_isContinous)

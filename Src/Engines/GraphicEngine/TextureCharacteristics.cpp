@@ -1,9 +1,14 @@
 #include "Engines/GraphicEngine/TextureCharacteristics.hpp"
 
-//Constructor
-GraphicMonsters::TextureCharacteristics::TextureCharacteristics(
-		std::vector <GraphicMonsters::TilesCharacteristics*> targetTilesCharacteristics,
-		GraphicMonsters::Tileset* targetTileset)
+/*
+ * \brief   Construct a TextureCharacteristics from a
+ *          TilesCharacteristics array.
+ * \param   targetTilesCharacteristics : the array of   
+ *          TileCharacteristics.
+ * \param   targetTileset : 
+*/
+GraphicMonsters::TextureCharacteristics::TextureCharacteristics(std::vector <GraphicMonsters::TilesCharacteristics*> targetTilesCharacteristics,
+		                                                        GraphicMonsters::Tileset* targetTileset)
 {
 	m_arrayOfTileCharacteristic = targetTilesCharacteristics;
 	m_tileset = targetTileset;

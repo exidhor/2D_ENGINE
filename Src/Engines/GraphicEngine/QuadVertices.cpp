@@ -52,25 +52,13 @@ GraphicMonsters::QuadVertices::QuadVertices(TextureVertices const& textureVertic
 GraphicMonsters::QuadVertices::QuadVertices(GraphicMonsters::QuadVertices const& quadVertices)	
 	: TextureVertices(quadVertices)
 {
-	m_vertices[0].position.x = quadVertices.m_vertices[0].position.x;
-	m_vertices[0].position.y = quadVertices.m_vertices[0].position.y;
-	m_vertices[0].texCoords.x = quadVertices.m_vertices[0].texCoords.x;
-	m_vertices[0].texCoords.y = quadVertices.m_vertices[0].texCoords.y;
-
-	m_vertices[1].position.x = quadVertices.m_vertices[1].position.x;
-	m_vertices[1].position.y = quadVertices.m_vertices[1].position.y;
-	m_vertices[1].texCoords.x = quadVertices.m_vertices[1].texCoords.x;
-	m_vertices[1].texCoords.y = quadVertices.m_vertices[1].texCoords.y;
-
-	m_vertices[2].position.x = quadVertices.m_vertices[2].position.x;
-	m_vertices[2].position.y = quadVertices.m_vertices[2].position.y;
-	m_vertices[2].texCoords.x = quadVertices.m_vertices[2].texCoords.x;
-	m_vertices[2].texCoords.y = quadVertices.m_vertices[2].texCoords.y;
-
-	m_vertices[3].position.x = quadVertices.m_vertices[3].position.x;
-	m_vertices[3].position.y = quadVertices.m_vertices[3].position.y;
-	m_vertices[3].texCoords.x = quadVertices.m_vertices[3].texCoords.x;
-	m_vertices[3].texCoords.y = quadVertices.m_vertices[3].texCoords.y;
+    for (int i = 0; i < 4; i++)
+    {
+        m_vertices[i].position.x = quadVertices.m_vertices[i].position.x;
+        m_vertices[i].position.y = quadVertices.m_vertices[i].position.y;
+        m_vertices[i].texCoords.x = quadVertices.m_vertices[0].texCoords.x;
+        m_vertices[i].texCoords.y = quadVertices.m_vertices[i].texCoords.y;
+    }
 }
 
 

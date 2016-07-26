@@ -21,35 +21,33 @@ namespace GraphicMonsters
 		~RessourceManager();
 
 		//create methods
-		bool	createKey(std::string const& key);
+        bool	createKey(std::string const& spriteKey);
 		
-		bool	createSprite(
-					std::string const& key,
-					TextureCharacteristics* animationCharacteristic,
-					unsigned int layerLevel,
-					unsigned int numberOfElements = 1);
+		bool	createSprite(std::string const& spriteKey,
+					         TextureCharacteristics* animationCharacteristic,
+					         unsigned int layerLevel,
+					         unsigned int numberOfElements = 1);
 		
-		bool	createAnimation(
-					std::string const& key,
-					TextureCharacteristics* animationCharacteristic,
-					unsigned int layerLevel,
-					unsigned int numberOfElements = 1);
+		bool	createAnimation(std::string const& spriteKey,
+					            TextureCharacteristics* animationCharacteristic,
+					            unsigned int layerLevel,
+					            unsigned int numberOfElements = 1);
 
 		// get a free sprite
-		Sprite* getFreeSprite(std::string const& key);
+        Sprite* getFreeSprite(std::string const& spriteKey);
 
 		// get a specific sprite
-		Sprite* getSpecificSprite(std::string const& key, unsigned int id);
+        Sprite* getSpecificSprite(std::string const& spriteKey, unsigned int id);
 
 		// free a ressource
-		bool	freeSpecificSprite(std::string const& key, unsigned int id);
+        bool	releaseSpecificSprite(std::string const& spriteKey, unsigned int id);
 
 		// time gestion
-		void	updateAnimations(double time);
+        void	updateAnimations(double delaTime);
 
 	private:
 		std::map <std::string, std::vector <Ressource> >::iterator
-			getIterator(std::string const& key);
+            getIterator(std::string const& keySprite);
 
 		std::map 
 			< std::string, std::vector < Ressource > >::iterator	m_ressourceArrayIndex;

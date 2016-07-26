@@ -43,7 +43,7 @@ namespace GraphicMonsters
 		void			assembleContinousArray();
 
 		virtual void	draw(sf::RenderTarget& target,
-							sf::RenderStates states) const;
+						     sf::RenderStates states) const;
 
 		void setTemporary(bool state);
 

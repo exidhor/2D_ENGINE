@@ -25,7 +25,7 @@ namespace GraphicMonsters
 		virtual ~Sprite();
 
 		// method to provid a efficient polymorphism 
-		virtual bool actualize(double timeSpent);
+        virtual bool actualize(double deltaTime);
 
 		// transformation
 		void setRotationByTime(float speedPerSecond, double timeUntilTheEnd);

@@ -22,7 +22,7 @@ AssociativeArray<T>::~AssociativeArray()
 {
 	m_container.clear();
 	m_keys.clear();
-	m_emptyLocations.clear();
+    m_emptyLocations.clear();
 }
 
 template < typename T >

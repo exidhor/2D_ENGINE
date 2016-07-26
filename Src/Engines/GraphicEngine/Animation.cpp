@@ -59,16 +59,16 @@ GraphicMonsters::Animation::~Animation()
 *			change texture, if needed.
 *			Stop animation if it's finished.
 *			Update transformations if needed.
-* \param	timeSpend time of the current turn loop.
+* \param	deltaTime : time of the current turn loop.
 * \return	true if the animation is finished.
 */
-bool GraphicMonsters::Animation::actualize(double timeSpent)
+bool GraphicMonsters::Animation::actualize(double deltaTime)
 {
-	GraphicMonsters::Sprite::actualize(timeSpent);
+    GraphicMonsters::Sprite::actualize(deltaTime);
 
 	if (m_isOn)
 	{
-		if (m_timer.removeTime(timeSpent))
+        if (m_timer.removeTime(deltaTime))
 		{
 			if (increaseAnimationIndex())
 			{
