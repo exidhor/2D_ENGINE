@@ -10,9 +10,6 @@ cmake_minimum_required(VERSION 3.1)
 # -DBUILD_ENGINE  to enable the build of engines dll
 set (CMAKE_CXX_FLAGS "-Wall -std=c++11 -pthread -g -DENGINE_SHARED -DMOD_SHARED")
 
-# SFML PATH
-set(SFML_PATH "E:/Libraries/SFML-2.3.2/")
-
 # Engine include directory
 include_directories(
         "${CMAKE_SOURCE_DIR}/include/Engines/GameEngine"

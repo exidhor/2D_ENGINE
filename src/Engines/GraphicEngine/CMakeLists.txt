@@ -10,9 +10,6 @@ cmake_minimum_required(VERSION 3.1)
 # -DBUILD_ENGINE  to enable the build of engines dll
 set (CMAKE_CXX_FLAGS "-Wall -std=c++11 -g -DENGINE_SHARED -DBUILD_ENGINE -DMOD_SHARED")
 
-# SFML PATH
-set(SFML_PATH "E:/Libraries/SFML-2.3.2/")
-
 # Engine include directory
 include_directories(
         "${CMAKE_SOURCE_DIR}/include/Engines/GraphicEngine"
@@ -58,6 +55,7 @@ set(HEADER_FILES
         "${HEADER_PATH}/Engine.hpp"
         "${HEADER_PATH}/QuadVertices.hpp"
         "${HEADER_PATH}/RectangleShape.hpp"
+        "${HEADER_PATH}/Ressource.hpp"
         "${HEADER_PATH}/RessourceManager.hpp"
         "${HEADER_PATH}/RotationTransformation.hpp"
         "${HEADER_PATH}/Sprite.hpp"

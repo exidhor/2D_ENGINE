@@ -8,7 +8,7 @@ int main()
 	moteurGraphique.init();
 
 	// creation du TileSet et initialisation
-	moteurGraphique.addTileSet("test", "res/tileTest.png", 1000, 1);
+	moteurGraphique.addTileSet("Test", "res/tileTest.png", 1000, 1);
 
 	std::string nomCleAnimation("vieuxJaune");
 	Vector2f tailleTuile(32, 48);
@@ -28,7 +28,7 @@ int main()
 		// ajout dans le moteur des caracteristiques
 		moteurGraphique.addTextureCharacteristics(
 			nomCleAnimation,
-			"test",
+			"Test",
 			tailleTuile,
 			texturePoints,
 			0.25);
@@ -38,7 +38,7 @@ int main()
 	moteurGraphique.addAnimation(nomCleAnimation, 0, 1);
 
 	// creation de la fenetre
-	moteurGraphique.openWindow("test du Graphic Engine !!!");
+	moteurGraphique.openWindow("Test du Graphic Engine !!!");
 
 	// pour les animations dans le temps
 	//sf::Clock clock;

@@ -20,7 +20,7 @@ GameEngine::~GameEngine()
 * \brief	Construct the gameEngine and the
 *			graphicEngine.	
 */
-bool GameEngine::construct() // tmp for test
+bool GameEngine::construct() // tmp for Test
 {
 	
 	m_graphicEngine.init(); // dynamic allocations
@@ -31,7 +31,7 @@ bool GameEngine::construct() // tmp for test
 			// temporary : to remplace by a ressource loader
 
 	// creation du Tileset et initialisation
-	m_graphicEngine.addTileset("test", "res/tileTest.png", numberOfElements, 1);
+	m_graphicEngine.addTileset("Test", "res/tileTest.png", numberOfElements, 1);
 
 	std::string nomCleAnimation("vieuxJaune");
 	Vector2f tailleTuile(32, 48);
@@ -51,7 +51,7 @@ bool GameEngine::construct() // tmp for test
 		// ajout dans le moteur des caracteristiques
 		m_graphicEngine.addTileCharacteristics(
 			nomCleAnimation,
-			"test",
+			"Test",
 			tailleTuile,
 			texturePoints,
 			0.25);
@@ -79,7 +79,7 @@ bool GameEngine::construct() // tmp for test
 */
 void GameEngine::startGraphicEngine(float framePerSecond)
 {
-	m_graphicEngine.openWindow("test GraphicMonsters Engine");
+	m_graphicEngine.openWindow("Test GraphicMonsters Engine");
 	m_threadGraphic = new std::thread(&GraphicMonsters::Engine::run, &m_graphicEngine, framePerSecond);
 	m_threadGraphic->detach();
 }

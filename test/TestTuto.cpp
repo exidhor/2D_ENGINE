@@ -8,7 +8,7 @@ int main()
 
 	int numberOfElements = 1000;
 
-	graphicEngine.addTileset("test", "res/tileTest.png", numberOfElements, 2);
+	graphicEngine.addTileset("Test", "res/tileTest.png", numberOfElements, 2);
 
 	std::string nomCleAnimation("vieuxJaune");
 	Vector2f tailleTuile(32, 48);
@@ -22,7 +22,7 @@ int main()
 	// ajout dans le moteur des caracteristiques
 	graphicEngine.addTileCharacteristics(
 		nomCleAnimation,
-		"test",
+		"Test",
 		tailleTuile,
 		texturePoints,
 		0.25);

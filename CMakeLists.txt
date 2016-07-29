@@ -14,8 +14,10 @@ message(STATUS "WINDFALL ENGINE ${ENGINE_VERSION_MAJOR}.${ENGINE_VERSION_MINOR}.
 # Compilation Flag
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11 -g")
 
-# Required for Google test
-add_definitions(-std=gnu++0x)
+# Getting properties
+# -> SFML_PATH
+file(STRINGS "CMakeConfig.txt" SFML_PATH)
+message(STATUS ${SFML_PATH})
 
 # include search path
 include_directories(include)
@@ -23,5 +25,8 @@ include_directories(include)
 # Adding sub directories
 # Sources directories
 add_subdirectory(src)
+
+# Adding sub Test
+add_subdirectory(test)
 
 

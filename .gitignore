@@ -1,8 +1,6 @@
 # Unix
 *.sh
 *.out
-serveur/bin
-client/bin
 
 # Compiled Object files
 *.slo
@@ -52,4 +50,7 @@ client/bin
 
 # CLION
 .idea
-Bin
+bin
+lib
+test/lib
+CMakeConfig.txt
