@@ -8,13 +8,12 @@ add_definitions(-std=gnu++0x)
 
 # gtest directory
 include_directories(
-        "${gtest_SOURCE_DIR}/include"
-        "${gtest_SOURCE_DIR}"
+        "${CMAKE_SOURCE_DIR}/include/Extern"
         "${SFML_PATH}/include")
 
 # Set output dir
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/Test")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
 
 # Creating unit Test executable
 add_executable(graphicEngineUnitTest
@@ -22,6 +21,6 @@ add_executable(graphicEngineUnitTest
 
 # Linking libraries
 target_link_libraries(graphicEngineUnitTest
-        gtest
-        gtest_main
-        "${SFML_PATH}/lib/libsfml-graphics-d.a")
+        "${CMAKE_SOURCE_DIR}/lib/Test/libgtest.a"
+        "${CMAKE_SOURCE_DIR}/lib/Test/libgtest_main.a"
+        "${CMAKE_SOURCE_DIR}/lib/Engines/libgraphic.dll.a")

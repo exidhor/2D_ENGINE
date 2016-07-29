@@ -8,7 +8,7 @@
  */
 
 // Header
-#include "gtest/gtest.h"
+#include "GTest/gtest.h"
 #include "Engines/GraphicEngine/TileSet.hpp"
 
 class TileSetFixture : public ::testing::Test {

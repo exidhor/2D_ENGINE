@@ -52,5 +52,5 @@
 .idea
 bin
 lib
-test/lib
 CMakeConfig.txt
+include/Extern
