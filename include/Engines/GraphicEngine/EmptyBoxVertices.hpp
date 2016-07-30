@@ -12,6 +12,8 @@ namespace GraphicMonsters
 	* \brief	A rectangle represented only
 	*			by lines for its edges.
 	*/
+
+    /*  -- TODO : REWORK Shape
 	class GRAPHIC_API EmptyBoxVertices : public TextureVertices
 	{
 	public:
@@ -33,4 +35,5 @@ namespace GraphicMonsters
 		// 8 because it's 2 for each edge
 		sf::Vertex		m_vertices[8];
 	};
+     */
 }

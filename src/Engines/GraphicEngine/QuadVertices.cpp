@@ -32,7 +32,7 @@ GraphicMonsters::QuadVertices::QuadVertices(sf::FloatRect const& textureBounds)
 			sf::Vector2f(textureBounds.left, textureBounds.top + textureBounds.height)
 	);
 
-	computeGlobalBounds();
+	//computeGlobalBounds(); TODO : REWORK Transformation
 }
 
 GraphicMonsters::QuadVertices::QuadVertices(TextureVertices const& textureVertices)
@@ -104,6 +104,7 @@ void GraphicMonsters::QuadVertices::setTexture(Vector2f const& newCoordTexture)
 * \brief calculate the global bounds (i.e. the rectangle circumscribes the  
 * \brief m_vertices transformed, parallel to the abscissa and ordinate)
 */
+/* TODO : REWORK Transformation
 void GraphicMonsters::QuadVertices::computeGlobalBounds()
 {
 	float left = m_vertices[0].position.x;
@@ -138,6 +139,7 @@ void GraphicMonsters::QuadVertices::computeGlobalBounds()
 
 	globalBoundsIsComputed();
 }
+ */
 
 sf::Vertex* GraphicMonsters::QuadVertices::getVerticesArray()
 {

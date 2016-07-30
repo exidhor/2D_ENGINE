@@ -23,24 +23,26 @@ GraphicMonsters::Drawable::Drawable()
 */
 GraphicMonsters::Drawable::Drawable(Drawable const& drawableObject)
 {
-	// construct the good GraphicMonsters::TextureVertices
-	if (drawableObject.m_vertices->isEmptyBoxVertices())
-	{
-		m_vertices = new EmptyBoxVertices(*drawableObject.m_vertices);
-	}
+	// construct the good GraphicMonsters::TextureVertices -- TODO : REWORK Shape
+	//if (drawableObject.m_vertices->isEmptyBoxVertices())
+	//{
+	//	m_vertices = new EmptyBoxVertices(*drawableObject.m_vertices);
+	//}
 
-	if (drawableObject.m_vertices->isQuadVertices())
-	{
-		m_vertices = new QuadVertices(*drawableObject.m_vertices);
-	}
-	else
-	{
-		std::cerr << "Error while trying to copy a Drawable object : vertices group unknown";
-	}
+	//if (drawableObject.m_vertices->isQuadVertices())
+	//{
+	//	m_vertices = new QuadVertices(*drawableObject.m_vertices);
+	//}
+	//else
+	//{
+	//	std::cerr << "Error while trying to copy a Drawable object : vertices group unknown";
+	//}
+
+    m_vertices = new QuadVertices(*drawableObject.m_vertices);
 
 	m_tileset = drawableObject.m_tileset;
 	m_layerLevelOfDisplay = drawableObject.m_layerLevelOfDisplay;
-	m_originCenteredRelative = drawableObject.m_originCenteredRelative;
+	//m_originCenteredRelative = drawableObject.m_originCenteredRelative;  -- TODO : REWORK Transformation
 
 	// doesn't copy this value
 	m_isHidden = false;
@@ -79,11 +81,12 @@ void GraphicMonsters::Drawable::initVertices(TextureVertices* vertices)
 * \param	abscissa : the abscissa origin.
 * \param	ordinate : the ordinate origin.
 */
+/* -- TODO : REWORK Transformation
 void GraphicMonsters::Drawable::initOriginCenteredRelative(int abscissa, int ordinate)
 {
 	m_originCenteredRelative.x = abscissa;
 	m_originCenteredRelative.y = ordinate;
-}
+}*/
 
 
 /*!
@@ -110,11 +113,13 @@ Vector2f GraphicMonsters::Drawable::getPosition()
 /*!
 * \return	The size of the globalBounds.
 */
+/*  -- TODO : REWORK Transformation
 Vector2f GraphicMonsters::Drawable::getGlobalSize()
 {
 	return Vector2f(m_vertices->getGlobalBounds().width,
 					m_vertices->getGlobalBounds().height);
 }
+ */
 
 /*!
 * \brief	Set the position of the object with
@@ -124,24 +129,23 @@ Vector2f GraphicMonsters::Drawable::getGlobalSize()
 */
 void GraphicMonsters::Drawable::setPosition(Vector2f const position)
 {
-	// TODO : a deplacer dans le PhysicEngine et enlever
-	// la translation
+	//  -- TODO : REWORK Transformation
 
-	Vector2f newOrigin(
-		position.x + m_vertices->getGlobalBounds().width / 2,
-		position.y + m_vertices->getGlobalBounds().height / 2
-		);
+	//Vector2f newOrigin(
+	//	position.x + m_vertices->getGlobalBounds().width / 2,
+	//	position.y + m_vertices->getGlobalBounds().height / 2
+	//	);
 
-	Vector2f offset(
-		newOrigin.x - m_originCenteredRelative.x,
-		newOrigin.y - m_originCenteredRelative.y
-		);
+	//Vector2f offset(
+	//	newOrigin.x - m_originCenteredRelative.x,
+	//	newOrigin.y - m_originCenteredRelative.y
+	//	);
 
-	sf::Transform transform;
-	this->m_vertices->translate(offset, transform);
-	m_vertices->applyTranformation(transform);
+	//sf::Transform transform;
+	//this->m_vertices->translate(offset, transform);
+	//m_vertices->applyTranformation(transform);
 
-	m_originCenteredRelative = newOrigin;
+	//m_originCenteredRelative = newOrigin;
 }
 
 /*!
@@ -187,17 +191,19 @@ void GraphicMonsters::Drawable::setColor(sf::Color const& color)
 */
 void GraphicMonsters::Drawable::move(float offsetX, float offsetY)
 {
-	Vector2f offset(
-		offsetX,
-		offsetY
-		);
+    //  -- TODO : REWORK Transformation
 
-	sf::Transform transform;
-	m_vertices->translate(offset, transform);
-	m_vertices->applyTranformation(transform);
+	//Vector2f offset(
+	//	offsetX,
+	//	offsetY
+	//	);
 
-	m_originCenteredRelative.x += offsetX;
-	m_originCenteredRelative.y += offsetY;
+	//sf::Transform transform;
+	//m_vertices->translate(offset, transform);
+	//m_vertices->applyTranformation(transform);
+
+	//m_originCenteredRelative.x += offsetX;
+	//m_originCenteredRelative.y += offsetY;
 }
 
 /*!

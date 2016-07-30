@@ -3,8 +3,8 @@
 #include <iostream>
 #include "Engines/GraphicEngine/TextureCharacteristics.hpp"
 #include "Engines/GraphicEngine/QuadVertices.hpp"
-#include "Engines/GraphicEngine/RotationTransformation.hpp"
-#include "Engines/GraphicEngine/TranslationTransformation.hpp"
+//#include "Engines/GraphicEngine/RotationTransformation.hpp"  -- TODO : REWORK Transformation
+//#include "Engines/GraphicEngine/TranslationTransformation.hpp"  -- TODO : REWORK Transformation
 #include "Engines/GraphicEngine/Drawable.hpp"
 #include "Engines/Config.hpp"
 
@@ -28,30 +28,30 @@ namespace GraphicMonsters
 		// method to provid a efficient polymorphism 
         virtual bool actualize(double deltaTime);
 
-		// transformation
-		void setRotationByTime(float speedPerSecond, double timeUntilTheEnd);
-		void setRotationByAngle(float speedPerSecond, float newFinalAngle);
-		void setInfiniteRotation(bool state);
-		void startRotation();
-		void stopRotation();
+		// transformation  -- TODO : REWORK Transformation
+		//void setRotationByTime(float speedPerSecond, double timeUntilTheEnd);
+		//void setRotationByAngle(float speedPerSecond, float newFinalAngle);
+		//void setInfiniteRotation(bool state);
+		//void startRotation();
+		//void stopRotation();
 
-		void setTranslationByTargetPoint(
-			double timeUntilTheEnd, 
-			float abscissa,
-			float ordinate);
+		//void setTranslationByTargetPoint(
+		//	double timeUntilTheEnd,
+		//	float abscissa,
+		//	float ordinate);
 
-		void setTranslationBySpeed(
-			double timeUntilTheEnd, 
-			unsigned int pixelPerSecondInAbsciss,
-			unsigned int pixelPerSecondInOrdinate);
+		//void setTranslationBySpeed(
+		//	double timeUntilTheEnd,
+		//	unsigned int pixelPerSecondInAbsciss,
+		//	unsigned int pixelPerSecondInOrdinate);
 
-		void startTranslation();
-		void stopTranslation();
+		//void startTranslation();
+		//void stopTranslation();
 
 		// methods to provide a powerfull polymorphism
 		virtual bool isAnimation();
 		virtual bool isSprite();
-		virtual bool isShape();
+		//virtual bool isShape();  -- TODO : REWORK Shape
 
 		// void method to use animation with polymorphism
 		virtual void goToLine(unsigned int indexLine);
@@ -67,8 +67,8 @@ namespace GraphicMonsters
 	protected:
 		TextureCharacteristics*		m_textureCharacteristics;
 
-		//transformation
-		RotationTransformation		m_rotationManager;
-		TranslationTransformation	m_translationManager;
+		//transformation  -- TODO : REWORK Transformation
+		//RotationTransformation		m_rotationManager;
+		//TranslationTransformation	m_translationManager;
 	};
 }

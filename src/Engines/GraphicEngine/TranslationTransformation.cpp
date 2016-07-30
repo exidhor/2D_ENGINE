@@ -1,5 +1,6 @@
 #include "Engines/GraphicEngine/TranslationTransformation.hpp"
 
+/* TODO : REWORK Transformation
 GraphicMonsters::TranslationTransformation::TranslationTransformation()
 	: m_timer(0)
 {
@@ -98,3 +99,4 @@ bool GraphicMonsters::TranslationTransformation::actualize(
 
 	return false;
 }
+ */

@@ -13,6 +13,8 @@ namespace GraphicMonsters
 	* \brief	[DEPRECATED] Abstract class to
 	*			an eventual future polymorphism
 	*/
+
+	/*  -- TODO : REWORK Transformation
 	class GRAPHIC_API Transformation
 	{
 	public:
@@ -31,4 +33,5 @@ namespace GraphicMonsters
 		bool			m_isInfinite;
 		QuadVertices*	m_quadVertices;
 	};
+	 */
 }

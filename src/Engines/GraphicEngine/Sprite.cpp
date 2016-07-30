@@ -17,8 +17,10 @@ GraphicMonsters::Sprite::Sprite(TextureCharacteristics* textureCharacteristics,
 																textureCharacteristics->getTileSize(0).x,
 																textureCharacteristics->getTileSize(0).y));
 	initVertices(quadVertices);
-	initOriginCenteredRelative(textureCharacteristics->getTileSize(0).x / 2,
-								textureCharacteristics->getTileSize(0).y / 2);
+
+	// TODO : REWORK Transformation
+	//initOriginCenteredRelative(textureCharacteristics->getTileSize(0).x / 2,
+	//							textureCharacteristics->getTileSize(0).y / 2);
 
 	// initialization of the Sprite part
 	m_textureCharacteristics = textureCharacteristics;
@@ -51,7 +53,7 @@ GraphicMonsters::Sprite::~Sprite()
 */
 bool GraphicMonsters::Sprite::actualize(double deltaTime)
 {
-	/*
+	/* TODO : REWORK Transformation
 	sf::Transform transform2;
 
 	m_translationManager.actualize(
@@ -77,6 +79,7 @@ bool GraphicMonsters::Sprite::actualize(double deltaTime)
 // -----------------[DEPRECATED]------------------------------
 // -------------- transformation  ----------------------------
 
+/* TODO : REWORK Transformation
 void GraphicMonsters::Sprite::setRotationByTime(float speedPerSecond, double timeUntilTheEnd)
 {
 	m_rotationManager.initRotateByTime(speedPerSecond, timeUntilTheEnd);
@@ -139,7 +142,7 @@ void GraphicMonsters::Sprite::stopTranslation()
 {
 	m_translationManager.stop();
 }
-
+*/
 
 // ------ methods to provide a powerfull polymorphism ------------
 
@@ -165,10 +168,12 @@ bool GraphicMonsters::Sprite::isSprite()
 * \brief give the type of the current object
 * \return false because it's not a Shape
 */
+/* TODO : REWORK Shape
 bool GraphicMonsters::Sprite::isShape()
 {
 	return false;
 }
+ */
 
 // void method to use animation with polymorphism
 

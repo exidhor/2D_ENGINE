@@ -1,5 +1,6 @@
 #include "Engines/GraphicEngine/RotationTransformation.hpp"
 
+/* TODO : REWORK Transformation
 GraphicMonsters::RotationTransformation::RotationTransformation()
 {
 	m_finalAngle = 0;
@@ -93,3 +94,4 @@ bool GraphicMonsters::RotationTransformation::calculateEndOfRotation(float & ang
 
 	return true;
 }
+ */

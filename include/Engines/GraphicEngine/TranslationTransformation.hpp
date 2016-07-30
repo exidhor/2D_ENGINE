@@ -12,6 +12,8 @@ namespace GraphicMonsters
 	* \brief	[DEPRECATED] manage translations
 	*			during time
 	*/
+
+	/*  -- TODO : REWORK Transformation
 	class GRAPHIC_API TranslationTransformation : public Transformation
 	{
 	public:
@@ -36,4 +38,5 @@ namespace GraphicMonsters
 		float		m_speedOrdinate;
 		bool		m_isDeterminedByTime;
 	};
+	 */
 }

@@ -28,7 +28,7 @@ namespace GraphicMonsters
 
 	private:
 		virtual sf::Vertex* getVerticesArray();
-		virtual void computeGlobalBounds();
+		//virtual void computeGlobalBounds();  -- TODO : REWORK Transformation
 
 		sf::Vertex		m_vertices[4];
 	};

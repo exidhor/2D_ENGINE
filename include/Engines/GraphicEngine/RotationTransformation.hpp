@@ -13,6 +13,8 @@ namespace GraphicMonsters
 	* \brief	[DEPRECATED] manage a rotation
 	*			with a Timer or an angle
 	*/
+
+    /*  -- TODO : REWORK Transformation
 	class GRAPHIC_API RotationTransformation : public Transformation
 	{
 	public:
@@ -34,4 +36,5 @@ namespace GraphicMonsters
 		float	m_finalAngle;
 		float	m_angleDegreeAdvancement;
 	};
+     */
 }

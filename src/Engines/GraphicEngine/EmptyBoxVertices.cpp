@@ -1,8 +1,9 @@
 #include "Engines/GraphicEngine/EmptyBoxVertices.hpp"
 
 /*
- * \brief TODO : Not safe yet, need to be verify
+ * \brief TODO : REWORK Shape
  */
+/*
 GraphicMonsters::EmptyBoxVertices::EmptyBoxVertices(sf::FloatRect const& boxBounds)
 	: TextureVertices(8)
 {
@@ -36,10 +37,12 @@ GraphicMonsters::EmptyBoxVertices::EmptyBoxVertices(sf::FloatRect const& boxBoun
 
 	computeGlobalBounds();
 }
+*/
 
 /*
-* \brief TODO : Not safe yet, need to be verify
+* \brief TODO : REWORK Shape
 */
+/*
 GraphicMonsters::EmptyBoxVertices::EmptyBoxVertices(TextureVertices const& textureVertices)
 	: TextureVertices(textureVertices)
 {
@@ -48,10 +51,12 @@ GraphicMonsters::EmptyBoxVertices::EmptyBoxVertices(TextureVertices const& textu
 		m_vertices[i] = textureVertices.getConstVerticesArray()[i];
 	}
 }
+*/
 
 /*
-* \brief TODO : Not safe yet, need to be verify
-*/
+* \brief TODO : REWORK Shape
+ */
+/*
 GraphicMonsters::EmptyBoxVertices::EmptyBoxVertices(EmptyBoxVertices const& emptyBoxVertices)
 	: TextureVertices(emptyBoxVertices)
 {
@@ -60,31 +65,40 @@ GraphicMonsters::EmptyBoxVertices::EmptyBoxVertices(EmptyBoxVertices const& empt
 		m_vertices[i] = emptyBoxVertices.m_vertices[i];
 	}
 }
+ */
 
 /*
-* \brief TODO : Not safe yet, need to be verify
+* \brief TODO : REWORK Shape
 */
+/*
 GraphicMonsters::EmptyBoxVertices::~EmptyBoxVertices()
 {
 	delete[] m_vertices;
 }
+ */
 
 /*
-* \brief TODO : Not safe yet, need to be verify
+* \brief TODO : REWORK Shape
 */
+/*
 void GraphicMonsters::EmptyBoxVertices::setTexture(Vector2f const& newCoordTexture)
 {
 	// void because useless in this case
 }
+ */
 
+
+/* TODO : REWORK Shape
 sf::Vertex* GraphicMonsters::EmptyBoxVertices::getVerticesArray()
 {
 	return m_vertices;
 }
+*/
 
 /*
-* \brief TODO : Not safe yet, need to be verify
+* \brief TODO : REWORK Shape
 */
+/*
 void GraphicMonsters::EmptyBoxVertices::computeGlobalBounds()
 {
 	float left = m_vertices[0].position.x;
@@ -120,19 +134,24 @@ void GraphicMonsters::EmptyBoxVertices::computeGlobalBounds()
 
 	globalBoundsIsComputed();
 }
+ */
 
 /*
-* \brief TODO : Not safe yet, need to be verify
+* \brief TODO : REWORK Shape
 */
+/*
 bool GraphicMonsters::EmptyBoxVertices::isEmptyBoxVertices()
 {
 	return true;
 }
+ */
 
 /*
-* \brief TODO : Not safe yet, need to be verify
+* \brief TODO : REWORK Shape
 */
+/*
 const sf::Vertex* GraphicMonsters::EmptyBoxVertices::getConstVerticesArray() const
 {
 	return m_vertices;
 }
+ */

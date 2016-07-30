@@ -27,18 +27,18 @@ namespace GraphicMonsters
 		virtual void addToTileset();
 
 		Vector2f getPosition();
-		Vector2f getGlobalSize();
+		//Vector2f getGlobalSize(); // TODO : REWORK Transformation
 
-		void setPosition(Vector2f const position);
-		void setPosition(float abscissa, float ordinate);
-		void move(float offsetX, float offsetY);
+		void setPosition(Vector2f const position); // Not Working Yet TODO : REWORK Transformation
+		void setPosition(float abscissa, float ordinate); // Not Working Yet TODO : REWORK Transformation
+		void move(float offsetX, float offsetY); // Not Working Yet TODO : REWORK Transformation
 		void setLayerLevel(unsigned int layerLevel);
 
 		void hide();
 		void show();
 
 	protected:
-		void initOriginCenteredRelative(int abscissa, int ordinate);
+		//void initOriginCenteredRelative(int abscissa, int ordinate);  -- TODO : REWORK Transformation
 
 		void setTexture(Vector2f const& newCoordTexture);
 		void setColor(sf::Color const& color);
@@ -46,7 +46,7 @@ namespace GraphicMonsters
 	private:
 		TextureVertices*	m_vertices;
 		Tileset*			m_tileset;
-		Vector2f			m_originCenteredRelative;
+		//Vector2f			m_originCenteredRelative;  -- TODO : REWORK Transfor
 		unsigned int		m_layerLevelOfDisplay;
 		bool				m_isHidden;
 	};

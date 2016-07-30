@@ -1,5 +1,6 @@
 #include "Engines/GraphicEngine/Transformation.hpp"
 
+/* TODO : REWORK Transformation
 GraphicMonsters::Transformation::Transformation()
 {
 	m_quadVertices = NULL;
@@ -31,3 +32,4 @@ void GraphicMonsters::Transformation::setIsInfinite(bool state)
 {
 	m_isInfinite = state;
 }
+ */
