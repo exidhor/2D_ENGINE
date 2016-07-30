@@ -24,7 +24,7 @@ namespace GraphicMonsters
 		//sf::FloatRect	const& getGlobalBounds();  -- TODO : REWORK Transformation
 
 		virtual void	setTexture(Vector2f const& newCoordTexture) = 0;
-		void			setPosition(Vector2f const& newPosition);
+		void			setPosition(Vector2f const& newPosition); // Not Working Yet TODO : REWORK Transformation
 		void			setColor(sf::Color const& color);
 
 		//void			translate(Vector2f const& offset, sf::Transform & transformation);  -- TODO : REWORK Transformation
