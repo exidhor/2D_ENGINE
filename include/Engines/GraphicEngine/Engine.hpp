@@ -3,7 +3,7 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
-#include "Engines/GraphicEngine/TilesetsDisplayer.hpp"
+#include "Engines/GraphicEngine/TilesetDisplayer.hpp"
 #include "Engines/GraphicEngine/TilesetManager.hpp"
 #include "Engines/GraphicEngine/TextureCharacteristicsManager.hpp"
 #include "Engines/GraphicEngine/RessourceManager.hpp"
@@ -75,7 +75,7 @@ namespace GraphicMonsters
         void				update(double delaTime);
 		virtual void		draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
-		TilesetsDisplayer*	m_tilesetDisplayer;
+		TilesetDisplayer*	m_tilesetDisplayer;
 		TilesetManager*		m_tilesetManager;
 		TextureCharacteristicsManager* m_textureCharactertisticsManager;
 		RessourceManager*	m_ressourceManager;

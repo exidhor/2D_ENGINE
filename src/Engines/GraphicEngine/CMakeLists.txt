@@ -40,10 +40,10 @@ set(SOURCE_FILES
         "${SOURCE_PATH}/TextureCharacteristics.cpp"
         "${SOURCE_PATH}/TextureCharacteristicsManager.cpp"
         "${SOURCE_PATH}/TextureVertices.cpp"
-        "${SOURCE_PATH}/TilesCharacteristics.cpp"
-        "${SOURCE_PATH}/TileSet.cpp"
-        "${SOURCE_PATH}/TileSetManager.cpp"
-        "${SOURCE_PATH}/TileSetsDisplayer.cpp"
+        "${SOURCE_PATH}/TileCharacteristics.cpp"
+        "${SOURCE_PATH}/Tileset.cpp"
+        "${SOURCE_PATH}/TilesetManager.cpp"
+        "${SOURCE_PATH}/TilesetDisplayer.cpp"
         "${SOURCE_PATH}/Transformation.cpp"
         "${SOURCE_PATH}/TranslationTransformation.cpp")
 
@@ -62,10 +62,10 @@ set(HEADER_FILES
         "${HEADER_PATH}/TextureCharacteristics.hpp"
         "${HEADER_PATH}/TextureCharacteristicsManager.hpp"
         "${HEADER_PATH}/TextureVertices.hpp"
-        "${HEADER_PATH}/TilesCharacteristics.hpp"
-        "${HEADER_PATH}/TileSet.hpp"
-        "${HEADER_PATH}/TileSetManager.hpp"
-        "${HEADER_PATH}/TileSetsDisplayer.hpp"
+        "${HEADER_PATH}/TileCharacteristics.hpp"
+        "${HEADER_PATH}/Tileset.hpp"
+        "${HEADER_PATH}/TilesetManager.hpp"
+        "${HEADER_PATH}/TilesetDisplayer.hpp"
         "${HEADER_PATH}/Transformation.hpp"
         "${HEADER_PATH}/TranslationTransformation.hpp")
 

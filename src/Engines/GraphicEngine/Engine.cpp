@@ -57,7 +57,7 @@ void GraphicMonsters::Engine::init()
 	m_tilesetManager = new GraphicMonsters::TilesetManager();
 	m_textureCharactertisticsManager = new GraphicMonsters::TextureCharacteristicsManager();
 	m_ressourceManager = new GraphicMonsters::RessourceManager();
-	m_tilesetDisplayer = new GraphicMonsters::TilesetsDisplayer();
+	m_tilesetDisplayer = new GraphicMonsters::TilesetDisplayer();
 }
 
 /*

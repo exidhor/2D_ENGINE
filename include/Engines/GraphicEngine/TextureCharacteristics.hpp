@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Engines/GraphicEngine/TilesCharacteristics.hpp"
+#include "Engines/GraphicEngine/TileCharacteristics.hpp"
 #include "Engines/GraphicEngine/Tileset.hpp"
 #include "Modules/Utilities/Vector2.hpp"
 #include "Engines/Config.hpp"
@@ -18,15 +18,15 @@ namespace GraphicMonsters
 	{
 	public:
 		TextureCharacteristics(Tileset* tileset, float width, float height);
-		TextureCharacteristics(std::vector <TilesCharacteristics*> tilesCharacteristics,
+		TextureCharacteristics(std::vector <TileCharacteristics*> tilesCharacteristics,
 								Tileset* tileset);
-		TextureCharacteristics(TilesCharacteristics* tileCharacteristics,
+		TextureCharacteristics(TileCharacteristics* tileCharacteristics,
 								Tileset* tileset);
 
 
 		~TextureCharacteristics();
 
-		void		addTilesCharacteristics(TilesCharacteristics* newArray);
+		void		addTilesCharacteristics(TileCharacteristics* newArray);
 
 		//Getters
 		Tileset*	getTileset() const;
@@ -37,7 +37,7 @@ namespace GraphicMonsters
 		double		getTimePerFrame(unsigned int indexTileCharac)  const;
 
 	private:
-		std::vector <TilesCharacteristics*> m_arrayOfTileCharacteristic;
+		std::vector <TileCharacteristics*> m_arrayOfTileCharacteristic;
 		Tileset*							m_tileset;
 	};
 }

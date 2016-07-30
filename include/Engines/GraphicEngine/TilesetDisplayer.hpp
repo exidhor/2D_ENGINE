@@ -11,10 +11,10 @@ namespace GraphicMonsters
 	* \brief	It manage all Tileset to be drawn
 	*			in the right order.
 	*/
-	class GRAPHIC_API TilesetsDisplayer : public sf::Drawable
+	class GRAPHIC_API TilesetDisplayer : public sf::Drawable
 	{
 	public:
-		TilesetsDisplayer();
+		TilesetDisplayer();
 
 		void			addTileset(Tileset* tileset);
 

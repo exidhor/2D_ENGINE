@@ -11,19 +11,19 @@ namespace GraphicMonsters
 	*			It store texture points, tile size and
 	*			time per frame.
 	*/
-	class GRAPHIC_API TilesCharacteristics
+	class GRAPHIC_API TileCharacteristics
 	{
 	public:
-		TilesCharacteristics(
+		TileCharacteristics(
 			Vector2f const& tileSize,
 			std::vector <Vector2f> texturePoints,
 			double timePerFrame);
 
-		TilesCharacteristics(
+		TileCharacteristics(
 			Vector2f const& tileSize,
 			Vector2f const& oneTexturePoint);
 
-		~TilesCharacteristics();
+		~TileCharacteristics();
 
 		Vector2f const& getTileSize();
 		Vector2f const& getTexturePoints(unsigned int index);

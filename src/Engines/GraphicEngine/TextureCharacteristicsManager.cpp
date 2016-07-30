@@ -35,7 +35,7 @@ bool GraphicMonsters::TextureCharacteristicsManager::addTileCharacteristics(
 	double timePerFrame,
 	GraphicMonsters::Tileset* tilesetTarget)
 {
-	GraphicMonsters::TilesCharacteristics* tilesCharacteritics = new GraphicMonsters::TilesCharacteristics(
+	GraphicMonsters::TileCharacteristics* tilesCharacteritics = new GraphicMonsters::TileCharacteristics(
 																		tileSize, 
 																		texturePoints,
 																		timePerFrame);
@@ -51,7 +51,7 @@ bool GraphicMonsters::TextureCharacteristicsManager::addTileCharacteristics(
 		m_textureCharacteristics.insert(std::pair <std::string, GraphicMonsters::TextureCharacteristics*>(
 			key,
 			new GraphicMonsters::TextureCharacteristics(
-					std::vector <TilesCharacteristics*>(1, tilesCharacteritics),
+					std::vector <TileCharacteristics*>(1, tilesCharacteritics),
 					tilesetTarget)));
 
 		return false;

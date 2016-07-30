@@ -2,12 +2,12 @@
 
 /*
  * \brief   Construct a TextureCharacteristics from a
- *          TilesCharacteristics array.
+ *          TileCharacteristics array.
  * \param   targetTilesCharacteristics : the array of   
  *          TileCharacteristics.
  * \param   targetTileset : 
 */
-GraphicMonsters::TextureCharacteristics::TextureCharacteristics(std::vector <GraphicMonsters::TilesCharacteristics*> targetTilesCharacteristics,
+GraphicMonsters::TextureCharacteristics::TextureCharacteristics(std::vector <GraphicMonsters::TileCharacteristics*> targetTilesCharacteristics,
 		                                                        GraphicMonsters::Tileset* targetTileset)
 {
 	m_arrayOfTileCharacteristic = targetTilesCharacteristics;
@@ -15,11 +15,11 @@ GraphicMonsters::TextureCharacteristics::TextureCharacteristics(std::vector <Gra
 }
 
 GraphicMonsters::TextureCharacteristics::TextureCharacteristics(
-		TilesCharacteristics* tileCharacteristics,
+		TileCharacteristics* tileCharacteristics,
 		Tileset* tileset)
 
 	:TextureCharacteristics(
-		std::vector <GraphicMonsters::TilesCharacteristics*> (1, tileCharacteristics),
+		std::vector <GraphicMonsters::TileCharacteristics*> (1, tileCharacteristics),
 													tileset)
 {
 	// void
@@ -31,7 +31,7 @@ GraphicMonsters::TextureCharacteristics::TextureCharacteristics(
 		float height)
 {
 	m_tileset = tileset;
-	m_arrayOfTileCharacteristic.push_back(new TilesCharacteristics(Vector2f(width, height),
+	m_arrayOfTileCharacteristic.push_back(new TileCharacteristics(Vector2f(width, height),
 																	std::vector <Vector2f> (), 0));
 }
 
@@ -41,8 +41,8 @@ GraphicMonsters::TextureCharacteristics::~TextureCharacteristics()
 	m_arrayOfTileCharacteristic.clear();
 }
 
-//Add an TilesCharacteristics at the vector
-void GraphicMonsters::TextureCharacteristics::addTilesCharacteristics(GraphicMonsters::TilesCharacteristics* newArray)
+//Add an TileCharacteristics at the vector
+void GraphicMonsters::TextureCharacteristics::addTilesCharacteristics(GraphicMonsters::TileCharacteristics* newArray)
 {
 	m_arrayOfTileCharacteristic.push_back(newArray);
 }
