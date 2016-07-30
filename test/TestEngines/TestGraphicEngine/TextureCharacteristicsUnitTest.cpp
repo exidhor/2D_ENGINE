@@ -35,7 +35,7 @@ public:
     /**
      * \brief TODO
      */
-    virtual ~TileSetFixture() {
+    virtual ~TextureCharacteristicsFixture() {
         if(m_textureCharacteristics != nullptr)
             delete m_textureCharacteristics;
 
