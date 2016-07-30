@@ -16,7 +16,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
 
 # Creating unit Test executable
 add_executable(runGraphicEngineTests
-        TileSetUnitTest.cpp)
+        QuadVerticesUnitTest.cpp
+        TilSetUnitTest.cpp)
 
 # Linking libraries
 target_link_libraries(runGraphicEngineTests

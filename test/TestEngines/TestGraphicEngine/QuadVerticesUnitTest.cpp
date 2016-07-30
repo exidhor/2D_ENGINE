@@ -1,0 +1,42 @@
+/*!
+ * \brief Unit test of class Tile Set
+ * \file TileSetUnitTest.cpp
+ * \author Aredhele, Exidhor
+ * \version 0.1
+ * \date 15/11/2015
+ * \class TileSetUnitTest
+ */
+
+// Header
+#include "GTest/gtest.h"
+#include "Engines/GraphicEngine/QuadVertices.hpp"
+
+class QuadVerticesFixture : public ::testing::Test {
+
+protected:
+    virtual void TearDown() {}
+    virtual void SetUp() {}
+
+public:
+    QuadVerticesFixture() : Test() {
+        m_quadVertices = new GraphicMonsters::QuadVertices(sf::FloatRect(0, 0, 1, 1));
+    }
+
+    /**
+     * \brief TODO
+     */
+    virtual ~QuadVerticesFixture() {
+        delete m_quadVertices;
+        m_quadVertices = 0;
+    }
+
+    GraphicMonsters::QuadVertices * m_quadVertices;
+};
+
+/**
+ * \brief TODO
+ */
+TEST_F(QuadVerticesFixture, ConstructorUnitTest)
+{
+    EXPECT_EQ(1, 1);
+}
