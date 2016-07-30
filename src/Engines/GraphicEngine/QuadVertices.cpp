@@ -6,37 +6,37 @@
 * \param a texture bounds
 */
 GraphicMonsters::QuadVertices::QuadVertices(sf::FloatRect const& textureBounds)
-	: TextureVertices(4)
+		: TextureVertices(4)
 {
 	// left top
 	m_vertices[0] = sf::Vertex(
-		sf::Vector2f(0 , 0),
-		sf::Vector2f(textureBounds.left, textureBounds.top)
-		);
+			sf::Vector2f(0 , 0),
+			sf::Vector2f(textureBounds.left, textureBounds.top)
+	);
 
 	// right top
 	m_vertices[1] = sf::Vertex(
-		sf::Vector2f(textureBounds.width, 0),
-		sf::Vector2f(textureBounds.left + textureBounds.width, textureBounds.top)
-		);
+			sf::Vector2f(textureBounds.width, 0),
+			sf::Vector2f(textureBounds.left + textureBounds.width, textureBounds.top)
+	);
 
 	// right bot
 	m_vertices[2] = sf::Vertex(
-		sf::Vector2f(textureBounds.width, textureBounds.height),
-		sf::Vector2f(textureBounds.left + textureBounds.width, textureBounds.top + textureBounds.height)
-		);
+			sf::Vector2f(textureBounds.width, textureBounds.height),
+			sf::Vector2f(textureBounds.left + textureBounds.width, textureBounds.top + textureBounds.height)
+	);
 
 	// left bot
 	m_vertices[3] = sf::Vertex(
-		sf::Vector2f(0, textureBounds.height),
-		sf::Vector2f(textureBounds.left, textureBounds.top + textureBounds.height)
-		);
+			sf::Vector2f(0, textureBounds.height),
+			sf::Vector2f(textureBounds.left, textureBounds.top + textureBounds.height)
+	);
 
 	computeGlobalBounds();
 }
 
 GraphicMonsters::QuadVertices::QuadVertices(TextureVertices const& textureVertices)
-	: TextureVertices(textureVertices)
+		: TextureVertices(textureVertices)
 {
 	for (unsigned int i = 0; i < 4; i++)
 	{
