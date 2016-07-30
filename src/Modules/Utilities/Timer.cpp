@@ -16,11 +16,7 @@ Timer::Timer(double newStartTime)
 bool Timer::removeTime(double timeToRemove)
 {
 	m_timeLeft -= timeToRemove;
-	if (m_timeLeft <= 0)
-	{
-		return true;
-	}
-	return false;
+	return m_timeLeft <= 0;
 }
 
 void Timer::restart(double newStartTime)

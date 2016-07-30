@@ -3,5 +3,8 @@
 # Part    : tests
 project(CardinalNetworkEngineTest)
 
-# Adding sub Test
+# Adding engines Test
 add_subdirectory(TestEngines/TestGraphicEngine)
+
+# Adding modules Test
+add_subdirectory(TestModules/TestUtilities)
