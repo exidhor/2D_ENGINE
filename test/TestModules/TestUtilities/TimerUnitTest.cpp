@@ -153,5 +153,5 @@ TEST_F(TimerFixture, SoftRestartUnitTest)
 
     m_timer->removeTime(15);
     m_timer->softRestart();
-    EXPECT_DOUBLE_EQ(m_timer->getTimeLeft(), m_testTime) << m_timer->getTimeLeft();
+    EXPECT_DOUBLE_EQ(m_timer->getTimeLeft(), m_testTime);
 }
