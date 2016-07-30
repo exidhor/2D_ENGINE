@@ -19,7 +19,9 @@ protected:
 
 public:
     QuadVerticesFixture() : Test() {
-        m_quadVertices = new GraphicMonsters::QuadVertices(sf::FloatRect(0, 0, 1, 1));
+
+        m_bounds = new sf::FloatRect(0, 0, 1, 1);
+        m_quadVertices = new GraphicMonsters::QuadVertices(*m_bounds);
     }
 
     /**
@@ -31,7 +33,48 @@ public:
     }
 
     GraphicMonsters::QuadVertices * m_quadVertices;
+    sf::FloatRect* m_bounds;
 };
+
+/**
+ * \brief TODO
+ */
+TEST_F(QuadVerticesFixture, ApplyTransformationUnitTest)
+{
+    sf::Transform tr;
+    tr.rotate(360);
+
+    delete m_quadVertices;
+    m_quadVertices = new GraphicMonsters::QuadVertices(*m_bounds);
+
+    const sf::Vertex* beforeVertexArray = m_quadVertices->getConstVerticesArray();
+
+    m_quadVertices->applyTranformation(tr);
+
+    const sf::Vertex* afterVertexArray = m_quadVertices->getConstVerticesArray();
+
+
+    for(int i = 0; i < 4; i++)
+    {
+        EXPECT_EQ(beforeVertexArray[i].position, afterVertexArray[i].position);
+    }
+}
+
+/**
+ * \brief TODO
+ */
+TEST_F(QuadVerticesFixture, SetPositionUnitTest)
+    {
+    EXPECT_EQ(1, 1);
+}
+
+/**
+ * \brief TODO
+ */
+TEST_F(QuadVerticesFixture, GlobalBoundsUnitTest)
+{
+    EXPECT_EQ(1, 1);
+}
 
 /**
  * \brief TODO

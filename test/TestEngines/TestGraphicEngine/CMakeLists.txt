@@ -26,4 +26,5 @@ target_link_libraries(runGraphicEngineTests
 
 # Linking libraries
 target_link_libraries(runGraphicEngineTests
+        "${SFML_PATH}/lib/libsfml-graphics-d.a"
         "${CMAKE_SOURCE_DIR}/lib/Engines/libgraphic.dll.a")
