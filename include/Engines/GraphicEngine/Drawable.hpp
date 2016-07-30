@@ -4,7 +4,6 @@
 #include "Engines/GraphicEngine/Tileset.hpp"
 #include "Engines/GraphicEngine/TextureVertices.hpp"
 #include "Engines/GraphicEngine/QuadVertices.hpp"
-#include "Engines/GraphicEngine/EmptyBoxVertices.hpp"
 #include "Engines/Config.hpp"
 
 namespace GraphicMonsters

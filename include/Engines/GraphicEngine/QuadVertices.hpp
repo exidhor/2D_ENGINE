@@ -22,8 +22,6 @@ namespace GraphicMonsters
 
 		virtual void setTexture(Vector2f const& newCoordTexture);
 
-		virtual bool isQuadVertices();
-
 		virtual const sf::Vertex* getConstVerticesArray() const;
 
 	private:

@@ -144,11 +144,6 @@ sf::Vertex* GraphicMonsters::QuadVertices::getVerticesArray()
 	return m_vertices;
 }
 
-bool GraphicMonsters::QuadVertices::isQuadVertices()
-{
-	return true;
-}
-
 const sf::Vertex* GraphicMonsters::QuadVertices::getConstVerticesArray() const
 {
 	return m_vertices;

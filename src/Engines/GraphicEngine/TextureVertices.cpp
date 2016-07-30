@@ -100,23 +100,6 @@ void GraphicMonsters::TextureVertices::translate(Vector2f const& offset, sf::Tra
 }
 
 /*!
-* \brief calculate a rotation on the sf::Tranform transformation
-* \param angleOfRotation in degree
-* \param origin the origin of the rotation
-* \param transformation the actual parameters of the final transformation
-*			where the rotation will be apply
-*/
-void GraphicMonsters::TextureVertices::rotate(float angleOfRotation, Vector2f const& origin,
-	sf::Transform & transformation)
-{
-	transformation.rotate(
-		angleOfRotation,
-		origin.x,
-		origin.y
-		);
-}
-
-/*!
 * \brief apply the transformation on the m_vertices by calculating their
 * \brief new position, and set the flag for the computing of the GlobalBounds
 * \param transformation all parameters for the transformation calculated
@@ -150,14 +133,4 @@ void GraphicMonsters::TextureVertices::checkUpdateGlobalBounds()
 void GraphicMonsters::TextureVertices::globalBoundsIsComputed()
 {
 	m_globalBoundsUpToDate = true;
-}
-
-bool GraphicMonsters::TextureVertices::isQuadVertices()
-{
-	return false;
-}
-
-bool GraphicMonsters::TextureVertices::isEmptyBoxVertices()
-{
-	return false;
 }

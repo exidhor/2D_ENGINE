@@ -23,20 +23,7 @@ GraphicMonsters::Drawable::Drawable()
 */
 GraphicMonsters::Drawable::Drawable(Drawable const& drawableObject)
 {
-	// construct the good GraphicMonsters::TextureVertices
-	if (drawableObject.m_vertices->isEmptyBoxVertices())
-	{
-		m_vertices = new EmptyBoxVertices(*drawableObject.m_vertices);
-	}
-
-	if (drawableObject.m_vertices->isQuadVertices())
-	{
-		m_vertices = new QuadVertices(*drawableObject.m_vertices);
-	}
-	else
-	{
-		std::cerr << "Error while trying to copy a Drawable object : vertices group unknown";
-	}
+	m_vertices = new QuadVertices(*drawableObject.m_vertices);
 
 	m_tileset = drawableObject.m_tileset;
 	m_layerLevelOfDisplay = drawableObject.m_layerLevelOfDisplay;

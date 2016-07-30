@@ -30,12 +30,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
 set(SOURCE_FILES
         "${SOURCE_PATH}/Drawable.cpp"
         "${SOURCE_PATH}/Animation.cpp"
-        "${SOURCE_PATH}/EmptyBoxVertices.cpp"
         "${SOURCE_PATH}/Engine.cpp"
         "${SOURCE_PATH}/QuadVertices.cpp"
-        "${SOURCE_PATH}/RectangleShape.cpp"
         "${SOURCE_PATH}/RessourceManager.cpp"
-        "${SOURCE_PATH}/RotationTransformation.cpp"
         "${SOURCE_PATH}/Sprite.cpp"
         "${SOURCE_PATH}/TextureCharacteristics.cpp"
         "${SOURCE_PATH}/TextureCharacteristicsManager.cpp"
@@ -43,21 +40,16 @@ set(SOURCE_FILES
         "${SOURCE_PATH}/TileCharacteristics.cpp"
         "${SOURCE_PATH}/Tileset.cpp"
         "${SOURCE_PATH}/TilesetManager.cpp"
-        "${SOURCE_PATH}/TilesetDisplayer.cpp"
-        "${SOURCE_PATH}/Transformation.cpp"
-        "${SOURCE_PATH}/TranslationTransformation.cpp")
+        "${SOURCE_PATH}/TilesetDisplayer.cpp")
 
 set(HEADER_FILES
         "${MODULE_PATH}/Config.hpp"
         "${HEADER_PATH}/Drawable.hpp"
         "${HEADER_PATH}/Animation.hpp"
-        "${HEADER_PATH}/EmptyBoxVertices.hpp"
         "${HEADER_PATH}/Engine.hpp"
         "${HEADER_PATH}/QuadVertices.hpp"
-        "${HEADER_PATH}/RectangleShape.hpp"
         "${HEADER_PATH}/Ressource.hpp"
         "${HEADER_PATH}/RessourceManager.hpp"
-        "${HEADER_PATH}/RotationTransformation.hpp"
         "${HEADER_PATH}/Sprite.hpp"
         "${HEADER_PATH}/TextureCharacteristics.hpp"
         "${HEADER_PATH}/TextureCharacteristicsManager.hpp"
@@ -65,9 +57,7 @@ set(HEADER_FILES
         "${HEADER_PATH}/TileCharacteristics.hpp"
         "${HEADER_PATH}/Tileset.hpp"
         "${HEADER_PATH}/TilesetManager.hpp"
-        "${HEADER_PATH}/TilesetDisplayer.hpp"
-        "${HEADER_PATH}/Transformation.hpp"
-        "${HEADER_PATH}/TranslationTransformation.hpp")
+        "${HEADER_PATH}/TilesetDisplayer.hpp")
 
 # Creating the shared library
 add_library(graphic SHARED ${SOURCE_FILES} ${HEADER_FILES})
