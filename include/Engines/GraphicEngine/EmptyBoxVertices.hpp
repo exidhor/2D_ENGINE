@@ -8,21 +8,21 @@
 
 namespace GraphicMonsters
 {
-	/*
-	* \brief	4 vertices which describes a textured sprite.
-	*			This group is a rectangle
+	/*!
+	* \brief	A rectangle represented only
+	*			by lines for its edges.
 	*/
-	class GRAPHIC_API QuadVertices : public TextureVertices
+	class GRAPHIC_API EmptyBoxVertices : public TextureVertices
 	{
 	public:
-		QuadVertices(sf::FloatRect const& textureBounds);
-		QuadVertices(TextureVertices const& textureVertices);
-		QuadVertices(QuadVertices const& quadVertices);
-		~QuadVertices();
+		EmptyBoxVertices(sf::FloatRect const& boxBounds);
+		EmptyBoxVertices(TextureVertices const& textureVertices);
+		EmptyBoxVertices(EmptyBoxVertices const& emptyBoxVertices);
+		~EmptyBoxVertices();
 
 		virtual void setTexture(Vector2f const& newCoordTexture);
 
-		virtual bool isQuadVertices();
+		virtual bool isEmptyBoxVertices();
 
 		virtual const sf::Vertex* getConstVerticesArray() const;
 
@@ -30,6 +30,7 @@ namespace GraphicMonsters
 		virtual sf::Vertex* getVerticesArray();
 		virtual void computeGlobalBounds();
 
-		sf::Vertex		m_vertices[4];
+		// 8 because it's 2 for each edge
+		sf::Vertex		m_vertices[8];
 	};
 }

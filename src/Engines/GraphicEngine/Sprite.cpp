@@ -74,6 +74,73 @@ bool GraphicMonsters::Sprite::actualize(double deltaTime)
 	return false;
 }
 
+// -----------------[DEPRECATED]------------------------------
+// -------------- transformation  ----------------------------
+
+void GraphicMonsters::Sprite::setRotationByTime(float speedPerSecond, double timeUntilTheEnd)
+{
+	m_rotationManager.initRotateByTime(speedPerSecond, timeUntilTheEnd);
+}
+
+void GraphicMonsters::Sprite::setRotationByAngle(float speedPerSecond, float newFinalAngle)
+{
+	m_rotationManager.initRotateByAngle(speedPerSecond, newFinalAngle);
+}
+
+void GraphicMonsters::Sprite::setInfiniteRotation(bool state)
+{
+	m_rotationManager.setIsInfinite(state);
+}
+
+void GraphicMonsters::Sprite::startRotation()
+{
+	m_rotationManager.start();
+}
+
+void GraphicMonsters::Sprite::stopRotation()
+{
+	m_rotationManager.stop();
+}
+
+void GraphicMonsters::Sprite::setTranslationByTargetPoint(
+	double timeUntilTheEnd,
+	float abscissa, 
+	float ordinate)
+{
+	//Vector2f targetPointCentered(
+	//	abscissa + m_quadVertices.getGlobalBounds().width / 2,
+	//	ordinate + m_quadVertices.getGlobalBounds().height / 2
+	//	);
+
+	//m_translationManager.initByTargetPoint(
+	//	timeUntilTheEnd,
+	//	m_originCenteredRelative,
+	//	targetPointCentered
+	//	);
+}
+
+void GraphicMonsters::Sprite::setTranslationBySpeed(
+	double timeUntilTheEnd, 
+	unsigned int pixelPerSecondInAbsciss,
+	unsigned int pixelPerSecondInOrdinate)
+{
+	m_translationManager.initBySpeed(
+		timeUntilTheEnd,
+		Vector2f(pixelPerSecondInAbsciss, pixelPerSecondInOrdinate)
+		);
+}
+
+void GraphicMonsters::Sprite::startTranslation()
+{
+	m_translationManager.start();
+}
+
+void GraphicMonsters::Sprite::stopTranslation()
+{
+	m_translationManager.stop();
+}
+
+
 // ------ methods to provide a powerfull polymorphism ------------
 
 /*!
