@@ -1,10 +1,10 @@
 /*!
  * \brief Unit test of class Tile Set
- * \file TileSetUnitTest.cpp
+ * \file QuadVerticesUnitTest.cpp
  * \author Aredhele, Exidhor
  * \version 0.1
  * \date 15/11/2015
- * \class TileSetUnitTest
+ * \class QuadVerticesUnitTest
  */
 
 // Header
