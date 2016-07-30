@@ -23,7 +23,8 @@ add_executable(runGraphicEngineTests
 # Linking libraries
 target_link_libraries(runGraphicEngineTests
         "${CMAKE_SOURCE_DIR}/lib/Test/libgtest.a"
-        "${CMAKE_SOURCE_DIR}/lib/Test/libgtest_main.a")
+        "${CMAKE_SOURCE_DIR}/lib/Test/libgtest_main.a"
+        "${CMAKE_SOURCE_DIR}/lib/Test/libgmock.a")
 
 # Linking libraries
 target_link_libraries(runGraphicEngineTests

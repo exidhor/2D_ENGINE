@@ -21,7 +21,8 @@ add_executable(runUtilitiesModuleTests
 # Linking libraries
 target_link_libraries(runUtilitiesModuleTests
         "${CMAKE_SOURCE_DIR}/lib/Test/libgtest.a"
-        "${CMAKE_SOURCE_DIR}/lib/Test/libgtest_main.a")
+        "${CMAKE_SOURCE_DIR}/lib/Test/libgtest_main.a"
+        "${CMAKE_SOURCE_DIR}/lib/Test/libgmock.a")
 
 # Linking libraries
 target_link_libraries(runUtilitiesModuleTests
