@@ -20,7 +20,7 @@ namespace GraphicMonsters
 		TextureCharacteristics(Tileset* tileset, float width, float height);
 		TextureCharacteristics(std::vector <TileCharacteristics*> tilesCharacteristics,
 								Tileset* tileset);
-
+        
 		TextureCharacteristics(TileCharacteristics* tileCharacteristics,
 								Tileset* tileset);
 

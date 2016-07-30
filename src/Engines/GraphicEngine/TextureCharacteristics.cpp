@@ -25,6 +25,7 @@ GraphicMonsters::TextureCharacteristics::TextureCharacteristics(
 	// void
 }
 
+
 GraphicMonsters::TextureCharacteristics::TextureCharacteristics(
 		Tileset* tileset,
 		float width,

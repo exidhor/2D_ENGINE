@@ -15,7 +15,13 @@ class QuadVerticesFixture : public ::testing::Test {
 
 protected:
     virtual void TearDown() {}
-    virtual void SetUp() {}
+    virtual void SetUp()
+    {
+        if(m_quadVertices != nullptr)
+            delete m_quadVertices;
+
+        m_quadVertices = new GraphicMonsters::QuadVertices(*m_bounds);
+    }
 
 public:
     QuadVerticesFixture() : Test() {
@@ -35,14 +41,6 @@ public:
     GraphicMonsters::QuadVertices * m_quadVertices;
     sf::FloatRect* m_bounds;
 };
-
-/**
- * \brief TODO
- */
-TEST_F(QuadVerticesFixture, SetPositionUnitTest)
-{
-    EXPECT_EQ(1, 1);
-}
 
 /**
  * \brief TODO
