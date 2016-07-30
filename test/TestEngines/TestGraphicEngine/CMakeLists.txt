@@ -4,7 +4,7 @@
 cmake_minimum_required(VERSION 3.1)
 
 # Required for Google Test
-add_definitions(-std=gnu++0x)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++0x")
 
 # gtest directory
 include_directories(
@@ -12,15 +12,17 @@ include_directories(
         "${SFML_PATH}/include")
 
 # Set output dir
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/lib/Test")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
 
 # Creating unit Test executable
-add_executable(graphicEngineUnitTest
+add_executable(runGraphicEngineTests
         TileSetUnitTest.cpp)
 
 # Linking libraries
-target_link_libraries(graphicEngineUnitTest
+target_link_libraries(runGraphicEngineTests
         "${CMAKE_SOURCE_DIR}/lib/Test/libgtest.a"
-        "${CMAKE_SOURCE_DIR}/lib/Test/libgtest_main.a"
+        "${CMAKE_SOURCE_DIR}/lib/Test/libgtest_main.a")
+
+# Linking libraries
+target_link_libraries(runGraphicEngineTests
         "${CMAKE_SOURCE_DIR}/lib/Engines/libgraphic.dll.a")
